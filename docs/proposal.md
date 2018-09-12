@@ -5,7 +5,7 @@
 # Team Overview
 
 * Sivan Myers, sivanmyers
-* Team Member Name 2, Github Username 2
+* Vincent Pietropaolo, vpietropaolo
 * Team Member Name 3, Github Username 3
 * Team Member Name 4, Github Username 4
 * Team Member Name 5, Github Username 5
