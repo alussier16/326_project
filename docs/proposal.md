@@ -7,7 +7,7 @@
 * Sivan Myers, sivanmyers
 * Vincent Pietropaolo, vpietropaolo
 * Julian Killingback, jfkback
-* Team Member Name 4, Github Username 4
+* Jordan Sheffield, jesheffie
 * Team Member Name 5, Github Username 5
 * Team Member Name 6, Github Username 6
 
