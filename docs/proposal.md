@@ -9,7 +9,7 @@
 * Julian Killingback, jfkback
 * Jordan Sheffield, jesheffie
 * Gizem Cicekli, gcicekli
-* Team Member Name 6, Github Username 6
+* Andy Lussier, alussier16
 
 # Innovative Idea
 
