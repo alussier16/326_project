@@ -8,7 +8,7 @@
 * Vincent Pietropaolo, vpietropaolo
 * Julian Killingback, jfkback
 * Jordan Sheffield, jesheffie
-* Team Member Name 5, Github Username 5
+* Gizem Cicekli, gcicekli
 * Team Member Name 6, Github Username 6
 
 # Innovative Idea
