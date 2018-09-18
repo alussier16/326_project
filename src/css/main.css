@@ -17,6 +17,8 @@
 
 .ck-card-title {
   text-align: center;
+  padding-left: 10rem;
+  padding-right: 10rem;
 }
 
 .ck-card-name {
@@ -50,7 +52,9 @@
   border: none;
   cursor:pointer;
   overflow: hidden;
-  outline:none;
+  outline: none;
+  margin: 0 auto;
+  padding-left: 8rem;
 }
 
 .ck-button:active{
