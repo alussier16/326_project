@@ -53,8 +53,7 @@
   cursor:pointer;
   overflow: hidden;
   outline: none;
-  margin: 0 auto;
-  padding-left: 8rem;
+  margin-left: 6rem;
 }
 
 .ck-button:active{
@@ -64,6 +63,7 @@
 .left-button-img {
   width: auto;
   height: 1rem;
+  margin-left: 4rem;
   background-color: Transparent;
 }
 
