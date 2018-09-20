@@ -8,6 +8,7 @@
 
 .navbar-nav {
   margin-left: auto;
+  font-family: 'Poppins', serif;
 }
 
 .nav-style {
@@ -68,5 +69,6 @@
 }
 
 .card {
+  font-family: 'Poppins', serif;
   border: 0px;
 }
