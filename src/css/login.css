@@ -128,3 +128,62 @@
 #postInput {
   border: solid 2px black;
 }
+
+.backdrop {
+  background-color: rgb(240, 250, 255);
+  position: relative;
+  min-height: 100%;
+}
+
+.login-card {
+  flex-grow: 1;
+  border-radius: 10px;
+  position: relative;
+  top: 90px;
+  text-align: center;
+  margin: 0 auto;
+  width: 500px;
+  height: 300px;
+  background-color: white;
+  border: 2px solid black;
+  padding: 10px;
+  font-family: 'Poppins', serif;
+}
+
+.form-group {
+  position: relative;
+  top: 10px;
+  text-align: left;
+}
+
+#LogInButton {
+  position: relative;
+  top: 15px;
+  bottom: 10px;
+  border: solid 2px black;
+  width: 20%;
+  margin-left: 40%;
+  margin-right: 40%;
+  margin-bottom: 5%;
+}
+
+.login-divider {
+  height: 2px;
+  background-color: black;
+}
+
+.welcome {
+  text-align: left;
+  color: black;
+  font-size: 15pt;
+}
+
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+body > * {
+  flex-shrink: 0;
+}

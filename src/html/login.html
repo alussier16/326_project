@@ -4,7 +4,7 @@
   <link rel="stylesheet" href="../css/bootstrap.min.css">
   <link rel="stylesheet" href="../css/bootstrap-grid.min.css">
   <link rel="stylesheet" href="../css/bootstrap-reboot.min.css">
-  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/login.css">
   <link href="https://fonts.googleapis.com/css?family=Poppins:500" rel="stylesheet">
 </head>
 <body>
@@ -14,6 +14,7 @@
   <script src="../js/bootstrap.min.js"></script>
   <script src="../js/custom.js"></script>
 
+  <div class="backdrop">
   <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -52,13 +53,26 @@
     </div>
   </nav>
 
-  <div class="form-group">
-    <label for="user">Alias:</label>
-    <input type="text" class="form-control" id="user">
-  </div>
-  <div class="form-group">
-    <label for "password">Password:</label>
-    <input type="password" class="form-control" id="password">
+    <div class="login-card">
+      <div class="welcome">Welcome back to Closeknit.</div>
+
+      <div class="login-divider">
+        <hr>
+      </div>
+
+      <div class="form-group">
+        <label for="usr">Username:</label>
+        <input type="text" class="form-control" id="user">
+      </divi>
+
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" id="password">
+      </div>
+
+      <button type="button" class="btn primary-btn" id="LogInButton">Log In</button> 
+      <button type="button" class="btn btn-primary" onclick="alert('Logging in')>Log In</button>
+    </div>
   </div>
 
 </body>
