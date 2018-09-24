@@ -86,9 +86,11 @@
 }
 
 .ck-button {
+  border-radius: 0px;
   border: solid 2px black;
   color: black;
   background-color: white;
+  font-family: "Poppins", serif;
 }
 
 .ck-button:hover {
@@ -105,6 +107,8 @@
 
 #navPostLink {
   border: solid 2px black;
+  border-radius: 0px;
+  background-color: white;
 }
 
 #navPostLink:hover {
@@ -112,6 +116,7 @@
 }
 
 .modal-content {
+  border-radius: 0px;
   border: solid 2px black;
 }
 
@@ -126,5 +131,12 @@
 }
 
 #postInput {
+  border-radius: 0px;
   border: solid 2px black;
+}
+
+#modalImageIcon {
+  width: 2rem;
+  height: auto;
+  padding-top: .3rem;
 }
