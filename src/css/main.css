@@ -47,7 +47,7 @@
   margin: 0 auto;
 }
 
-.ck-button {
+.ck-react-button {
   background-color: Transparent;
   background-repeat:no-repeat;
   border: none;
@@ -72,7 +72,59 @@
   font-family: 'Poppins', serif;
   border: 0px;
 }
+/* #7accd8 #ccfdfe */
+.navbar-light .navbar-nav > .active > .nav-link{
+  color: #15abaf;
+}
 
-#first-card-2{
-  visibility: hidden;
+.navbar-light .navbar-nav > .active > .nav-link:hover{
+  color: #15abaf;
+}
+
+.navbar-light .navbar-nav .nav-link:hover{
+  color: #16c9ce;
+}
+
+.ck-button {
+  border: solid 2px black;
+  color: black;
+  background-color: white;
+}
+
+.ck-button:hover {
+  border: solid 2px black;
+  color: black;
+  background-color: #16c9ce;
+}
+
+.ck-button:focus {
+  border: solid 2px #16c9ce;
+  color: black;
+  background-color: #16c9ce;
+}
+
+#navPostLink {
+  border: solid 2px black;
+}
+
+#navPostLink:hover {
+  background-color: #e2e2e2;
+}
+
+.modal-content {
+  border: solid 2px black;
+}
+
+.modal-body {
+  border-bottom: 0px;
+}
+
+.modal-buttons {
+  margin-right: 0px;
+  margin-left: .2rem;
+  float: right;
+}
+
+#postInput {
+  border: solid 2px black;
 }

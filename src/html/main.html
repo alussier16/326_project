@@ -8,11 +8,28 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins:500" rel="stylesheet">
 </head>
 <body>
-  <script src="../js/bootstrap.bundle.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
   <script src="../js/jquery-3.3.1.min.js"></script>
   <script src="../js/jquery-ui.min.js"></script>
+  <script src="../js/bootstrap.bundle.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
   <script src="../js/custom.js"></script>
+
+  <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <textarea type="text" class="form-control post-form" id="postInput"></textarea>
+            </div>
+          </form>
+          <button type="button" class="btn ck-button modal-buttons" data-dismiss="modal">Post</button>
+          <button type="button" class="btn ck-button modal-buttons" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <nav class="navbar navbar-expand-md navbar-light nav-style">
     <span class="navbar-brand mb-0 h1">
         Closeknit
@@ -34,8 +51,8 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Account</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" id="navPost">Post</a>
+        <li class="nav-item" id="navPostItem">
+          <button type="button" class="btn primary-btn" data-toggle="modal" data-target="#postModal" id="navPostLink">Post</button>
         </li>
       </ul>
     </div>
@@ -48,7 +65,7 @@
       </h1>
       <div class="row">
         <div class="column-sm">
-          <button type="button" class="ck-button">
+          <button type="button" class="ck-react-button">
             <img class="left-button-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHlSURBVGhD7dlLS1VhHIXxU1KEIFEUgYgDEYogCIRwVFTkDVFJ+wB+gKCwCI1KQiRC+gRBM8HIiQPBgQMHDsQbhiGIg0BBEISIMitBn5fYsNmswbvBwdpxHviBiIP/wss5x1Mqdzydwpl/Hxa3HnzHbzwMnyhiD3CAw5QnKFThO/EX6RGFG9ONP1AjEr2w7j7C74M6Pm0RtnUhZkTwAZZ1InbEPM7Crg7EjljCOdjVjtgRK7gAu9oQO2IVF2FXK2JHrOES7GrBPtTRWeuohl3N+AV1dNYGamBXnhFfUQu7mrAHdXTWJupg1z38hDo6awv1sOsuYkds4zLsuo3YETu4CrtuIc+Ia7Arz4hdXIddNxE74hsaYNcV/IA6OiuMaIRlz6GOVsIrQdvuQB2tfIHls9mkR1CHK59hPeYx1OHKMs7Dtj6ow5UFWL4GT3oKdbgyB+sxz6AOV2ZRBdv6oQ5XZlAJ2wagDlemYT0mzwPmFKzfE3kBdbgyidOw7RXU4coErMcMQh2ujCO8/Wbba6jDlY+ogG1DUIcro/hvxoT3RU7CtmGow5X3OAHb3kAdrryEdW+hDs8KT//tG4E6Pi18TSF6BzUg+ATrx5VsakzhRiSlf8zGUMgRSTcQ/ntp/Se3XP5KpSPszsttjAGqzAAAAABJRU5ErkJggg==">
           </button>
         </div>
@@ -61,14 +78,14 @@
     </div>
   </div>
 
-  <!-- <div class="card" id="first-card-2">
-    <div class="card-body">
+  <div class="card" id="first-card-2">
+    <div class="card-body collapse show" id="first-card-body">
       <h1 class="ck-card-title card-title">
         "Blah1 Blah1 Blah1"
       </h1>
       <div class="row">
         <div class="column-sm">
-          <button type="button" class="ck-button">
+          <button type="button" class="ck-react-button" data-toggle="collapse" data-target="#firstCardBody" aria-expanded="true" aria-controls="firstCardBody">
             <img class="left-button-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHlSURBVGhD7dlLS1VhHIXxU1KEIFEUgYgDEYogCIRwVFTkDVFJ+wB+gKCwCI1KQiRC+gRBM8HIiQPBgQMHDsQbhiGIg0BBEISIMitBn5fYsNmswbvBwdpxHviBiIP/wss5x1Mqdzydwpl/Hxa3HnzHbzwMnyhiD3CAw5QnKFThO/EX6RGFG9ONP1AjEr2w7j7C74M6Pm0RtnUhZkTwAZZ1InbEPM7Crg7EjljCOdjVjtgRK7gAu9oQO2IVF2FXK2JHrOES7GrBPtTRWeuohl3N+AV1dNYGamBXnhFfUQu7mrAHdXTWJupg1z38hDo6awv1sOsuYkds4zLsuo3YETu4CrtuIc+Ia7Arz4hdXIddNxE74hsaYNcV/IA6OiuMaIRlz6GOVsIrQdvuQB2tfIHls9mkR1CHK59hPeYx1OHKMs7Dtj6ow5UFWL4GT3oKdbgyB+sxz6AOV2ZRBdv6oQ5XZlAJ2wagDlemYT0mzwPmFKzfE3kBdbgyidOw7RXU4coErMcMQh2ujCO8/Wbba6jDlY+ogG1DUIcro/hvxoT3RU7CtmGow5X3OAHb3kAdrryEdW+hDs8KT//tG4E6Pi18TSF6BzUg+ATrx5VsakzhRiSlf8zGUMgRSTcQ/ntp/Se3XP5KpSPszsttjAGqzAAAAABJRU5ErkJggg==">
           </button>
         </div>
@@ -79,7 +96,7 @@
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
 
   <div class="card">
     <div class="card-body">
