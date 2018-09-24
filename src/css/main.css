@@ -1,0 +1,78 @@
+#header {
+  background-color: red;
+}
+
+.text {
+  color: #ffffff;
+}
+
+.navbar-nav {
+  margin-left: auto;
+  font-family: 'Poppins', serif;
+}
+
+.nav-style {
+  border-bottom: 2px solid black;
+  background-color: white;
+}
+
+.ck-card-title {
+  text-align: center;
+  padding-left: 10rem;
+  padding-right: 10rem;
+}
+
+.ck-card-name {
+  text-align: center;
+  padding-left: 15rem;
+}
+
+.ck-card-image {
+  width: auto;
+  height: 90%;
+  margin: 0 auto;
+  border-radius: 0px;
+  border: 2rem solid black;
+  border-top-color: #282828;
+  border-right-color: #212121;
+  border-left-color: #212121;
+  border-bottom-color: #191919;
+}
+
+.card-body {
+  margin: 0 auto;
+}
+
+.card-body {
+  margin: 0 auto;
+}
+
+.ck-button {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline: none;
+  margin-left: 6rem;
+}
+
+.ck-button:active{
+  border: none;
+}
+
+.left-button-img {
+  width: auto;
+  height: 1rem;
+  margin-left: 4rem;
+  background-color: Transparent;
+}
+
+.card {
+  font-family: 'Poppins', serif;
+  border: 0px;
+}
+
+#first-card-2{
+  visibility: hidden;
+}
