@@ -16,62 +16,10 @@
   background-color: white;
 }
 
-.ck-card-title {
-  text-align: center;
-  padding-left: 10rem;
-  padding-right: 10rem;
-}
-
-.ck-card-name {
-  text-align: center;
-  padding-left: 15rem;
-}
-
-.ck-card-image {
-  width: auto;
-  height: 90%;
-  margin: 0 auto;
-  border-radius: 0px;
-  border: 2rem solid black;
-  border-top-color: #282828;
-  border-right-color: #212121;
-  border-left-color: #212121;
-  border-bottom-color: #191919;
-}
-
-.card-body {
-  margin: 0 auto;
-}
-
-.card-body {
-  margin: 0 auto;
-}
-
-.ck-react-button {
-  background-color: Transparent;
-  background-repeat:no-repeat;
-  border: none;
-  cursor:pointer;
-  overflow: hidden;
-  outline: none;
-  margin-left: 6rem;
-}
-
 .ck-button:active{
   border: none;
 }
 
-.left-button-img {
-  width: auto;
-  height: 1rem;
-  margin-left: 4rem;
-  background-color: Transparent;
-}
-
-.card {
-  font-family: 'Poppins', serif;
-  border: 0px;
-}
 /* #7accd8 #ccfdfe */
 .navbar-light .navbar-nav > .active > .nav-link{
   color: #15abaf;
@@ -130,7 +78,10 @@
 }
 
 .backdrop {
-  background-color: rgb(240, 250, 255);
+  background-color: #16c9ce;
+  background: url("../yarn-backdrop.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   position: relative;
   min-height: 100%;
 }
@@ -156,7 +107,7 @@
   text-align: left;
 }
 
-#LogInButton {
+#log-in-button {
   position: relative;
   top: 15px;
   bottom: 10px;
@@ -165,6 +116,11 @@
   margin-left: 40%;
   margin-right: 40%;
   margin-bottom: 5%;
+}
+
+#log-in-button:hover {
+  background-color: #16c9ce;
+  color: white;
 }
 
 .login-divider {
