@@ -8,7 +8,7 @@
 }
 
 .nav-style {
-  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+  /* box-shadow: 0px 4px 8px rgba(0,0,0,0.2); */
   border-bottom: 2px solid black;
   background-color: white;
 }
@@ -96,16 +96,16 @@ body > * {
 
 
 .login-card {
-  box-shadow: 0px 4px 12px rgba(0,0,0,0.6);
-  flex-grow: 1;
+  /* box-shadow: 0px 4px 12px rgba(0,0,0,0.6); */
+  /* flex-grow: 1; */
   position: relative;
   top: 90px;
   text-align: center;
   margin: 0 auto;
-  width: 500px;
+  width: 35rem;
   background-color: white;
-  border: 1px solid black;
-  padding: 10px;
+  border: 2px solid black;
+  padding: 1.8rem;
 }
 
 h5 {
@@ -119,13 +119,22 @@ h5 {
   text-align: left;
 }
 
+.form-control {
+  border-radius: 0px;
+  border: solid 2px black;
+}
+
 #log-in-button {
-  position: relative;
+  /* position: relative;
   top: 15px;
   bottom: 10px;
   width: 80px;
   align-content:center;
-  margin-bottom: 5%;
+  margin-bottom: 5%; */
+  /* background-color: #e2e2e2; */
+  border-radius: 0px;
+  border: solid 2px black;
+  font-family: "Poppins", serif;
 }
 
 #log-in-button:hover {
@@ -140,4 +149,5 @@ h5 {
 
 .form-group input::-webkit-input-placeholder{
   font-style:italic;
+  font-family: "Poppins", serif;
 }
