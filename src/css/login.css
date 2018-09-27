@@ -1,0 +1,134 @@
+.text {
+  color: #ffffff;
+}
+
+.navbar-nav {
+  margin-left: auto;
+  font-family: 'Poppins', serif;
+}
+
+.nav-style {
+  border-bottom: 2px solid black;
+  background-color: white;
+}
+
+.ck-button:active{
+  border: none;
+}
+
+/* #7accd8 #ccfdfe */
+.navbar-light .navbar-nav > .active > .nav-link{
+  color: #15abaf;
+}
+
+.navbar-light .navbar-nav > .active > .nav-link:hover{
+  color: #15abaf;
+}
+
+.navbar-light .navbar-nav .nav-link:hover{
+  color: #16c9ce;
+}
+
+.ck-button {
+  border: solid 2px black;
+  color: black;
+  background-color: white;
+}
+
+.ck-button:hover {
+  border: solid 2px black;
+  color: black;
+  background-color: #16c9ce;
+}
+
+.ck-button:focus {
+  border: solid 2px #16c9ce;
+  color: black;
+  background-color: #16c9ce;
+}
+
+#navPostLink {
+  border: solid 2px black;
+}
+
+#navPostLink:hover {
+  background-color: #e2e2e2;
+}
+
+.modal-content {
+  border: solid 2px black;
+}
+
+.modal-body {
+  border-bottom: 0px;
+}
+
+.modal-buttons {
+  margin-right: 0px;
+  margin-left: .2rem;
+  float: right;
+}
+
+#postInput {
+  border: solid 2px black;
+}
+
+.backdrop {
+  background-color: #16c9ce;
+  background: url("../closeknit-background.png");
+  min-height: 100%;
+}
+
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+body > * {
+  flex-shrink: 0;
+}
+
+
+.login-card {
+  position: relative;
+  top: 90px;
+  text-align: center;
+  margin: 0 auto;
+  width: 35rem;
+  background-color: white;
+  border: 2px solid black;
+  padding: 1.8rem;
+}
+
+h5 {
+  font-family: 'Poppins', serif;
+  top: 10px;
+  position: relative;
+}
+
+.form-group {
+  position: relative;
+  text-align: left;
+}
+
+.form-control {
+  border-radius: 0px;
+  border: solid 2px black;
+}
+
+#log-in-button {
+  border-radius: 0px;
+  border: solid 2px black;
+  font-family: "Poppins", serif;
+}
+
+#log-in-button:hover {
+  background-color: #16c9ce;
+  color: white;
+}
+
+.login-divider {
+  height: 2px;
+  background-color: black;
+}
