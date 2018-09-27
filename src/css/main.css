@@ -140,3 +140,33 @@
   height: auto;
   padding-top: .3rem;
 }
+
+.ck-card-footer {
+  background: #5d6070;
+}
+
+.ck-react-bar {
+  height: 1rem;
+}
+
+.comment-box {
+  height: 7rem;
+  padding-left: 10rem;
+  padding-right: 10rem;
+  padding-bottom: .5rem;
+  padding-top: .5rem;
+  background: white;
+  overflow-y: auto;
+}
+
+.comment-input {
+  width: 100%;
+}
+
+.comment-username {
+}
+
+.comment-container {
+  margin-left: 0px;
+  width: auto;
+}
