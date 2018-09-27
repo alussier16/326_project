@@ -73,6 +73,103 @@
   border: 0px;
 }
 
+<<<<<<< HEAD
 #first-card-2{
   visibility: hidden;
 }
+=======
+.navbar-light .navbar-nav .nav-link:hover{
+  color: #16c9ce;
+}
+
+.ck-button {
+  border-radius: 0px;
+  border: solid 2px black;
+  color: black;
+  background-color: white;
+  font-family: "Poppins", serif;
+}
+
+.ck-button:hover {
+  border: solid 2px black;
+  color: black;
+  background-color: #16c9ce;
+}
+
+.ck-button:focus {
+  border: solid 2px #16c9ce;
+  color: black;
+  background-color: #16c9ce;
+}
+
+#navPostLink {
+  border: solid 2px black;
+  border-radius: 0px;
+  background-color: white;
+}
+
+#navPostLink:hover {
+  background-color: #e2e2e2;
+}
+
+.modal-content {
+  border-radius: 0px;
+  border: solid 2px black;
+}
+
+.modal-body {
+  border-bottom: 0px;
+}
+
+.modal-buttons {
+  margin-right: 0px;
+  margin-left: .2rem;
+  float: right;
+}
+
+#postInput {
+  border-radius: 0px;
+  border: solid 2px black;
+}
+
+#modalImageIcon {
+  width: 2rem;
+  height: auto;
+  padding-top: .3rem;
+}
+
+.ck-card-footer {
+  background: #5d6070;
+}
+
+.ck-react-bar {
+  height: 1rem;
+}
+
+.comment-box {
+  height: 7rem;
+  padding-left: 10rem;
+  padding-right: 10rem;
+  padding-bottom: .5rem;
+  padding-top: .5rem;
+  background: white;
+  overflow-y: auto;
+}
+
+.comment-input {
+  width: 100%;
+}
+
+.comment-username {
+}
+
+.comment-container {
+  margin-left: 0px;
+  width: auto;
+}
+
+.reaction-image {
+  width: 1.5rem;
+  height: auto;
+}
+>>>>>>> main-page
