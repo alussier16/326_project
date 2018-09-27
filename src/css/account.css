@@ -93,3 +93,22 @@
 .navbar-light .navbar-text {
   color: black;
 }
+
+.ck-button-other {
+  border: solid 2px black;
+  border-radius: 0px;
+  background: white;
+}
+
+.ck-button-other:hover {
+  border: solid 2px black;
+  border-radius: 0px;
+  background: #15abaf;
+  color: white;
+}
+
+.user-box input:focus{
+  background-color: #e2e2e2;
+  border-color: #15abaf;
+  box-shadow: 0 0 0px rgba(21, 171, 175, 0.4);
+}
