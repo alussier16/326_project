@@ -33,9 +33,9 @@ The five types of different data we have incorporated into our project is as fol
 
 To hammer home the idea of a decluttered social newtowrk, without all the junk, we went with a very minimalist design only including small hints of color when focused on certain elements of the page. Users will begin at the signup page where they will enter all the relevant information needed to create an account. After creating an account, users get to the site through a login page. From there, they land on the main page which displays all the new posts in their feed and where they are able to see posts and images that their connections have posted. A user's friends are called "Ties" on Closeknit and you can see all your friends displayed as bubbles around you. From here you'll be able to manage your "Ties" and also cut "Ties" if you need space for new ones. Lastly, there is an account page from which you can add new "Ties" once you have a username and corresponding friend code, and also see your post history and all the comments and reactions people have made on them.
 
-![signup](imgs/signup-sc.png)
-![login](imgs/login-sc.png)
-![main](imgs/main-sc.png)
-![ties](imgs/ties-sc.png)
-![account](imgs/account-sc.png)
+![signup](imgs/signup.png)
+![login](imgs/login.png)
+![main](imgs/main.png)
+![ties](imgs/ties.png)
+![account](imgs/account.png)
 
