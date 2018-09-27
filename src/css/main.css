@@ -95,24 +95,14 @@
 
 .ck-button:hover {
   border: solid 2px black;
-  color: black;
+  color: white;
   background-color: #16c9ce;
 }
 
 .ck-button:focus {
   border: solid 2px #16c9ce;
-  color: black;
+  color: white;
   background-color: #16c9ce;
-}
-
-#navPostLink {
-  border: solid 2px black;
-  border-radius: 0px;
-  background-color: white;
-}
-
-#navPostLink:hover {
-  background-color: #e2e2e2;
 }
 
 .modal-content {
@@ -145,6 +135,10 @@
   margin: 0 auto;
   width: 40%;
   margin-bottom: 2rem;
+  border-top: solid 2px black;
+  border-bottom: solid 2px black;
+  border-radius: 0px;
+  background: white;
 }
 
 .ck-react-bar {
@@ -173,4 +167,8 @@
 .reaction-image {
   width: 1.5rem;
   height: auto;
+}
+
+.ck-font {
+  font-family: "Poppins", serif;
 }
