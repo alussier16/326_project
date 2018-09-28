@@ -1,3 +1,24 @@
+@media only screen and (max-width: 500px) {
+  .ck-card-title {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (min-width: 501px) and (max-width: 699px){
+  .ck-card-title {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media (min-width: 700px) {
+  .ck-card-title {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+
 #header {
   background-color: red;
 }
@@ -18,8 +39,8 @@
 
 .ck-card-title {
   text-align: center;
-  padding-left: 10rem;
-  padding-right: 10rem;
+  /* padding-left: 10rem;
+  padding-right: 10rem; */
 }
 
 .ck-card-name {
@@ -28,8 +49,8 @@
 }
 
 .ck-card-image {
-  width: auto;
-  height: 90%;
+  width: 90%;
+  height: auto;
   margin: 0 auto;
   border-radius: 0px;
   border: 2rem solid black;
@@ -133,12 +154,16 @@
 
 .ck-card-footer {
   margin: 0 auto;
-  width: 40%;
+  width: 60%;
   margin-bottom: 2rem;
   border-top: solid 2px black;
   border-bottom: solid 2px black;
   border-radius: 0px;
-  background: white;
+  background: #D4F4DD;
+}
+
+.ck-card-footer:last-child {
+  border-radius: 0px;
 }
 
 .ck-react-bar {
@@ -151,6 +176,9 @@
   height: 5rem;
   background: white;
   overflow-y: scroll;
+  border: solid 2px black;
+  padding-left: .3rem;
+  padding-right: .3rem;
 }
 
 .comment-input {
