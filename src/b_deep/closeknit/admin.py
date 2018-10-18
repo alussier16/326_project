@@ -5,7 +5,7 @@ from closeknit.models import User, Post
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
     model = User
-    list_display = ("username", "name", "display_friends")
+    list_display = ("username", "first_name","last_name", "display_friends")
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
