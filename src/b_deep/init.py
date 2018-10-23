@@ -55,8 +55,8 @@ for p in posts:
         reactions.append(reaction)
 
 
-username = "compsci326"
-password = "compsci326"
+username = "admin"
+password = "admin"
 email = "admin@326.edu"
 adminuser = User.objects.create_user(username, email, password)
 adminuser.save()
@@ -67,11 +67,11 @@ message = f"""
 ====================================================================
 The database has been setup with the following credentials:
 
-  username: compsci326
-  password: compsci326
+  username: admin
+  password: admin
   email: admin@326.edu
 
-You will need to use the username compsci326 and password compsci326
+You will need to use the username admin and password admin
 to login to the administrative webapp in Django.
 
 Please visit http://localhost:8080/admin to login to the admin app.
