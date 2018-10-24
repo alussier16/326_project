@@ -6,14 +6,16 @@
   <link rel="stylesheet" href="../css/bootstrap-grid.min.css">
   <link rel="stylesheet" href="../css/bootstrap-reboot.min.css">
   <link rel="stylesheet" href="../css/account.css">
-  <link href="https://fonts.googleapis.com/css?family=Poppins:500" rel="stylesheet">
+  <link rel="stylesheet" href="../css/closeknit.css">
+  <link href="https://fonts.googleapis.com/css?family=Coming+Soon" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400" rel="stylesheet">
 </head>
 
 <body>
-  <script src="../js/bootstrap.bundle.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
   <script src="../js/jquery-3.3.1.min.js"></script>
   <script src="../js/jquery-ui.min.js"></script>
+  <script src="../js/bootstrap.bundle.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
   <script src="../js/custom.js"></script>
 
   <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -33,8 +35,8 @@
     </div>
   </div>
 
-  <nav class="navbar navbar-expand-md navbar-light nav-style">
-    <span class="navbar-brand mb-0 h1">
+  <nav class="navbar navbar-expand-sm navbar-light nav-style">
+    <span class="navbar-brand mb-0 h1 ck-font">
       Closeknit
       <img src="../yarn-ball.png" width="30" height="30" style="margin-left:0.3em; margin-bottom: 0.15em">
     </span>
@@ -46,16 +48,16 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="main.html">Home</a>
+          <a class="nav-link ck-font" href="main.html">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="ties.html">Ties</a>
+          <a class="nav-link ck-font" href="ties.html">Ties</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="account.html">Account <span class="sr-only">(current)</span></a>
+          <a class="nav-link ck-font" href="account.html">Account</a>
         </li>
         <li class="nav-item" id="navPostItem">
-          <button type="button" class="btn primary-btn ck-button" data-toggle="modal" data-target="#postModal" id="navPostLink">Post</button>
+          <button type="button" class="btn primary-btn ck-button ck-font" data-toggle="modal" data-target="#postModal" id="navPostLink">Post</button>
         </li>
       </ul>
     </div>
@@ -81,44 +83,87 @@
 
   <div class="card" id="first-card">
     <div class="card-body">
-      <h1 class="ck-card-title card-title">
-        "Blah Blah Blah"
+      <div class="side-col">
+        <p class="card-text ck-card-name">
+          @you said:
+        </p>
+        <button type="button" class="ck-react-button ck-font" data-toggle="collapse" data-target="#footerOne" aria-expanded="false" aria-controls="footerOne" onclick="move()">
+            <span class="hl-blue">Comments</span>
+        </button>
+      </div>
+      <h1 class="ck-card-title">
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper dolor id odio hendrerit placerat."
       </h1>
-      <div class="row">
-        <div class="column-sm">
-          <button type="button" class="ck-react-button">
-            <img class="left-button-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHlSURBVGhD7dlLS1VhHIXxU1KEIFEUgYgDEYogCIRwVFTkDVFJ+wB+gKCwCI1KQiRC+gRBM8HIiQPBgQMHDsQbhiGIg0BBEISIMitBn5fYsNmswbvBwdpxHviBiIP/wss5x1Mqdzydwpl/Hxa3HnzHbzwMnyhiD3CAw5QnKFThO/EX6RGFG9ONP1AjEr2w7j7C74M6Pm0RtnUhZkTwAZZ1InbEPM7Crg7EjljCOdjVjtgRK7gAu9oQO2IVF2FXK2JHrOES7GrBPtTRWeuohl3N+AV1dNYGamBXnhFfUQu7mrAHdXTWJupg1z38hDo6awv1sOsuYkds4zLsuo3YETu4CrtuIc+Ia7Arz4hdXIddNxE74hsaYNcV/IA6OiuMaIRlz6GOVsIrQdvuQB2tfIHls9mkR1CHK59hPeYx1OHKMs7Dtj6ow5UFWL4GT3oKdbgyB+sxz6AOV2ZRBdv6oQ5XZlAJ2wagDlemYT0mzwPmFKzfE3kBdbgyidOw7RXU4coErMcMQh2ujCO8/Wbba6jDlY+ogG1DUIcro/hvxoT3RU7CtmGow5X3OAHb3kAdrryEdW+hDs8KT//tG4E6Pi18TSF6BzUg+ATrx5VsakzhRiSlf8zGUMgRSTcQ/ntp/Se3XP5KpSPszsttjAGqzAAAAABJRU5ErkJggg==">
-          </button>
+    </div>
+
+
+    <div class="ck-card-footer card-footer collapse" id="footerOne">
+      <div class="container">
+        <div class="comment-col">
+          <div class="comment-box">
+            <p class="comment-text text-left"><span class="hl-blue">@lilpump</span> Good stuff bruh!</p>
+            <p class="comment-text text-left"><span class="hl-blue">@julian</span> Not sure about this one chief</p>
+            <p class="comment-text text-left"><span class="hl-blue">@lilpump</span> Good stuff bruh!</p>
+            <p class="comment-text text-left"><span class="hl-blue">@lilpump</span> Good stuff bruh!</p>
+          </div>
+          <div class="container">
+            <textarea rows="1" type="text" class="form-control comment-input" id="postInput"></textarea>
+            <button class="btn ck-button">Send</button>
+          </div>
         </div>
-        <div class="column-sm">
-          <p class="card-text ck-card-name">
-            - @julian
-          </p>
+
+        <div class="comment-col">
+          <div id="reaction" class="reaction-bar" style="background-color: #15ABAF;" reactVal="100">👽</div>
+          <div id="reaction" class="reaction-bar" style="background-color: #509799;" reactVal="80">🥜</div>
+          <div id="reaction" class="reaction-bar" style="background-color: #1FFF86;" reactVal="50">🍔</div>
+          <div id="reaction" class="reaction-bar" style="background-color: #FF5E7C;" reactVal="20">😨</div>
         </div>
       </div>
     </div>
-  </div>
   </div>
 
-  <!-- <div class="card" id="first-card-2">
+
+  <div class="card" id="first-card">
     <div class="card-body">
-      <h1 class="ck-card-title card-title">
-        "Blah1 Blah1 Blah1"
+      <div class="side-col">
+        <p class="card-text ck-card-name">
+          @you said:
+        </p>
+        <button type="button" class="ck-react-button ck-font" data-toggle="collapse" data-target="#footerTwo" aria-expanded="false" aria-controls="footerOne" onclick="move()">
+            <span class="hl-blue">Comments</span>
+        </button>
+      </div>
+      <h1 class="ck-card-title">
+        "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sit."
       </h1>
-      <div class="row">
-        <div class="column-sm">
-          <button type="button" class="ck-button">
-            <img class="left-button-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHlSURBVGhD7dlLS1VhHIXxU1KEIFEUgYgDEYogCIRwVFTkDVFJ+wB+gKCwCI1KQiRC+gRBM8HIiQPBgQMHDsQbhiGIg0BBEISIMitBn5fYsNmswbvBwdpxHviBiIP/wss5x1Mqdzydwpl/Hxa3HnzHbzwMnyhiD3CAw5QnKFThO/EX6RGFG9ONP1AjEr2w7j7C74M6Pm0RtnUhZkTwAZZ1InbEPM7Crg7EjljCOdjVjtgRK7gAu9oQO2IVF2FXK2JHrOES7GrBPtTRWeuohl3N+AV1dNYGamBXnhFfUQu7mrAHdXTWJupg1z38hDo6awv1sOsuYkds4zLsuo3YETu4CrtuIc+Ia7Arz4hdXIddNxE74hsaYNcV/IA6OiuMaIRlz6GOVsIrQdvuQB2tfIHls9mkR1CHK59hPeYx1OHKMs7Dtj6ow5UFWL4GT3oKdbgyB+sxz6AOV2ZRBdv6oQ5XZlAJ2wagDlemYT0mzwPmFKzfE3kBdbgyidOw7RXU4coErMcMQh2ujCO8/Wbba6jDlY+ogG1DUIcro/hvxoT3RU7CtmGow5X3OAHb3kAdrryEdW+hDs8KT//tG4E6Pi18TSF6BzUg+ATrx5VsakzhRiSlf8zGUMgRSTcQ/ntp/Se3XP5KpSPszsttjAGqzAAAAABJRU5ErkJggg==">
-          </button>
+    </div>
+
+
+    <div class="ck-card-footer card-footer collapse" id="footerTwo">
+      <div class="container">
+        <div class="comment-col">
+          <div class="comment-box">
+            <p class="comment-text text-left"><span class="hl-blue">@lilpump</span> Good stuff bruh!</p>
+            <p class="comment-text text-left"><span class="hl-blue">@julian</span> Not sure about this one chief</p>
+            <p class="comment-text text-left"><span class="hl-blue">@lilpump</span> Good stuff bruh!</p>
+            <p class="comment-text text-left"><span class="hl-blue">@lilpump</span> Good stuff bruh!</p>
+          </div>
+          <div class="container">
+            <textarea rows="1" type="text" class="form-control comment-input" id="postInput"></textarea>
+            <button class="btn ck-button">Send</button>
+          </div>
         </div>
-        <div class="column-sm">
-          <p class="card-text ck-card-name">
-            - @julian
-          </p>
+
+        <div class="comment-col">
+          <div id="reaction" class="reaction-bar" style="background-color: #15ABAF;" reactVal="100">👽</div>
+          <div id="reaction" class="reaction-bar" style="background-color: #509799;" reactVal="80">🥜</div>
+          <div id="reaction" class="reaction-bar" style="background-color: #1FFF86;" reactVal="50">🍔</div>
+          <div id="reaction" class="reaction-bar" style="background-color: #FF5E7C;" reactVal="20">😨</div>
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
+
 </body>
 
 </html>

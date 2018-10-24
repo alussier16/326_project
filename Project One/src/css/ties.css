@@ -1,20 +1,3 @@
-#header {
-  background-color: red;
-}
-
-.text {
-  color: #ffffff;
-}
-
-.navbar-nav {
-  margin-left: auto;
-}
-
-.nav-style {
-  border-bottom: 2px solid black;
-  background-color: white;
-}
-
 .profile {
   height: 150px;
   width: 150px;
@@ -55,41 +38,4 @@
   margin-left: 70%;
   margin-right: auto;
   margin-top: -20%;
-}
-
-/* #7accd8 #ccfdfe */
-.navbar-light .navbar-nav > .active > .nav-link{
-  color: #15abaf;
-}
-
-.navbar-light .navbar-nav > .active > .nav-link:hover{
-  color: #15abaf;
-}
-
-.navbar-light .navbar-nav .nav-link:hover{
-  color: #16c9ce;
-}
-
-.ck-button {
-  border-radius: 0px;
-  border: solid 2px black;
-  color: black;
-  background-color: white;
-  font-family: "Poppins", serif;
-}
-
-.ck-button:hover {
-  border: solid 2px black;
-  color: white;
-  background-color: #16c9ce;
-}
-
-.ck-button:focus {
-  border: solid 2px #16c9ce;
-  color: white;
-  background-color: #16c9ce;
-}
-
-.ck-font {
-  font-family: "Poppins", serif;
 }
