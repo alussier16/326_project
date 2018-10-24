@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="../css/bootstrap-grid.min.css">
   <link rel="stylesheet" href="../css/bootstrap-reboot.min.css">
   <link rel="stylesheet" href="../css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Poppins:500" rel="stylesheet">
   <meta content="width=device-width, initial-scale=1" name="viewport" />
 </head>
@@ -64,132 +65,211 @@
 
   <div class="card" id="first-card">
     <div class="card-body">
-      <h1 class="ck-card-title card-title">
-        "Blah Blah Blah"
-      </h1>
-      <div class="row">
-        <div class="column-sm">
-          <button type="button" class="ck-react-button ck-font" data-toggle="collapse" data-target="#footerOne" aria-expanded="false" aria-controls="footerOne">
-            <!-- <img class="left-button-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHlSURBVGhD7dlLS1VhHIXxU1KEIFEUgYgDEYogCIRwVFTkDVFJ+wB+gKCwCI1KQiRC+gRBM8HIiQPBgQMHDsQbhiGIg0BBEISIMitBn5fYsNmswbvBwdpxHviBiIP/wss5x1Mqdzydwpl/Hxa3HnzHbzwMnyhiD3CAw5QnKFThO/EX6RGFG9ONP1AjEr2w7j7C74M6Pm0RtnUhZkTwAZZ1InbEPM7Crg7EjljCOdjVjtgRK7gAu9oQO2IVF2FXK2JHrOES7GrBPtTRWeuohl3N+AV1dNYGamBXnhFfUQu7mrAHdXTWJupg1z38hDo6awv1sOsuYkds4zLsuo3YETu4CrtuIc+Ia7Arz4hdXIddNxE74hsaYNcV/IA6OiuMaIRlz6GOVsIrQdvuQB2tfIHls9mkR1CHK59hPeYx1OHKMs7Dtj6ow5UFWL4GT3oKdbgyB+sxz6AOV2ZRBdv6oQ5XZlAJ2wagDlemYT0mzwPmFKzfE3kBdbgyidOw7RXU4coErMcMQh2ujCO8/Wbba6jDlY+ogG1DUIcro/hvxoT3RU7CtmGow5X3OAHb3kAdrryEdW+hDs8KT//tG4E6Pi18TSF6BzUg+ATrx5VsakzhRiSlf8zGUMgRSTcQ/ntp/Se3XP5KpSPszsttjAGqzAAAAABJRU5ErkJggg=="> -->
-            Click Me
-          </button>
-        </div>
-        <div class="column-sm">
-          <p class="card-text ck-card-name">
-            - @julian
-          </p>
-        </div>
+      <div class="side-col">
+        <p class="card-text ck-card-name">
+          @julian says:
+        </p>
+        <button type="button" class="ck-react-button ck-font" data-toggle="collapse" data-target="#footerOne" aria-expanded="false" aria-controls="footerOne" onclick="move()">
+            <span class="hl-blue">Comments</span>
+        </button>
       </div>
+      <h1 class="ck-card-title">
+        "SKIRR UH SKIRR SKIRR UH YEAH HIT MY UH PHONE TWERK TWERK SKIRRRRRR"
+      </h1>
     </div>
+
+
     <div class="ck-card-footer card-footer collapse" id="footerOne">
       <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-3 ck-react-bar" style="background: yellow">
-
-          </div>
-          <div class="col-1 ck-react-bar" style="background: blue">
-
-          </div>
-          <div class="col-2 ck-react-bar" style="background: green">
-
-          </div>
-          <div class="col-3 ck-react-bar" style="background: red">
-
-          </div>
-          <div class="col-1 ck-react-bar" style="background: purple">
-
-          </div>
-        </div>
-        <div class="row justify-content-center">
-          <div class="col-3 ck-react-bar">
-            🍔
-          </div>
-          <div class="col-1 ck-react-bar">
-            😀
-          </div>
-          <div class="col-2 ck-react-bar">
-            😨
-          </div>
-          <div class="col-3 ck-react-bar">
-            🥜
-          </div>
-          <div class="col-1 ck-react-bar">
-            👽
-          </div>
-        </div>
-        <div class="row justify-content-center">
+        <div class="comment-col">
           <div class="comment-box">
-            <!-- <div class="comment-container float-left"> -->
-            <p class="comment-text text-left">@lilpump Good stuff bruh!</p>
-            <p class="comment-text text-left">@julian Not sure about this one chief</p>
-            <p class="comment-text text-left">@lilpump Good stuff bruh!</p>
-            <p class="comment-text text-left">@lilpump Good stuff bruh!</p>
-            <!-- </div> -->
+            <p class="comment-text text-left"><span class="hl-blue">@lilpump</span> Good stuff bruh!</p>
+            <p class="comment-text text-left"><span class="hl-blue">@julian</span> Not sure about this one chief</p>
+            <p class="comment-text text-left"><span class="hl-blue">@lilpump</span> Good stuff bruh!</p>
+            <p class="comment-text text-left"><span class="hl-blue">@lilpump</span> Good stuff bruh!</p>
+          </div>
+          <div class="container">
+            <textarea rows="1" type="text" class="form-control comment-input" id="postInput"></textarea>
+            <button class="btn ck-button">Send</button>
           </div>
         </div>
-        <div class="row justify-content-center">
-          <textarea rows="1" type="text" class="form-control comment-input" id="postInput"></textarea>
-          <button class="btn ck-button" style="float: right">Send</button>
-        </div>
-      </div>
 
-    </div>
-  </div>
-
-  <div class="card" id="first-card-2">
-    <div class="card-body collapse show" id="first-card-body">
-      <h1 class="ck-card-title card-title">
-        "Blah1 Blah1 Blah1"
-      </h1>
-      <div class="row">
-        <div class="column-sm">
-          <button type="button" class="ck-react-button" data-toggle="collapse" data-target="#firstCardBody" aria-expanded="true" aria-controls="firstCardBody">
-            <img class="left-button-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHlSURBVGhD7dlLS1VhHIXxU1KEIFEUgYgDEYogCIRwVFTkDVFJ+wB+gKCwCI1KQiRC+gRBM8HIiQPBgQMHDsQbhiGIg0BBEISIMitBn5fYsNmswbvBwdpxHviBiIP/wss5x1Mqdzydwpl/Hxa3HnzHbzwMnyhiD3CAw5QnKFThO/EX6RGFG9ONP1AjEr2w7j7C74M6Pm0RtnUhZkTwAZZ1InbEPM7Crg7EjljCOdjVjtgRK7gAu9oQO2IVF2FXK2JHrOES7GrBPtTRWeuohl3N+AV1dNYGamBXnhFfUQu7mrAHdXTWJupg1z38hDo6awv1sOsuYkds4zLsuo3YETu4CrtuIc+Ia7Arz4hdXIddNxE74hsaYNcV/IA6OiuMaIRlz6GOVsIrQdvuQB2tfIHls9mkR1CHK59hPeYx1OHKMs7Dtj6ow5UFWL4GT3oKdbgyB+sxz6AOV2ZRBdv6oQ5XZlAJ2wagDlemYT0mzwPmFKzfE3kBdbgyidOw7RXU4coErMcMQh2ujCO8/Wbba6jDlY+ogG1DUIcro/hvxoT3RU7CtmGow5X3OAHb3kAdrryEdW+hDs8KT//tG4E6Pi18TSF6BzUg+ATrx5VsakzhRiSlf8zGUMgRSTcQ/ntp/Se3XP5KpSPszsttjAGqzAAAAABJRU5ErkJggg==">
-          </button>
-        </div>
-        <div class="column-sm">
-          <p class="card-text ck-card-name">
-            - @julian
-          </p>
+        <div class="comment-col">
+          <div id="reaction" class="reaction-bar" style="background-color: #15ABAF;" reactVal="100">👽</div>
+          <div id="reaction" class="reaction-bar" style="background-color: #509799;" reactVal="80">🥜</div>
+          <div id="reaction" class="reaction-bar" style="background-color: #1FFF86;" reactVal="50">🍔</div>
+          <div id="reaction" class="reaction-bar" style="background-color: #FF5E7C;" reactVal="20">😨</div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="card">
+  <div class="card" id="first-card">
     <div class="card-body">
-      <h1 class="ck-card-title card-title">
+      <div class="side-col">
+        <p class="card-text ck-card-name">
+          @andy says:
+        </p>
+        <button type="button" class="ck-react-button ck-font" data-toggle="collapse" data-target="#footerTwo" aria-expanded="false" aria-controls="footerOne" onclick="move()">
+            <span class="hl-blue">Comments</span>
+        </button>
+      </div>
+      <h1 class="ck-card-title">
+        "This is a short post"
+      </h1>
+    </div>
+
+
+    <div class="ck-card-footer card-footer collapse" id="footerTwo">
+      <div class="container">
+        <div class="comment-col">
+          <div class="comment-box">
+            <p class="comment-text text-left"><span class="hl-blue">@lilpump</span> Good stuff bruh!</p>
+            <p class="comment-text text-left"><span class="hl-blue">@julian</span> Not sure about this one chief</p>
+            <p class="comment-text text-left"><span class="hl-blue">@lilpump</span> Good stuff bruh!</p>
+            <p class="comment-text text-left"><span class="hl-blue">@lilpump</span> Good stuff bruh!</p>
+          </div>
+          <div class="container">
+            <textarea rows="1" type="text" class="form-control comment-input" id="postInput"></textarea>
+            <button class="btn ck-button">Send</button>
+          </div>
+        </div>
+
+        <div class="comment-col">
+          <div id="reaction" class="reaction-bar" style="background-color: #15ABAF;" reactVal="100">👽</div>
+          <div id="reaction" class="reaction-bar" style="background-color: #509799;" reactVal="80">🥜</div>
+          <div id="reaction" class="reaction-bar" style="background-color: #1FFF86;" reactVal="50">🍔</div>
+          <div id="reaction" class="reaction-bar" style="background-color: #FF5E7C;" reactVal="20">😨</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="first-card">
+    <div class="card-body">
+      <div class="side-col">
+        <p class="card-text ck-card-name">
+          @lilpump says:
+        </p>
+        <button type="button" class="ck-react-button ck-font" data-toggle="collapse" data-target="#footerThree" aria-expanded="false" aria-controls="footerOne" onclick="move()">
+            <span class="hl-blue">Comments</span>
+        </button>
+      </div>
+      <h1 class="ck-card-title">
         "Gucci gang, Gucci gang, Gucci gang, Gucci gang
         Gucci gang, Gucci gang, Gucci gang (Gucci gang!)
         Spend ten racks on a new chain
-        My friend love do video games, ooh
-        I play a game, I level up"
       </h1>
-      <p class="card-text ck-card-name">
-        - @lilpump
-      </p>
+    </div>
+
+
+    <div class="ck-card-footer card-footer collapse" id="footerThree">
+      <div class="container">
+        <div class="comment-col">
+          <div class="comment-box">
+            <p class="comment-text text-left"><span class="hl-blue">@lilpump</span> Good stuff bruh!</p>
+            <p class="comment-text text-left"><span class="hl-blue">@julian</span> Not sure about this one chief</p>
+            <p class="comment-text text-left"><span class="hl-blue">@lilpump</span> Good stuff bruh!</p>
+            <p class="comment-text text-left"><span class="hl-blue">@lilpump</span> Good stuff bruh!</p>
+          </div>
+          <div class="container">
+            <textarea rows="1" type="text" class="form-control comment-input" id="postInput"></textarea>
+            <button class="btn ck-button">Send</button>
+          </div>
+        </div>
+
+        <div class="comment-col">
+          <div id="reaction" class="reaction-bar" style="background-color: #15ABAF;" reactVal="100">👽</div>
+          <div id="reaction" class="reaction-bar" style="background-color: #509799;" reactVal="80">🥜</div>
+          <div id="reaction" class="reaction-bar" style="background-color: #1FFF86;" reactVal="50">🍔</div>
+          <div id="reaction" class="reaction-bar" style="background-color: #FF5E7C;" reactVal="20">😨</div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="card">
+  <div class="card" id="first-card">
     <div class="card-body">
-      <img class="card-img ck-card-image" src="../hackerman.png">
-      <p class="card-text ck-card-name">
-        - @lilpump
-      </p>
+      <div class="side-col">
+        <p class="card-text ck-card-name">
+          @robot says:
+        </p>
+        <button type="button" class="ck-react-button ck-font" data-toggle="collapse" data-target="#footerFour" aria-expanded="false" aria-controls="footerOne" onclick="move()">
+            <span class="hl-blue">Comments</span>
+        </button>
+      </div>
+      <div class="img-center">
+        <img class="ck-card-image" src="../hackerman.png">
+      </div>
+    </div>
+
+
+    <div class="ck-card-footer card-footer collapse" id="footerFour">
+      <div class="container">
+        <div class="comment-col">
+          <div class="comment-box">
+            <p class="comment-text text-left"><span class="hl-blue">@lilpump</span> Good stuff bruh!</p>
+            <p class="comment-text text-left"><span class="hl-blue">@julian</span> Not sure about this one chief</p>
+            <p class="comment-text text-left"><span class="hl-blue">@lilpump</span> Good stuff bruh!</p>
+            <p class="comment-text text-left"><span class="hl-blue">@lilpump</span> Good stuff bruh!</p>
+          </div>
+          <div class="container">
+            <textarea rows="1" type="text" class="form-control comment-input" id="postInput"></textarea>
+            <button class="btn ck-button">Send</button>
+          </div>
+        </div>
+
+        <div class="comment-col">
+          <div id="reaction" class="reaction-bar" style="background-color: #15ABAF;" reactVal="100">👽</div>
+          <div id="reaction" class="reaction-bar" style="background-color: #509799;" reactVal="80">🥜</div>
+          <div id="reaction" class="reaction-bar" style="background-color: #1FFF86;" reactVal="50">🍔</div>
+          <div id="reaction" class="reaction-bar" style="background-color: #FF5E7C;" reactVal="20">😨</div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="card">
+  <div class="card" id="first-card">
     <div class="card-body">
-      <h1 class="ck-card-title card-title">
-        “Julian is an absolute egg”
+      <div class="side-col">
+        <p class="card-text ck-card-name">
+          @vinny says:
+        </p>
+        <button type="button" class="ck-react-button ck-font" data-toggle="collapse" data-target="#footerFive" aria-expanded="false" aria-controls="footerOne" onclick="move()">
+            <span class="hl-blue">Comments</span>
+        </button>
+      </div>
+      <h1 class="ck-card-title">
+        "je suis egg"
       </h1>
-      <p class="card-text ck-card-name">
-        - @andy
-      </p>
+    </div>
+
+
+    <div class="ck-card-footer card-footer collapse" id="footerFive">
+      <div class="container">
+        <div class="comment-col">
+          <div class="comment-box">
+            <p class="comment-text text-left"><span class="hl-blue">@lilpump</span> Good stuff bruh!</p>
+            <p class="comment-text text-left"><span class="hl-blue">@julian</span> Not sure about this one chief</p>
+            <p class="comment-text text-left"><span class="hl-blue">@lilpump</span> Good stuff bruh!</p>
+            <p class="comment-text text-left"><span class="hl-blue">@lilpump</span> Good stuff bruh!</p>
+          </div>
+          <div class="container">
+            <textarea rows="1" type="text" class="form-control comment-input" id="postInput"></textarea>
+            <button class="btn ck-button">Send</button>
+          </div>
+        </div>
+
+        <div class="comment-col">
+          <div id="reaction" class="reaction-bar" style="background-color: #15ABAF;" reactVal="100">👽</div>
+          <div id="reaction" class="reaction-bar" style="background-color: #509799;" reactVal="80">🥜</div>
+          <div id="reaction" class="reaction-bar" style="background-color: #1FFF86;" reactVal="50">🍔</div>
+          <div id="reaction" class="reaction-bar" style="background-color: #FF5E7C;" reactVal="20">😨</div>
+        </div>
+      </div>
     </div>
   </div>
+
 </body>
 
 </html>
