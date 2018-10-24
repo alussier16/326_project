@@ -1,21 +1,27 @@
 @media only screen and (max-width: 500px) {
   .ck-card-title {
-    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .ck-card-image {
     padding-right: 1rem;
   }
 }
 
 @media (min-width: 501px) and (max-width: 699px){
   .ck-card-title {
-    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+  .ck-card-image {
     padding-right: 3rem;
   }
 }
 
 @media (min-width: 700px) {
   .ck-card-title {
-    padding-left: 5rem;
-    padding-right: 5rem;
+    padding-right: 10rem;
+  }
+  .ck-card-image {
+    padding-right: 10rem;
   }
 }
 
@@ -29,7 +35,8 @@
 
 .navbar-nav {
   margin-left: auto;
-  font-family: 'Poppins', serif;
+  font-family: 'Quicksand', serif;
+  font-weight: 400;
 }
 
 .nav-style {
@@ -44,38 +51,25 @@
 }
 
 .ck-card-name {
-  text-align: center;
-  padding-left: 15rem;
+  float:left;
+  width:100%;
+  margin: 0 auto;
 }
 
 .ck-card-image {
-  width: 90%;
-  height: auto;
+  display: block;
   margin: 0 auto;
-  border-radius: 0px;
-  border: 2rem solid black;
-  border-top-color: #282828;
-  border-right-color: #212121;
-  border-left-color: #212121;
-  border-bottom-color: #191919;
+  width: 50%;
 }
 
-.card-body {
-  margin: 0 auto;
-}
-
-.card-body {
-  margin: 0 auto;
+.img-center{
+  margin:0 auto;
 }
 
 .ck-react-button {
-  background-color: Transparent;
-  background-repeat:no-repeat;
   border: none;
   cursor:pointer;
-  overflow: hidden;
   outline: none;
-  margin-left: 6rem;
 }
 
 .ck-button:active{
@@ -90,7 +84,8 @@
 }
 
 .card {
-  font-family: 'Poppins', serif;
+  font-family: 'Quicksand', serif;
+  font-weight: 300;
   border: 0px;
 }
 /* #7accd8 #ccfdfe */
@@ -107,24 +102,21 @@
 }
 
 .ck-button {
-  border-radius: 0px;
-  border: solid 2px black;
   color: black;
   background-color: white;
-  font-family: "Poppins", serif;
+  font-family: 'Quicksand', serif;
+  font-weight: 400;
 }
 
 .ck-button:hover {
-  border: solid 2px black;
-  color: white;
-  background-color: #16c9ce;
+  color: #16c9ce;
 }
 
-.ck-button:focus {
+/*.ck-button:focus {
   border: solid 2px #16c9ce;
   color: white;
   background-color: #16c9ce;
-}
+}*/
 
 .modal-content {
   border-radius: 0px;
@@ -143,7 +135,7 @@
 
 #postInput {
   border-radius: 0px;
-  border: solid 2px black;
+  border: solid 1px black;
 }
 
 #modalImageIcon {
@@ -156,10 +148,7 @@
   margin: 0 auto;
   width: 60%;
   margin-bottom: 2rem;
-  border-top: solid 2px black;
-  border-bottom: solid 2px black;
   border-radius: 0px;
-  background: #D4F4DD;
 }
 
 .ck-card-footer:last-child {
@@ -174,15 +163,15 @@
 .comment-box {
   margin: 1rem;
   height: 5rem;
-  background: white;
   overflow-y: scroll;
-  border: solid 2px black;
+  border: none;
   padding-left: .3rem;
   padding-right: .3rem;
 }
 
 .comment-input {
-  width: 30%;
+  width:70%;
+  float:left;
 }
 
 .comment-username {
@@ -197,6 +186,28 @@
   height: auto;
 }
 
+.hl-blue{
+  color:#15abaf;
+}
+
 .ck-font {
-  font-family: "Poppins", serif;
+  font-family: 'Quicksand', serif;
+  font-weight: 400;
+}
+
+.comment-col {
+  float:left;
+  width:50%;
+}
+
+.side-col {
+  width:10%;
+  height:8rem;
+  float:left;
+}
+
+.reaction-bar {
+  background-color: green;
+  padding:0.2rem;
+  margin:0.5rem;
 }

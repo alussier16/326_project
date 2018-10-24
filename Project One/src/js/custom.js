@@ -22,3 +22,13 @@ $(document).ready(function(){
       $('#myInput').focus()
     })
 });
+
+function move() {
+    var divs = document.getElementsByClassName("reaction-bar"), i=divs.length, r=0, id = 0;
+    while(i--){
+      r = divs[i].getAttribute("reactVal");
+      for(var j=0; j < r; j++){
+        divs[i].style.width = j + '%';
+      }
+    }
+}
