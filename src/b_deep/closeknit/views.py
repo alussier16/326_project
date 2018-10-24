@@ -7,5 +7,5 @@ def test(request):
 
 def main(request):
     return render(
-        request, 'main.html'
+        request, 'nav-bar.html'
     )
