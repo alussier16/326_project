@@ -32,13 +32,13 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item {% if page == 'main' %} active {% endif %}">
-        <a class="nav-link ck-font" href="main.html">Home <span class="sr-only">(current)</span></a>
+	      <a class="nav-link ck-font" href="{% url 'main' %}">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item {% if page == 'ties' %} active {% endif %}">
-        <a class="nav-link ck-font" href="ties.html">Ties</a>
+	      <a class="nav-link ck-font" href="{% url 'ties' %}">Ties</a>
       </li>
       <li class="nav-item {% if page == 'account' %} active {% endif %}">
-        <a class="nav-link ck-font" href="account.html">Account</a>
+	      <a class="nav-link ck-font" href="{% url 'account' %}">Account</a>
       </li>
       <li class="nav-item" id="navPostItem">
         <button type="button" class="btn primary-btn ck-button ck-font" data-toggle="modal" data-target="#postModal" id="navPostLink">Post</button>

@@ -1,4 +1,4 @@
-import random
+import random, pytz
 from django.contrib.auth.models import User
 from faker import Faker
 from closeknit.models import UserAccount, Post, Comment, Reaction
@@ -27,7 +27,7 @@ for u in users:
     for i in range(0,fake.random_int(1,5)):
         p_author = u
         p_text = fake.text(max_nb_chars=250, ext_word_list=None)
-        p_timestamp = fake.date_time_between(start_date="-1y", end_date="now", tzinfo=None)
+        p_timestamp = fake.date_time_between(start_date="-1y", end_date="now", tzinfo=pytz.utc)
         post = Post(author=p_author, text_content=p_text, time_stamp=p_timestamp)
         post.save()
         posts.append(post)
@@ -38,7 +38,7 @@ for p in posts:
         c_content = fake.text(max_nb_chars=50, ext_word_list=None)
         c_post = p
         c_author = random.choice(users)
-        c_timestamp = fake.date_time_between(start_date="-1y", end_date="now", tzinfo=None)
+        c_timestamp = fake.date_time_between(start_date="-1y", end_date="now", tzinfo=pytz.utc)
         comment = Comment(content=c_content,post=c_post,author=c_author,time_stamp=c_timestamp)
         comment.save()
         comments.append(comment)
@@ -48,7 +48,7 @@ for p in posts:
     for i in range(1,6):
         r_post = p
         r_user = random.choice(users)
-        r_timestamp = fake.date_time_between(start_date="-1y", end_date="now", tzinfo=None)
+        r_timestamp = fake.date_time_between(start_date="-1y", end_date="now", tzinfo=pytz.utc)
         r_status = fake.random_int(0,5)
         reaction = Reaction(post=r_post, user=r_user, time_stamp=r_timestamp,status=r_status)
         reaction.save()
