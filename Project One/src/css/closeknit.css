@@ -17,6 +17,7 @@ body {
   margin: 0 auto;
   font-family: 'Raleway', serif;
   font-weight: 300;
+  padding-bottom: 1em;
   font-size: 2em;
 }
 
@@ -126,9 +127,7 @@ body {
 
 .ck-card-footer {
   margin: 0 auto;
-  width: 80%;
   margin-bottom: 2rem;
-  margin-left: 8em;
   border-radius: 0px;
 }
 
@@ -160,7 +159,7 @@ body {
 }
 
 .user-comment{
-  padding-left:2em;
+
 }
 
 .ck-button{
@@ -242,6 +241,9 @@ body {
     text-align: center;
     width:100%;
   }
+  .ck-card-image {
+      width:75%;
+  }
 }
 
 @media (min-width: 650px) and (max-width: 1000px){
@@ -275,6 +277,9 @@ body {
   .side-col{
     text-align: center;
     width:100%;
+  }
+  .ck-card-image {
+    width:65%;
   }
 }
 
