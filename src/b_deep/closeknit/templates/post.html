@@ -1,0 +1,24 @@
+{% include "nav-bar.html" with page="main" %}
+
+{% block content %}
+{% for post in posts %}
+<div class="card">
+  <div class="card-body">
+    <div class="side-col">
+      <p class="card-text ck-card-name">
+        <a class="user-link" href="/{{post.author.username}}">@{{post.author.username}}</a> says:
+      </p>
+      <button type="button" class="ck-react-button ck-font" data-toggle="collapse" data-target="#p{{forloop.counter}}" aria-expanded="false" aria-controls="footerOne" onclick="move()">
+        <span class="hl-blue">Comments</span>
+      </button>
+    </div>
+    <h1 class="ck-card-title">
+      "{{post.text_content}}"
+    </h1>
+  </div>
+  <div class="ck-card-footer card-footer collapse" id="p{{forloop.counter}}">
+
+  </div>
+</div>
+{% endfor %}
+{% endblock %}
