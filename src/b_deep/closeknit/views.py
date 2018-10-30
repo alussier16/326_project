@@ -5,9 +5,11 @@ from django.http import HttpResponse
 def test(request):
     return HttpResponse('Welcome to Closeknit')
 
-def main(request):
+def post(request):
+    user = UserAccount.objects.get(pk=1)
+    posts = Post.objects.all().order_by('time_stamp')[:30]
     return render(
-        request, 'main.html', {'page': 'main'}
+        request, 'post.html', {'posts': posts, 'page': 'main'}
     )
 
 def account(request):
