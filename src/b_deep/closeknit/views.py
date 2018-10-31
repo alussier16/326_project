@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.views import generic
 from closeknit.models import UserAccount, Post, Comment, Reaction
 
 # Create your views here.
@@ -8,14 +9,20 @@ def test(request):
 
 def post(request):
     user = UserAccount.objects.get(pk=1)
-    posts = Post.objects.all().order_by('time_stamp')[:30]
+    friends = user.friends.all()
+    posts=[]
+    for friend in friends:
+        posts += friend.post_set.all()
+    posts = sorted(posts, key=lambda x: x.time_stamp, reverse=True)[:30]
     return render(
         request, 'post.html', {'posts': posts, 'page': 'main'}
     )
 
 def account(request):
+    user = UserAccount.objects.get(pk=1)
+    posts = sorted(user.post_set.all(), key=lambda x: x.time_stamp, reverse=True)[:30]
     return render(
-        request, 'account.html', {'page': 'account'}
+        request, 'post.html', {'posts': posts, 'page': 'account'}
     )
 
 def ties(request):

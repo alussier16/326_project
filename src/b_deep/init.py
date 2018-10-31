@@ -49,7 +49,7 @@ for p in posts:
         r_post = p
         r_user = random.choice(users)
         r_timestamp = fake.date_time_between(start_date="-1y", end_date="now", tzinfo=pytz.utc)
-        r_status = fake.random_int(0,5)
+        r_status = fake.random_int(1,4)
         reaction = Reaction(post=r_post, user=r_user, time_stamp=r_timestamp,status=r_status)
         reaction.save()
         reactions.append(reaction)

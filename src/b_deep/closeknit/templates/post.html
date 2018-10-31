@@ -1,4 +1,4 @@
-{% include "nav-bar.html" with page="main" %}
+{% include "nav-bar.html" %}
 
 {% block content %}
 {% for post in posts %}
@@ -20,10 +20,9 @@
         <div class="user-input-box">
           <div class="comment-col">
             <div class="comment-box">
-              <p class="comment-text text-left"><a class="user-link" href="account.html">@sivan</a> Good stuff bruh!</p>
-              <p class="comment-text text-left"><a class="user-link" href="account.html">@andy</a> Not sure about this one chief</p>
-              <p class="comment-text text-left"><a class="user-link" href="account.html">@gizem</a> Good stuff bruh!</p>
-              <p class="comment-text text-left"><a class="user-link" href="account.html">@jordan</a> Good stuff bruh!</p>
+              {% for comment in post.comment_set.all %}
+                <p class="comment-text text-left"><a class="user-link" href="{% url 'account' %}">@{{comment.author.username}}</a> {{comment.content}}</p>
+              {% endfor %}
             </div>
             <div class="user-comment">
               <textarea rows="1" type="text" class="form-control comment-input" id="postInput"></textarea>
@@ -32,10 +31,10 @@
           </div>
 
           <div class="react-col">
-            <div id="reaction" class="reaction-bar" style="background-color: #15ABAF;" reactVal="90">👽</div>
-            <div id="reaction" class="reaction-bar" style="background-color: #509799;" reactVal="80">🥜</div>
-            <div id="reaction" class="reaction-bar" style="background-color: #1FFF86;" reactVal="50">🍔</div>
-            <div id="reaction" class="reaction-bar" style="background-color: #FF5E7C;" reactVal="20">😨</div>
+            <div id="reaction" class="reaction-bar" style="background-color: #15ABAF;" reactVal= {{ post.num_react_1 }}>👽</div>
+            <div id="reaction" class="reaction-bar" style="background-color: #509799;" reactVal= {{ post.num_react_2 }}>🥜</div>
+            <div id="reaction" class="reaction-bar" style="background-color: #1FFF86;" reactVal= {{ post.num_react_3 }}>🍔</div>
+            <div id="reaction" class="reaction-bar" style="background-color: #FF5E7C;" reactVal= {{ post.num_react_4 }}>😨</div>
           </div>
         </div>
       </div>
