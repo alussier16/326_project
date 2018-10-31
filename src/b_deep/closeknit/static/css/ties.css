@@ -1,0 +1,40 @@
+.user-profile img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width:15%;
+  height:15%;
+  padding-top: 20px;
+}
+
+.user-profile p{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align:center;
+}
+
+table{
+  width:100%;
+}
+
+td{
+  width: 300px;
+  height: 300px;
+  vertical-align:middle;
+}
+
+td img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width:50%;
+  height: auto;
+}
+
+td p{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align:center;
+}
