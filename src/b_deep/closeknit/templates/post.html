@@ -1,5 +1,5 @@
 {% load filters %}
-{% include "nav-bar.html" with page="main" %}
+{% include "nav-bar.html" %}
 
 {% block content %}
 {% for post in posts %}
@@ -7,7 +7,7 @@
   <div class="card-body">
     <div class="side-col">
       <p class="card-text ck-card-name">
-        <a class="user-link" href="/{{post.author.username}}">@{{post.author.username}}</a> says:
+        <a class="user-link" href="/closeknit/{{post.author.username}}/account">@{{post.author.username}}</a> says:
       </p>
       <button type="button" class="ck-react-button ck-font" data-toggle="collapse" data-target="#p{{forloop.counter}}" aria-expanded="false" aria-controls="footerOne" onclick="move()">
         <span class="hl-blue">Comments</span>
@@ -22,7 +22,7 @@
           <div class="comment-col">
             <div class="comment-box">
               {% for comment in post.comment_set.all|dictsort:"time_stamp" %}
-              <p class="comment-text text-left"><a class="user-link" href="/{{comment.author.username}}">@{{comment.author.username}}</a> {{ comment.content|urlizetrunc:15 }}</p>
+              <p class="comment-text text-left"><a class="user-link" href="/closeknit/{{comment.author.username}}/account">@{{comment.author.username}}</a> {{ comment.content|urlizetrunc:15 }}</p>
               {% endfor %}
             </div>
             <div class="user-comment">

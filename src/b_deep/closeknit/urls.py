@@ -10,7 +10,7 @@ urlpatterns += [
 ]
 
 urlpatterns += [
-    path('account', views.account, name='account'),
+    path('<slug:user_account>/account', views.account, name='account'),
 ]
 
 urlpatterns += [

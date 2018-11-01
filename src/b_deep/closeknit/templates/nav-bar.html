@@ -38,7 +38,7 @@
 	      <a class="nav-link ck-font" href="{% url 'ties' %}">Ties</a>
       </li>
       <li class="nav-item {% if page == 'account' %} active {% endif %}">
-	      <a class="nav-link ck-font" href="{% url 'account' %}">Account</a>
+	      <a class="nav-link ck-font" href="/closeknit/{{user.username}}/account">Account</a>
       </li>
       <li class="nav-item" id="navPostItem">
         <button type="button" class="btn primary-btn ck-button ck-font" data-toggle="modal" data-target="#postModal" id="navPostLink">Post</button>

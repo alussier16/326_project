@@ -8,7 +8,7 @@ def test(request):
     return HttpResponse('Welcome to Closeknit')
 
 def post(request):
-    user = UserAccount.objects.get(pk=1)
+    user=UserAccount.objects.get(pk=1)
     friends = user.friends.all()
     posts=[]
     for friend in friends:
@@ -16,19 +16,21 @@ def post(request):
     posts = sorted(posts, key=lambda x: x.time_stamp, reverse=True)[:30]
     
     return render(
-        request, 'post.html', {'posts': posts, 'page': 'main'}
+        request, 'post.html', {'posts': posts, 'page': 'main', 'user': user}
     )
 
-def account(request):
-    user = UserAccount.objects.get(pk=1)
-    posts = sorted(user.post_set.all(), key=lambda x: x.time_stamp, reverse=True)[:30]
+def account(request, user_account):
+    user=UserAccount.objects.get(pk=1)
+    viewed_user = UserAccount.objects.get(username=user_account)
+    posts = sorted(viewed_user.post_set.all(), key=lambda x: x.time_stamp, reverse=True)[:30]
     return render(
-        request, 'post.html', {'posts': posts, 'page': 'account'}
+        request, 'post.html', {'posts': posts, 'page': 'account', 'user': user}
     )
 
 def ties(request):
+    user=UserAccount.objects.get(pk=1)
     return render(
-        request, 'ties.html', {'page': 'ties'}
+        request, 'ties.html', {'page': 'ties', 'user': user}
     )
 
 def login(request):
