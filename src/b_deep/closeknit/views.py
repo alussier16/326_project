@@ -23,7 +23,8 @@ def ties(request):
     context = {
         "user":user,
         "friends_list":friends_list,
-        "friend_count":friend_count
+        "friend_count":friend_count,
+        'page': 'ties'
     }
     return render(
         request, 'ties.html', context=context

@@ -27,17 +27,17 @@
  
   <div class="user-profile">
     <img class="user-profile" src="{% static 'img/profile.png' %}"></img>
-    <p class="user-profile">You: @{{user.username}}</p>
+    <p>You: <a class="user-profile" href="/closeknit/{{user.username}}">@{{user.username}}</a></p>
   </div>
 
 
-<div class="tie" style="overflow-x:auto;">
+<div class="tie-profile" style="overflow-x:auto;">
   <table>
   {% for friend in friends_list %}
     {% cycle '<tr>' '' '' '' '' %}
       <td>
-        <img class="tie" style="-webkit-filter:hue-rotate({% cycle '20deg' '180deg' '340deg' '40deg' '160deg' '300deg' '60deg' '140deg' '260deg' '80deg' '120deg' '220deg' '100deg'%})" src="{% static 'img/profile.png' %}"></img>
-        <p class="tie">@{{friend.username}}</p>
+        <img class="tie-profile" style="-webkit-filter:hue-rotate({% cycle '20deg' '180deg' '340deg' '40deg' '160deg' '300deg' '60deg' '140deg' '260deg' '80deg' '120deg' '220deg' '100deg'%})" src="{% static 'img/profile.png' %}"></img>
+        <a class="tie-profile" href="/closeknit/{{friend.username}}">@{{friend.username}}</a>
       </td>
     {% cycle '' '' '' '' '</tr>' %}
   {% endfor %}

@@ -14,6 +14,27 @@
   text-align:center;
 }
 
+.user-profile a{
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align:center;
+}
+
+.user-profile a:link{
+  text-decoration:none;
+  color: #15abaf;
+}
+.user-profile a:active{
+  text-decoration:none;
+  color: #15abaf;
+}
+
+.user-profile a:hover{
+  text-decoration:none;
+  color: #16c9ce;
+}
+
 table{
   width:100%;
 }
@@ -32,9 +53,23 @@ td img{
   height: auto;
 }
 
-td p{
+td a{
   display: block;
   margin-left: auto;
   margin-right: auto;
   text-align:center;
+}
+
+.tie-profile a:link{
+  text-decoration:none;
+  color: #15abaf;
+}
+.tie-profile a:active{
+  text-decoration:none;
+  color: #15abaf;
+}
+
+.tie-profile a:hover{
+  text-decoration:none;
+  color: #16c9ce;
 }
