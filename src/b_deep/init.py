@@ -6,7 +6,7 @@ from closeknit.models import UserAccount, Post, Comment, Reaction
 fake = Faker()
 
 users = []
-for i in range(1,150):
+for i in range(1,25):
     u_fname = fake.first_name()
     u_lname = fake.last_name()
     u_email = fake.email()
@@ -18,7 +18,7 @@ for i in range(1,150):
     users.append(user)
 
 for u in users:
-    new_friends = random.sample(users,fake.random_int(1,99))
+    new_friends = random.sample(users,fake.random_int(1,20))
     u.friends.set(new_friends)
     u.save()
 

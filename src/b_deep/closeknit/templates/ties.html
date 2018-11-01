@@ -3,22 +3,11 @@
 {% block content %}
 {% load static %}
 <head>
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <link rel="stylesheet" href="../css/bootstrap-grid.min.css">
-  <link rel="stylesheet" href="../css/bootstrap-reboot.min.css">
-  <link rel="stylesheet" href="../css/ties.css">
-  <link rel="stylesheet" href="../css/closeknit.css">
-  <link href="https://fonts.googleapis.com/css?family=Coming+Soon" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/ties.css' %}">
+
 </head>
 
 <body>
-  <script src="../js/jquery-3.3.1.min.js"></script>
-  <script src="../js/jquery-ui.min.js"></script>
-  <script src="../js/bootstrap.bundle.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="../js/custom.js"></script>
-
   <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -35,22 +24,27 @@
       </div>
     </div>
   </div>
+ 
+  <div class="user-profile">
+    <img class="user-profile" src="{% static 'img/profile.png' %}"></img>
+    <p>You: <a class="user-profile" href="/closeknit/{{user.username}}">@{{user.username}}</a></p>
+  </div>
 
-  <div class="profile">
-    <img class="profile" src="{% static 'img/placeholder.png' %}"></img>
-  </div>
-  <div class="subprofile1">
-    <img class="subprofile1" src="{% static 'img/placeholder.png' %}"></img>
-  </div>
-  <div class="subprofile2">
-    <img class="subprofile2" src="{% static 'img/placeholder.png' %}"></img>
-  </div>
-  <div class="subprofile3">
-    <img class="subprofile3" src="{% static 'img/placeholder.png' %}"></img>
-  </div>
-  <div class="subprofile4">
-    <img class="subprofile4" src="../placeholder.png"></img>
-  </div>
+
+<div class="tie-profile" style="overflow-x:auto;">
+  <table>
+  {% for friend in friends_list %}
+    {% cycle '<tr>' '' '' '' '' %}
+      <td>
+        <img class="tie-profile" style="-webkit-filter:hue-rotate({% cycle '20deg' '180deg' '340deg' '40deg' '160deg' '300deg' '60deg' '140deg' '260deg' '80deg' '120deg' '220deg' '100deg'%})" src="{% static 'img/profile.png' %}"></img>
+        <a class="tie-profile" href="/closeknit/{{friend.username}}">@{{friend.username}}</a>
+      </td>
+    {% cycle '' '' '' '' '</tr>' %}
+  {% endfor %}
+  </table>
+</div>
+
+  
 
 
 </body>

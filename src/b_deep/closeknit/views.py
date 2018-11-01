@@ -29,6 +29,7 @@ def account(request, user_account):
 
 def ties(request):
     user=UserAccount.objects.get(pk=1)
+    friends = user.friends.all()
     return render(
         request, 'ties.html', {'page': 'ties', 'user': user}
     )
