@@ -14,6 +14,7 @@ def post(request):
     for friend in friends:
         posts += friend.post_set.all()
     posts = sorted(posts, key=lambda x: x.time_stamp, reverse=True)[:30]
+    
     return render(
         request, 'post.html', {'posts': posts, 'page': 'main'}
     )

@@ -15,13 +15,13 @@ class UserAccount(models.Model):
 
     def __str__(self):
         return self.username
-    
+
     def display_friends(self):
         return ", ".join(friend.username for friend in self.friends.all())
 
 
 
-    
+
 class Post(models.Model):
     """Model Representing a Post"""
     author = models.ForeignKey('UserAccount', on_delete=models.CASCADE)
@@ -70,12 +70,10 @@ class Reaction(models.Model):
 
     REACTIONS = (('0', 'None'),
     ('1', 'React 1'),
-    ('2', 'React 2'), 
+    ('2', 'React 2'),
     ('3', 'React 3'),
     ('4', 'React 4'))
     status = models.CharField(max_length=1,choices= REACTIONS,blank=True,default= '0')
 
     def __str__(self):
         return f"{self.user}, {self.time_stamp}"
-
-
