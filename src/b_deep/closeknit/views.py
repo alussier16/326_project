@@ -14,7 +14,7 @@ def post(request):
     for friend in friends:
         posts += friend.post_set.all()
     posts = sorted(posts, key=lambda x: x.time_stamp, reverse=True)[:30]
-    
+
     return render(
         request, 'post.html', {'posts': posts, 'page': 'main', 'user': user}
     )
@@ -47,4 +47,16 @@ def signup(request):
 def accountcreated(request):
     return render(
         request, 'account-created.html', {'page': 'account-created'}
+    )
+
+def settings(request):
+    user=UserAccount.objects.get(pk=1)
+    return render(
+        request, 'settings.html', {'page': 'settings', 'user': user}
+    )
+
+def addfriend(request):
+    user=UserAccount.objects.get(pk=1)
+    return render(
+        request, 'add-friend.html', {'page': 'settings', 'user': user} 
     )

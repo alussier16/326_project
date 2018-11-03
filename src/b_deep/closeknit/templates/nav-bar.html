@@ -40,9 +40,14 @@
       <li class="nav-item {% if page == 'account' %} active {% endif %}">
         <a class="nav-link ck-font" href="/closeknit/{{user.username}}/account">Account</a>
       </li>
-      {% if page == 'settings' or page == 'account' %}
+      {% if page == 'settings' %}
       <li class="nav-item {% if page == 'settings' %} active {% endif %}">
-        <a class="nav-link" href="#"> <img class="navbar-icon" src="{% static 'img/open-iconic/svg/cog.svg' %}" width="20rem" height="auto"> </a>
+        <a class="nav-link" href="{% url 'settings' %}"> <img class="navbar-icon" src="{% static 'img/open-iconic/svg/cog.svg' %}" width="20rem" height="auto"> </a>
+      </li>
+      {% endif %}
+      {% if page == 'account' %}
+      <li class="nav-item {% if page == 'settings' %} active {% endif %}">
+        <a class="nav-link" href="{% url 'settings' %}"> <img class="navbar-icon" src="{% static 'img/open-iconic/svg/cog.svg' %}" width="20rem" height="auto"> </a>
       </li>
       {% endif %}
       <li class="nav-item" id="navPostItem">

@@ -2,14 +2,10 @@
 
 {% block content %}
 {% load static %}
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <link href="../css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="../css/signup.css">
-  <link rel="stylesheet" href="../css/closeknit.css">
-  <link href="https://fonts.googleapis.com/css?family=Coming+Soon" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400" rel="stylesheet">
 </head>
 
 <body>
@@ -26,7 +22,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-		<a class="nav-link" href="{% url 'login' %}">Log In</a>
+          <a class="nav-link" href="{% url 'login' %}">Log In</a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="#">Sign Up <span class="sr-only">(current)</span></a>
@@ -37,7 +33,7 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-xs-auto col-sm-8 col-md-6" id="signup-form">
-	      <img src="{% static 'img/yarn-ball.png' %}" width="100" height="100" style="display:block; margin-left:auto; margin-right:auto">
+        <img src="{% static 'img/yarn-ball.png' %}" width="100" height="100" style="display:block; margin-left:auto; margin-right:auto">
         <h2 style="text-align:center" class="ck-font">Sign up!</h2>
         <div class="form-group">
           <label for="email">
@@ -71,7 +67,7 @@
         </div>
         <div class="from-group">
           <!-- <input type="button" class="btn btn-link" onclick="location.href = '#'">Back</input> -->
-	  <input type="submit" class="btn btn-default ck-button" onclick='location.href = "{% url 'accountcreated' %}"'></input>
+          <input type="submit" class="btn btn-default ck-button" onclick='location.href = "{% url ' accountcreated' %}"'></input>
         </div>
       </div>
     </div>

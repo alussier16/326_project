@@ -24,3 +24,11 @@ urlpatterns += [
 urlpatterns += [
     path('account-created', views.accountcreated, name='accountcreated'),
 ]
+
+urlpatterns += [
+    path('settings', views.settings, name='settings'),
+]
+
+urlpatterns += [
+    path('addfriend', views.addfriend, name='addfriend'),
+]
