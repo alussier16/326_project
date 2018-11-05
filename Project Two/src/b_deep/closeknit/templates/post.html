@@ -1,0 +1,50 @@
+{% load filters %}
+{% include "nav-bar.html" %}
+
+{% block content %}
+{% for post in posts %}
+<div class="card">
+  <div class="card-body">
+    <div class="side-col">
+      <p class="card-text ck-card-name">
+        <a class="user-link" href="/closeknit/{{post.author.username}}/account">@{{post.author.username}}</a> says:
+      </p>
+      <button type="button" class="ck-react-button ck-font" data-toggle="collapse" data-target="#p{{forloop.counter}}" aria-expanded="false" aria-controls="footerOne" onclick="move()">
+        <span class="hl-blue">Comments</span>
+      </button>
+    </div>
+    <div class="text-col">
+      <h1 class="ck-card-title">
+        "{{post.text_content}}"
+      </h1>
+      <div class="ck-card-footer card-footer collapse" id="p{{forloop.counter}}">
+        <div class="user-input-box">
+          <div class="comment-col">
+            <div class="comment-box">
+              {% for comment in post.comment_set.all|dictsort:"time_stamp" %}
+              <p class="comment-text text-left"><a class="user-link" href="/closeknit/{{comment.author.username}}/account">@{{comment.author.username}}</a> {{ comment.content|urlizetrunc:15 }}</p>
+              {% endfor %}
+            </div>
+            <div class="user-comment">
+              <textarea rows="1" type="text" class="form-control comment-input" id="postInput"></textarea>
+              <button class="btn ck-button">Send</button>
+            </div>
+          </div>
+
+
+          <div class="react-col">
+            {% with post.reaction_set.all|percentage as reactions %}
+            <div id="reaction" class="reaction-bar" style="background-color: #15ABAF;" reactVal="{{ reactions.0 }}">👽</div>
+            <div id="reaction" class="reaction-bar" style="background-color: #509799;" reactVal="{{ reactions.1 }}">🥜</div>
+            <div id="reaction" class="reaction-bar" style="background-color: #1FFF86;" reactVal="{{ reactions.2 }}">🍔</div>
+            <div id="reaction" class="reaction-bar" style="background-color: #FF5E7C;" reactVal="{{ reactions.3 }}">😨</div>
+            {% endwith %}
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% endblock %}
