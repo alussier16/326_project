@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="../css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="../css/account.css">
+  <link rel="stylesheet" href="../css/closeknit.css">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,400" rel="stylesheet">
+</head>
+
+<body>
+  <script src="../js/jquery-3.3.1.min.js"></script>
+  <script src="../js/jquery-ui.min.js"></script>
+  <script src="../js/bootstrap.bundle.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/custom.js"></script>
+
+  <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <textarea rows="8" type="text" class="form-control post-form" id="postInput"></textarea>
+            </div>
+          </form>
+          <img src="../image.svg" id="modalImageIcon"></img>
+          <button type="button" class="btn ck-button modal-buttons" data-dismiss="modal">Post</button>
+          <button type="button" class="btn ck-button modal-buttons" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-sm navbar-light nav-style">
+    <span class="navbar-brand mb-0 h1 ck-font">
+      Closeknit
+      <img src="../yarn-ball.png" width="30" height="30" style="margin-left:0.3em; margin-bottom: 0.15em">
+    </span>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link ck-font" href="main.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link ck-font" href="ties.html">Ties</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link ck-font" href="account.html">Account</a>
+        </li>
+        <li class="nav-item" id="navPostItem">
+          <button type="button" class="btn primary-btn ck-button ck-font" data-toggle="modal" data-target="#postModal" id="navPostLink">Post</button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <nav class="navbar navbar-expand-md navbar-light nav-style">
+    <div id="navbarNav">
+      <ul class="navbar-nav" id="addUser">
+        <span class="navbar-text">
+          Username
+        </span>
+        <input class="form-control mr-sm-2 user-box" type="search" placeholder="" aria-label="">
+
+        <span class="navbar-text">
+          Code
+        </span>
+        <input class="form-control mr-sm-2 user-box" type="search" placeholder="" aria-label="">
+        <button class="btn primary-btn ck-button">Add</button>
+        <a class="nav-link" href="#">Settings</a>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="card" id="first-card">
+    <div class="card-body">
+      <div class="side-col">
+        <p class="card-text ck-card-name">
+          <a class="user-link" href="account.html">@you</a> said:
+        </p>
+        <button type="button" class="ck-react-button ck-font" data-toggle="collapse" data-target="#footerOne" aria-expanded="false" aria-controls="footerOne" onclick="move()">
+            <span class="hl-blue">Comments</span>
+        </button>
+      </div>
+      <h1 class="ck-card-title">
+        "Mauris facilisis euismod libero, et porta orci varius id. Aliquam maximus elit elit, vitae sollicitudin. Does any of that make sense? I'm just trying to get this to three lines."
+      </h1>
+    </div>
+
+
+    <div class="ck-card-footer card-footer collapse" id="footerOne">
+      <div class="container">
+        <div class="comment-col">
+          <div class="comment-box">
+            <p class="comment-text text-left"><a class="user-link" href="account.html">@sivan</a> Good stuff bruh!</p>
+            <p class="comment-text text-left"><a class="user-link" href="account.html">@andy</a> Not sure about this one chief</p>
+            <p class="comment-text text-left"><a class="user-link" href="account.html">@gizem</a> Good stuff bruh!</p>
+            <p class="comment-text text-left"><a class="user-link" href="account.html">@jordan</a> Good stuff bruh!</p>
+          </div>
+          <div class="container">
+            <textarea rows="1" type="text" class="form-control comment-input" id="postInput"></textarea>
+            <button class="btn ck-button">Send</button>
+          </div>
+        </div>
+
+        <div class="comment-col">
+          <div id="reaction" class="reaction-bar" style="background-color: #15ABAF;" reactVal="100">👽</div>
+          <div id="reaction" class="reaction-bar" style="background-color: #509799;" reactVal="80">🥜</div>
+          <div id="reaction" class="reaction-bar" style="background-color: #1FFF86;" reactVal="50">🍔</div>
+          <div id="reaction" class="reaction-bar" style="background-color: #FF5E7C;" reactVal="20">😨</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="first-card">
+    <div class="card-body">
+      <div class="side-col">
+        <p class="card-text ck-card-name">
+          <a class="user-link" href="account.html">@you</a> said:
+        </p>
+        <button type="button" class="ck-react-button ck-font" data-toggle="collapse" data-target="#footerTwo" aria-expanded="false" aria-controls="footerOne" onclick="move()">
+            <span class="hl-blue">Comments</span>
+        </button>
+      </div>
+      <h1 class="ck-card-title">
+        "This is a short post. Mobile first btw"
+      </h1>
+    </div>
+
+
+    <div class="ck-card-footer card-footer collapse" id="footerTwo">
+      <div class="container">
+        <div class="comment-col">
+          <div class="comment-box">
+            <p class="comment-text text-left"><a class="user-link" href="account.html">@sivan</a> Hope she sees this one</p>
+            <p class="comment-text text-left"><a class="user-link" href="account.html">@andy</a> Not sure about this one chief</p>
+            <p class="comment-text text-left"><a class="user-link" href="account.html">@gizem</a> Good stuff bruh!</p>
+            <p class="comment-text text-left"><a class="user-link" href="account.html">@jordan</a> Good stuff bruh!</p>
+          </div>
+          <div class="container">
+            <textarea rows="1" type="text" class="form-control comment-input" id="postInput"></textarea>
+            <button class="btn ck-button">Send</button>
+          </div>
+        </div>
+
+        <div class="comment-col">
+          <div id="reaction" class="reaction-bar" style="background-color: #15ABAF;" reactVal="100">👽</div>
+          <div id="reaction" class="reaction-bar" style="background-color: #509799;" reactVal="80">🥜</div>
+          <div id="reaction" class="reaction-bar" style="background-color: #1FFF86;" reactVal="50">🍔</div>
+          <div id="reaction" class="reaction-bar" style="background-color: #FF5E7C;" reactVal="20">😨</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

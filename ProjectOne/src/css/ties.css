@@ -1,0 +1,41 @@
+.profile, img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20%;
+}
+
+.subprofile1 {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  margin-left: 20%;
+  margin-right: auto;
+  margin-top: 0%;
+}
+.subprofile2 {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  margin-left: 20%;
+  margin-right: auto;
+  margin-top: -20%;
+}
+.subprofile3 {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  margin-left: 70%;
+  margin-right: auto;
+  margin-top: 7.5%;
+}
+.subprofile4 {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  margin-left: 70%;
+  margin-right: auto;
+  margin-top: -20%;
+}

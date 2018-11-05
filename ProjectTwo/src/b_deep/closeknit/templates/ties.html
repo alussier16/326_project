@@ -1,0 +1,54 @@
+{% extends "nav-bar.html" %}
+
+{% block content %}
+{% load static %}
+<head>
+  <link rel="stylesheet" href="{% static 'css/ties.css' %}">
+
+</head>
+
+<body>
+  <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <textarea rows="8" type="text" class="form-control post-form" id="postInput"></textarea>
+            </div>
+          </form>
+          <img src="../image.svg" id="modalImageIcon"></img>
+          <button type="button" class="btn ck-button modal-buttons" data-dismiss="modal">Post</button>
+          <button type="button" class="btn ck-button modal-buttons" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="user-profile">
+    <img class="user-profile" src="{% static 'img/profile.png' %}"></img>
+    <p>You: <a class="user-profile" href="/closeknit/{{user.username}}/account">@{{user.username}}</a></p>
+  </div>
+
+
+<div class="tie-profile" style="overflow-x:auto;">
+  <table>
+  {% for friend in friends %}
+    {% cycle '<tr>' '' '' '' '' %}
+      <td>
+        <img class="tie-profile" style="-webkit-filter:hue-rotate({% cycle '20deg' '180deg' '340deg' '40deg' '160deg' '300deg' '60deg' '140deg' '260deg' '80deg' '120deg' '220deg' '100deg'%})" src="{% static 'img/profile.png' %}"></img>
+        <a class="tie-profile" href="/closeknit/{{friend.username}}/account">@{{friend.username}}</a>
+      </td>
+    {% cycle '' '' '' '' '</tr>' %}
+  {% endfor %}
+  </table>
+</div>
+
+  
+
+
+</body>
+
+</html>
+
+{% endblock %}

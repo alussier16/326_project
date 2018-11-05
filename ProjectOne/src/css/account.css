@@ -1,0 +1,18 @@
+.navbar-text {
+  margin-right: .5rem;
+}
+
+#addUser {
+  align-content: center;
+}
+
+.user-box {
+  border: solid 1px black;
+  border-radius: 0px;
+}
+
+.user-box input:focus{
+  background-color: #e2e2e2;
+  border-color: #15abaf;
+  box-shadow: 0 0 0px rgba(21, 171, 175, 0.4);
+}

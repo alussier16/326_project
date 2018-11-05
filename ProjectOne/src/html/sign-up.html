@@ -1,0 +1,82 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/signup.css">
+  <link rel="stylesheet" href="../css/closeknit.css">
+  <link href="https://fonts.googleapis.com/css?family=Coming+Soon" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md navbar-light nav-style">
+    <span class="navbar-brand mb-0 h1">
+      Closeknit
+      <img src="../yarn-ball.png" width="30" height="30" style="margin-left:0.3em; margin-bottom: 0.15em">
+    </span>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="login.html">Log In</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Sign Up <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xs-auto col-sm-8 col-md-6" id="signup-form">
+        <img src="../yarn-ball.png" width="100" height="100" style="display:block; margin-left:auto; margin-right:auto">
+        <h2 style="text-align:center" class="ck-font">Sign up!</h2>
+        <div class="form-group">
+          <label for="email">
+            <h5 class="ck-font">Email:</h5>
+          </label>
+          <input type="email" class="form-control" id="email">
+        </div>
+        <div class="form-group">
+          <label for="username">
+            <h5 class="ck-font">Username:</h5>
+          </label>
+          <input type="text" class="form-control" id="username">
+        </div>
+        <div class="form-group">
+          <label for="friend-code">
+            <h5 class="ck-font">Friend Code:</h5>
+          </label>
+          <input type="text" class="form-control" id="friend-code">
+        </div>
+        <div class="form-group">
+          <label for="password">
+            <h5 class="ck-font">Password:</h5>
+          </label>
+          <input type="password" class="form-control" id="password">
+        </div>
+        <div class="form-group">
+          <label for="re-password">
+            <h5 class="ck-font">Re-Enter Password:</h5>
+          </label>
+          <input type="password" class="form-control" id="re-password">
+        </div>
+        <div class="from-group">
+          <!-- <input type="button" class="btn btn-link" onclick="location.href = '#'">Back</input> -->
+          <input type="submit" class="btn btn-default ck-button" onclick="location.href = 'account-created.html'"></input>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery.min.js"></script>
+  <script srs="../js/bootstrap.min.js"></script>
+</body>
+
+</html>

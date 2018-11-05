@@ -1,0 +1,27 @@
+.backdrop {
+  background-color: #16c9ce;
+  background: url("../closeknit-background.png");
+  min-height: 100%;
+}
+
+#login-form {
+  top: 4rem;
+  margin-bottom: 4rem;
+  background-color: white;
+  text-align:left;
+  background-color: white;
+  border: 2px solid black;
+  padding: 1.8rem;
+  border: solid 2px black;
+}
+
+.form-group input:focus{
+  background-color: #e2e2e2;
+  border-color: #15abaf;
+  box-shadow: 0 0 0px rgba(21, 171, 175, 0.4);
+}
+
+.form-control {
+  border-radius: 0px;
+  border: solid 2px black;
+}
