@@ -18,7 +18,7 @@ The final design choice of our application is in how we display posts. A user ca
 Other significant changes since our last submission include adding a settings UI page. From the settings page, people will be able to change their account information such as their username, email, friend code, and password. In addition we've also done an overhaul of our websites look, making stylistic font and color changes throughout the site. We've also edited the navbar to include a settings icon, on the account page, which links to the new setting page.
 
 # Video Link
-https://www.youtube.com/watch?v=v3Q12W_XJQ8
+[Include Link Here]
 
 # Design Overview
 Our data model consists of four models, a UserAccount, Post, Comment, and Reaction model which we use to great effect to store a variety of different fields. Our UserAccount model has 7 fields, 5 of the fields, First Name, Last Name, Username, Friend Code, and Password are all character fields which we limit in size to appropriate lengths for each. We have one EmailField for the users email. Lastly the UserAccount has a ManyToMany symmetrical relationship with other UserAccounts because a friend connection is mutual between the two users. At this time, we do not limit the number of friends a UserAccount can have because we intend to do this programmatically later when a user tries to add a friend which would exceed the limit. 
@@ -29,15 +29,23 @@ The Comment model also has 4 fields associated with it. A ForeignKey field for t
 
 Lastly, our reaction model has 4 fields associated with it. A ForeignKey to the post the reaction is associated with. A ForeignKey to the UserAccount which is creating the reaction to a post. A chair field which we use to set the status from an enumeration of 5 different options from no reaction to 4 other possible reactions, and lastly another DateAndTime field for the time the reaction was made, similarly altered for more varied mock data in this submission.
 
-We added different URL routes for each of our views. The default url takes the user to the main page displaying posts from all of the users they are friends with. Most of our urls are pretty straight-foraward and just take the exact string passed as an argument to the path, but the url for the account view is a bit different. This url path takes a string representing the username of a given UserAccount in order to differentiate between account pages for different users. All of these urls are used in our templates to link between pages.
+[the important URL routes (Vincent)]
 
-We've implemented UI views for the 5 main UI pages of our application. To keep it consistent we pass along the UserAccount identified as "user=UserAccount.objects.get(pk=1)" as context for all of our views into the templates so the information on each is consistent across pages and the site can be viewed as if from one users perspective. The "Settings" and "Add Friend" page only have the user passed along as contextt which we use in the template on the settings page to render the current account information to be adjusted, and on the add friends page we use it to render the user's username and friend code.
+We've implemented UI views for the 5 main UI pages of our application. To keep it consistent we pass along the UserAccount identified as "user=UserAccount.objects.get(pk=1)" as context for all of our views into the templates so the information on each is consistent across pages and the site can be viewed as if from one users perspective. The "Settings" and "Add Friend" page only have the user passed along as context which we use in the template on the settings page to render the current account information to be adjusted, and on the add friends page we use it to render the user's username and friend code.
 
-[Navbar and Posts UI view and template (Julian)]
+We implemented a base template that navbar extends. It has all the essential css and javascript files that are needed for all pages. It also has a block for navbar and for content.  
 
-We also implemented a UI view for the account page, which passes along the current user, if a user is viewing their own account page, and the useraccount of another another user based on their username if someone is viewing a friend's account page. We pass this along as context to render the account page template. We also pass along the given UserAccounts posts as context so we can display their post history in order.
+We implemented a template for navbar which was included by all other templates besides Login and Sign Up. The navbar takes one parameter which is page. This page corresponds to the page that the navbar will be used on this will highlight the correct item in the navbar showing the user what page they are currently on. Additionally when on the account and settings page a gear appears which links to settings. 
+
+We also implemented a template for posts. The post template is used for both the main page and the account page. The post template includes the navbar template. Views passes in 3 parameters to post which include a list of posts from a users friends in order of timestamp, user which is the current user, and page which is passed is used as the variable for navbar. In the post template we iterate through the posts and make a new post for each. Within the post we then iterate through comments for a specific post. Then for the reactions for a post we call a custom function which calculates the various percentage of each reaction and returns a list of the percentage from each reaction from 0 to 100. These are then passed into the html.      
+
+We also implemented a UI view for the account page, which passes along the current user, if a user is viewing their own account page, and the useraccount of another user based on their username if someone is viewing a friend's account page. We pass this along as context to render the post template. We also pass along the given UserAccounts posts as context so we can display their post history in order.
 
 Lastly, we implemented a UI view for the ties page which passes along the user and all of their friends associated from the UserAccount friends ManyToMany field as context. This information is used to display the user themself on the ties page template at the top, and iterate through the users friends and render them as part of a table to display all the user's friends and links to their accounts. This is so a user can access all their friend's account pages from the ties page.
+
+***From Spec***
+A design overview of your data model as implemented in Django, 
+[the important URL routes (Vincent)], and the implemented UI views. Please provide enough detail to demonstrate your team’s understanding of the material.
 
 # Problems/Successes
 
