@@ -18,7 +18,7 @@ The final design choice of our application is in how we display posts. A user ca
 Other significant changes since our last submission include adding a settings UI page. From the settings page, people will be able to change their account information such as their username, email, friend code, and password. In addition we've also done an overhaul of our websites look, making stylistic font and color changes throughout the site. We've also edited the navbar to include a settings icon, on the account page, which links to the new setting page.
 
 # Video Link
-[Include Link Here]
+https://www.youtube.com/watch?v=v3Q12W_XJQ8&t=12s
 
 # Design Overview
 Our data model consists of four models, a UserAccount, Post, Comment, and Reaction model which we use to great effect to store a variety of different fields. Our UserAccount model has 7 fields, 5 of the fields, First Name, Last Name, Username, Friend Code, and Password are all character fields which we limit in size to appropriate lengths for each. We have one EmailField for the users email. Lastly the UserAccount has a ManyToMany symmetrical relationship with other UserAccounts because a friend connection is mutual between the two users. At this time, we do not limit the number of friends a UserAccount can have because we intend to do this programmatically later when a user tries to add a friend which would exceed the limit. 
