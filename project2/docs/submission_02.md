@@ -29,7 +29,7 @@ The Comment model also has 4 fields associated with it. A ForeignKey field for t
 
 Lastly, our reaction model has 4 fields associated with it. A ForeignKey to the post the reaction is associated with. A ForeignKey to the UserAccount which is creating the reaction to a post. A chair field which we use to set the status from an enumeration of 5 different options from no reaction to 4 other possible reactions, and lastly another DateAndTime field for the time the reaction was made, similarly altered for more varied mock data in this submission.
 
-[the important URL routes (Vincent)]
+We added different URL routes for each of our views. The default url takes the user to the main page displaying posts from all of the users they are friends with. Most of our urls are pretty straight-foraward and just take the exact string passed as an argument to the path, but the url for the account view is a bit different. This url path takes a string representing the username of a given UserAccount in order to differentiate between account pages for different users. All of these urls are used in our templates to link between pages.
 
 We've implemented UI views for the 5 main UI pages of our application. To keep it consistent we pass along the UserAccount identified as "user=UserAccount.objects.get(pk=1)" as context for all of our views into the templates so the information on each is consistent across pages and the site can be viewed as if from one users perspective. The "Settings" and "Add Friend" page only have the user passed along as context which we use in the template on the settings page to render the current account information to be adjusted, and on the add friends page we use it to render the user's username and friend code.
 
@@ -43,9 +43,6 @@ We also implemented a UI view for the account page, which passes along the curre
 
 Lastly, we implemented a UI view for the ties page which passes along the user and all of their friends associated from the UserAccount friends ManyToMany field as context. This information is used to display the user themself on the ties page template at the top, and iterate through the users friends and render them as part of a table to display all the user's friends and links to their accounts. This is so a user can access all their friend's account pages from the ties page.
 
-***From Spec***
-A design overview of your data model as implemented in Django, 
-[the important URL routes (Vincent)], and the implemented UI views. Please provide enough detail to demonstrate your team’s understanding of the material.
 
 # Problems/Successes
 
