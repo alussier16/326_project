@@ -24,27 +24,29 @@
         </label>
         <input type="email" class="form-control" id="email">
       </div>
-      <button type="submit" class="btn btn-primary mb-2"style="background-color: #15abaf; border-color: #15abaf;">Update Email</button>
-      <hr />
-      <div class="form-group">
+      <button type="submit" class="btn btn-primary mb-2"style="background-color: #15abaf; border-color: #15abaf; float:right;">Update Email</button>
+      <hr / style="margin-top: 15%;">
+      <div class="form-group" style="margin-top: 8%;">
         <label for="username">
           <h5 class="ck-font">Current Username: @{{ user.username }}</h5>
           <h5 class="ck-font">New Username:</h5>
         </label>
         <input type="text" class="form-control" id="username">
       </div>
-      <button type="submit" class="btn btn-primary mb-2"style="background-color: #15abaf; border-color: #15abaf;">Update Username</button>
-      <hr />
-      <div class="form-group">
+      <button type="submit" class="btn btn-primary mb-2"style="background-color: #15abaf; border-color: #15abaf; float:right;">Update Username</button>
+      <hr / style="margin-top: 15%;">
+
+      <div class="form-group"style="margin-top: 8%;">
         <label for="friendCode">
           <h5 class="ck-font">Current Friend Code: {{ user.friend_code }}</h5>
           <h5 class="ck-font">New Friend Code:</h5>
         </label>
         <input type="text" class="form-control" id="friendCode">
       </div>
-      <button type="submit" class="btn btn-primary mb-2"style="background-color: #15abaf; border-color: #15abaf;">Update Friend Code</button>
-      <hr />
-      <div class="form-group">
+      <button type="submit" class="btn btn-primary mb-2"style="background-color: #15abaf; border-color: #15abaf; float:right;">Update Friend Code</button>
+      <hr / style="margin-top: 15%;">
+
+      <div class="form-group"style="margin-top: 8%;">
         <label for="currentPassword">
           <h5 class="ck-font">Enter Current Password: </h5>
         </label>
@@ -58,12 +60,12 @@
         </label>
         <input type="text" class="form-control" id="renewPassword">
       </div>
-      <button type="submit" class="btn btn-primary mb-2"style="background-color: #15abaf; border-color: #15abaf;">Update Password</button>
-      <hr />
-      <div class="from-group">
-      </div>
-      <button type="submit" onclick="location.href='/closeknit/login'" class="btn btn-primary mb-2"style="background-color: #15abaf; border-color: #15abaf;">Log Out</button>
+      <button type="submit" class="btn btn-primary mb-2"style="background-color: #15abaf; border-color: #15abaf; float:right;">Update Password</button>
+      <hr / style="margin-top: 15%;">
 
+      <div class="from-group"style="margin-top: 8%;">
+      </div>
+      <button type="submit" onclick="location.href='/closeknit/login'" class="btn btn-primary mb-2"style="background-color: #15abaf; border-color: #15abaf; float:right;">Log Out</button>
     </div>
   </div>
   {% endblock %}
