@@ -1,0 +1,29 @@
+{% load filters %}
+{% include "nav-bar.html" %}
+
+{% block content %}
+{% load static %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-xs-auto col-sm-8 col-md-6" id="settings-form">
+      <h2 style="text-align:center" class="ck-font">Add Friend</h2>
+      <hr />
+      <div class="form-group">
+        <h4 class="ck-font"> Your Username: {{ user.username }}</h4>
+        <h4 class="ck-font"> Your Friend Code: {{ user.friend_code }}</h4>
+      </div>
+      <hr />
+      <div class="form-group">
+        <label for="username">
+          <h5 class="ck-font">Username:</h5>
+        </label>
+        <input type="text" class="form-control" id="username">
+        <label for="friendCode">
+          <h5 class="ck-font">Friend Code:</h5>
+        </label>
+        <input type="text" class="form-control" id="friendCode">
+      </div>
+      <button type="submit" class="btn btn-primary mb-2">Add Friend</button>
+    </div>
+  </div>
+  {% endblock %}
