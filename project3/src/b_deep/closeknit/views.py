@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import generic
 from closeknit.models import UserAccount, Post, Comment, Reaction
+from closeknit.forms import AddFriendForm
 
 # Create your views here.
 def test(request):
@@ -57,6 +58,9 @@ def settings(request):
 
 def addfriend(request):
     user=UserAccount.objects.get(pk=1)
+    form = AddFriendForm
     return render(
-        request, 'add-friend.html', {'page': 'settings', 'user': user} 
+        request, 'add-friend.html', {'page': 'settings', 'user': user, 'form': form} 
     )
+
+

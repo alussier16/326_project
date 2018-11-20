@@ -32,3 +32,4 @@ urlpatterns += [
 urlpatterns += [
     path('addfriend', views.addfriend, name='addfriend'),
 ]
+
