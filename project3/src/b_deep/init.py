@@ -6,7 +6,7 @@ from closeknit.models import UserAccount, Post, Comment, Reaction
 fake = Faker()
 
 users = []
-user1 = user = User(first_name="John",last_name="Doe",email="jdoe@gmail.com",username="jdoe",is_superuser=False)
+user1 = User(first_name="John",last_name="Doe",email="jdoe@gmail.com",username="jdoe",is_superuser=False)
 user1.set_password("umass326")
 user1.save()
 users.append(user1)

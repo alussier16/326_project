@@ -18,10 +18,6 @@ urlpatterns += [
 ]
 
 urlpatterns += [
-    path('login', views.log_in, name='login'),
-]
-
-urlpatterns += [
     path('account-created', views.accountcreated, name='accountcreated'),
 ]
 

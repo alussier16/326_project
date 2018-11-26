@@ -5,6 +5,23 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
 from closeknit.models import UserAccount
 
+class SignUpForm(forms.Form):
+    fname = forms.CharField()
+    lname = forms.CharField()
+    email = forms.EmailField()
+    username = forms.CharField()
+    friend_code = forms.CharField()
+    password = forms.CharField()
+    re_password = forms.CharField()
+
+    def clean_user(self):
+        data = self.cleaned_data['fname','lname','email','username','friend_code','password','re_password']
+        
+        if password != re_password:
+            raise ValidationError(_('Passwords do not match.'))
+            
+        return data
+
 class AddFriendForm(forms.Form):
     username = forms.CharField(help_text ="Enter a Username to Add")
     friend_code = forms.CharField(help_text="Enter a Friend Code to Add")
@@ -76,10 +93,6 @@ class SettingsFriendCodeForm(forms.Form):
         print("clean friend code a girdik")
         print(data)
 
-        if data:
-            if UserAccount.objects.filter(friend_code = data):
-                raise ValidationError(_("This friend code belongs to another user. Please select a different friend code."))
-
         #returns the cleaned data
         return data
 
@@ -92,17 +105,9 @@ class SettingsPasswordForm(forms.Form):
         old_data = self.cleaned_data.get('old_password')
         new_data = self.cleaned_data.get('new_password')
         confirm_data = self.cleaned_data.get('confirm_password')
-
-        print("old_data: " + old_data)
-        print("new_data: " + new_data)
-        print("confirm_data: " + confirm_data)
-        print("user password: " + User.objects.get(pk=user_id).password)
-
-        if old_data != User.objects.get(pk=user_id).password:
-           raise ValidationError(_("Invalid current password.")) 
-        else:
-            if new_data != confirm_data:
-                raise ValidationError(_("New passwords do not match."))
+        
+        if new_data != confirm_data:
+            raise ValidationError(_("New passwords do not match."))
         
         #returns the cleaned data
         return new_data

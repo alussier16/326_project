@@ -59,7 +59,7 @@
           {{form.non_field_errors}}
           {% endif %}
           <label for="friendCode">
-            <h5 class="ck-font">Current Friend Code: {{ user.friend_code }}</h5>
+            <h5 class="ck-font">Current Friend Code: {{ user.useraccount.friend_code }}</h5>
             <h5 class="ck-font">New Friend Code:</h5>
           </label>
           <input type="text" class="form-control" id="friendCode" name="friend_code">
@@ -75,10 +75,6 @@
           {% if fno == 4 %}
           {{form.non_field_errors}}
           {% endif %}
-          <label for="currentPassword">
-            <h5 class="ck-font">Enter Current Password: </h5>
-          </label>
-          <input type="text" class="form-control" id="currentPassword" name="old_password">
           <label for="newPassword">
             <h5 class="ck-font">Enter New Password: </h5>
           </label>
@@ -95,7 +91,7 @@
 
       <div class="from-group"style="margin-top: 8%;">
       </div>
-      <a href="{% url 'logout'%}?next={{request.path}}" class="btn btn-primary mb-2"style="background-color: #15abaf; border-color: #15abaf; float:right;">Logout</a>
+      <a href="{% url 'logout' %}?next={{request.path}}" class="btn btn-primary mb-2"style="background-color: #15abaf; border-color: #15abaf; float:right;">Logout</a>
     </div>
   </div>
   {% endblock %}

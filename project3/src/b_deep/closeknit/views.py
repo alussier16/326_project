@@ -2,11 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import generic
 from closeknit.models import UserAccount, Post, Comment, Reaction
-from closeknit.forms import AddFriendForm
-from closeknit.forms import SettingsEmailForm
-from closeknit.forms import SettingsUsernameForm
-from closeknit.forms import SettingsFriendCodeForm
-from closeknit.forms import SettingsPasswordForm
+from closeknit.forms import AddFriendForm, SettingsEmailForm, SettingsUsernameForm, SettingsFriendCodeForm, SettingsPasswordForm, SignUpForm 
+
 
 from django.shortcuts import get_object_or_404
 from django.shortcuts import redirect
@@ -65,6 +62,20 @@ def log_in(request):
     )
 
 def signup(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+
+        if form.is_valid():
+            newUser = User(first_name=form.cleaned_data['fname'],
+                            last_name=form.cleaned_data['lname'],
+                            email=form.cleaned_data['email'],
+                            username=form.cleaned_data['username'],is_superuser=False)
+            newUser.set_password(form.cleaned_data['password'])
+            newUser.save()
+
+            profile = UserAccount(user=newUser,friend_code=form.cleaned_data['friend_code'])
+            profile.save()
+            
     return render(
         request, 'sign-up.html', {'page': 'sign-up'}
     )
@@ -87,17 +98,14 @@ def settings(request):
         if form.is_valid():
             user.email = form.cleaned_data
             user.save()
-            return HttpResponse("amk email saved")
 
     #if username is being updated
     elif request.method == 'POST' and 'btnUsername' in request.POST:
-
         form = SettingsUsernameForm(request.POST)
         fno = 2
         if form.is_valid():
             user.username = form.cleaned_data
             user.save()
-            return HttpResponse("amk username saved")
 
     #if friend code is being updated
     elif request.method == 'POST' and 'btnFriendCode' in request.POST:
@@ -105,9 +113,8 @@ def settings(request):
         form = SettingsFriendCodeForm(request.POST)
         fno = 3
         if form.is_valid():
-            user.friend_code = form.cleaned_data
-            user.save()
-            return HttpResponse("amk friend code saved")
+            user.useraccount.friend_code = form.cleaned_data
+            user.useraccount.save()
 
     #if password is being updated
     elif request.method == 'POST' and 'btnPassword' in request.POST:
@@ -116,9 +123,8 @@ def settings(request):
         fno = 4
         if form.is_valid():
             print("password form valid")
-            user.password = form.cleaned_data
+            user.set_password(form.cleaned_data)
             user.save()
-            return HttpResponse("amk password saved")
    
     else: 
         fno = 0
