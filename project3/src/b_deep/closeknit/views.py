@@ -23,7 +23,8 @@ def test(request):
 @login_required(login_url='login')
 def post(request):
     user=User.objects.get(pk=request.user.id)
-    friends = user.useraccount.friends.all()
+    useraccount = user.useraccount
+    friends = useraccount.friends.all()
     posts=[]
     for friend in friends:
         posts += friend.post_set.all()

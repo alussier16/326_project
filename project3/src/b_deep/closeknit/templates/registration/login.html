@@ -1,0 +1,94 @@
+{% extends "base-template.html" %}
+
+{% block content %}
+{% load static %}
+<head>
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="../css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="../css/login.css">
+  <link rel="stylesheet" href="../css/closeknit.css">
+  <link href="https://fonts.googleapis.com/css?family=Coming+Soon" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400" rel="stylesheet">
+</head>
+
+<body>
+  <script src="../js/jquery-3.3.1.min.js"></script>
+  <script src="../js/jquery-ui.min.js"></script>
+  <script src="../js/bootstrap.bundle.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/custom.js"></script>
+
+  <nav class="navbar navbar-expand-md navbar-light nav-style">
+    <span class="navbar-brand mb-0 h1 ck-font">
+      Closeknit
+      <img src="{% static 'img/yarn-ball.png' %}" width="30" height="30" style="margin-left:0.3em; margin-bottom: 0.15em">
+    </span>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link ck-font" href="#">Log In <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+	  <a class="nav-link ck-font" href="{% url 'signup' %}">Sign Up</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-xs-auto col-sm-8 col-md-6" id="login-form">
+              <img src="{% static 'img/yarn-ball.png' %}" width="100" height="100" style="display:block; margin-left:auto; margin-right:auto">
+              
+              <h2 style="text-align:center; font-family:Quicksand, serif">Log In!</h2>
+            <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+              <div class="form-group">
+                <label for="usr">
+                  <h5>Username:</h5>
+                </label>
+                <input type="text" class="form-control" id="user" name="username">
+              </div>
+              <div class="form-group">
+                <label for="pwd">
+                  <h5>Password:</h5>
+                </label>
+                <input type="password" class="form-control" id="password" name="password">
+              </div>
+              {% if next %}
+              {% if user.is_authenticated %}
+              <div class="alert alert-warning">
+                  <p>Your account doesn't have access to this page. To proceed,
+                please login with an account that has access.</p>
+                </div>
+              {% else %}
+              <div class="alert alert-warning">
+                <p>Please login to see this page.</p>
+                </div>
+              {% endif %}
+            {% endif %}
+              {% if form.errors %}
+              <div class="alert alert-warning">
+                  <p>Your username and password didn't match. Please try again.</p>
+              </div>
+              {% endif %}
+              <div class="form-group" style="text-align: right">
+                    <input type="submit" class="btn btn-primary mb-2" style="background-color: #15abaf; border-color: #15abaf; float:right;"value="Login" />
+                    <input type="hidden" name="next" value="{{ next }}" />                  
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+  </div>
+  </div>
+</body>
+
+</html>
+{% endblock %}
