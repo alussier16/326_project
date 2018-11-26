@@ -1,11 +1,12 @@
 from django.contrib import admin
+from django.contrib.auth.models import User
 from closeknit.models import UserAccount, Post, Comment, Reaction
 
 # Register your models here.
 @admin.register(UserAccount)
 class UserAdmin(admin.ModelAdmin):
     model = UserAccount
-    list_display = ("first_name","last_name","username","email","friend_code","display_friends")
+    list_display = ("__str__", "friend_code","display_friends")
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):

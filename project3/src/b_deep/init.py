@@ -11,19 +11,25 @@ for i in range(1,25):
     u_lname = fake.last_name()
     u_email = fake.email()
     u_username = fake.user_name()
-    u_frcode = fake.ean(length=8)
     u_password = fake.password(length=8, special_chars=True, digits=True, upper_case=True, lower_case=True)
-    user = UserAccount(first_name=u_fname,last_name=u_lname,email=u_email,username=u_username,friend_code=u_frcode,password=u_password)
+    user = User(first_name=u_fname,last_name=u_lname,email=u_email,username=u_username,password=u_password,is_superuser=False)
     user.save()
     users.append(user)
 
+user_accounts = []
 for u in users:
-    new_friends = random.sample(users,fake.random_int(1,20))
+    u_frcode = fake.ean(length=8)
+    user_account = UserAccount(user=u,friend_code=u_frcode)
+    user_account.save()
+    user_accounts.append(user_account)
+
+for u in user_accounts:
+    new_friends = random.sample(user_accounts, fake.random_int(1,20))
     u.friends.set(new_friends)
     u.save()
 
 posts = []
-for u in users:
+for u in user_accounts:
     for i in range(0,fake.random_int(1,5)):
         p_author = u
         p_text = fake.text(max_nb_chars=250, ext_word_list=None)
@@ -37,7 +43,7 @@ for p in posts:
     for i in range(1,4):
         c_content = fake.text(max_nb_chars=50, ext_word_list=None)
         c_post = p
-        c_author = random.choice(users)
+        c_author = random.choice(user_accounts)
         c_timestamp = fake.date_time_between(start_date="-1y", end_date="now", tzinfo=pytz.utc)
         comment = Comment(content=c_content,post=c_post,author=c_author,time_stamp=c_timestamp)
         comment.save()
@@ -47,19 +53,20 @@ reactions = []
 for p in posts:
     for i in range(1,fake.random_int(1,6)):
         r_post = p
-        r_user = random.choice(users)
+        r_user = random.choice(user_accounts)
         r_timestamp = fake.date_time_between(start_date="-1y", end_date="now", tzinfo=pytz.utc)
         r_status = fake.random_int(0,4)
         reaction = Reaction(post=r_post, user=r_user, time_stamp=r_timestamp,status=r_status)
         reaction.save()
         reactions.append(reaction)
 
-
 username = "admin"
 password = "admin"
 email = "admin@326.edu"
 adminuser = User.objects.create_user(username, email, password)
 adminuser.save()
+admin_account = UserAccount(user=adminuser)
+admin_account.save()
 adminuser.is_superuser = True
 adminuser.is_staff = True
 adminuser.save()

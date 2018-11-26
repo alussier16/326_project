@@ -9,16 +9,21 @@ from closeknit.forms import SettingsFriendCodeForm
 from closeknit.forms import SettingsPasswordForm
 
 from django.shortcuts import get_object_or_404
+from django.shortcuts import redirect
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.contrib.auth.models import User
+from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def test(request):
     return HttpResponse('Welcome to Closeknit')
 
+@login_required(login_url='login')
 def post(request):
-    user=UserAccount.objects.get(pk=1)
-    friends = user.friends.all()
+    user=User.objects.get(pk=request.user.id)
+    friends = user.useraccount.friends.all()
     posts=[]
     for friend in friends:
         posts += friend.post_set.all()
@@ -28,22 +33,32 @@ def post(request):
         request, 'post.html', {'posts': posts, 'page': 'main', 'user': user}
     )
 
-def account(request, user_account):
-    user=UserAccount.objects.get(pk=1)
-    viewed_user = UserAccount.objects.get(username=user_account)
-    posts = sorted(viewed_user.post_set.all(), key=lambda x: x.time_stamp, reverse=True)[:30]
+@login_required(login_url='login')
+def account(request, viewed_account):
+    user=User.objects.get(pk=request.user.id)
+    viewed_user = User.objects.get(username=viewed_account)
+    posts = sorted(viewed_user.useraccount.post_set.all(), key=lambda x: x.time_stamp, reverse=True)[:30]
     return render(
         request, 'post.html', {'posts': posts, 'page': 'account', 'user': user}
     )
 
+@login_required(login_url='login')
 def ties(request):
-    user=UserAccount.objects.get(pk=1)
-    friends = user.friends.all()
+    user=User.objects.get(pk=request.user.id)
+    friends = user.useraccount.friends.all()
     return render(
         request, 'ties.html', {'page': 'ties', 'user': user, 'friends': friends}
     )
 
-def login(request):
+def log_in(request):
+    logout(request)
+    if ('username' in request.POST):
+        username=request.POST['username']
+        password=request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('main')
     return render(
         request, 'login.html', {'page': 'login'}
     )
@@ -58,8 +73,9 @@ def accountcreated(request):
         request, 'account-created.html', {'page': 'account-created'}
     )
 
+@login_required(login_url='login')
 def settings(request):
-    user = UserAccount.objects.get(pk=1)
+    user = User.objects.get(pk=request.user.id)
     fno = 0  #this is used in settings template to decide which error to display
 
     #if email is being updated
@@ -139,8 +155,9 @@ def settings(request):
     #return render(request, 'settings.html', {'page': 'settings', 'user': user})
     """
 
+@login_required(login_url='login')
 def addfriend(request):
-    user=UserAccount.objects.get(pk=1)
+    user=User.objects.get(pk=request.user.id)
     form = AddFriendForm
     return render(
         request, 'add-friend.html', {'page': 'settings', 'user': user, 'form': form} 

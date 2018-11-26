@@ -1,25 +1,21 @@
 from django.db import models
 from datetime import datetime
-
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 # Create your models here.
 class UserAccount(models.Model):
     '''Model Representing User'''
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
-    email = models.EmailField(max_length=254, unique=True)
-    username = models.CharField(max_length=20) # Removed unique=True for mock data
+    user = models.OneToOneField(User, default=False, on_delete=models.CASCADE)
     friend_code = models.CharField(max_length=20)
-    password = models.CharField(max_length=20)
     friends = models.ManyToManyField('UserAccount', blank=True, default=None, symmetrical=True)
 
     def __str__(self):
-        return self.username
+        return self.user.username
 
     def display_friends(self):
-        return ", ".join(friend.username for friend in self.friends.all())
-
-
+        return ", ".join(friend.user.username for friend in self.friends.all())
 
 
 class Post(models.Model):
@@ -31,26 +27,6 @@ class Post(models.Model):
 
     def __str__(self):
         return f"{self.author}, {self.time_stamp}"
-
-    def num_react_1(self):
-        if ( self.reaction_set.all().count() == 0 ):
-            return 25
-        return max(1, self.reaction_set.filter(status='1').count() / self.reaction_set.all().count() * 100)
-
-    def num_react_2(self):
-        if ( self.reaction_set.all().count() == 0 ):
-            return 25
-        return max(1, self.reaction_set.filter(status='2').count() / self.reaction_set.all().count() * 100)
-
-    def num_react_3(self):
-        if ( self.reaction_set.all().count() == 0 ):
-            return 25
-        return max(1, self.reaction_set.filter(status='3').count() / self.reaction_set.all().count() * 100)
-
-    def num_react_4(self):
-        if ( self.reaction_set.all().count() == 0 ):
-            return 25
-        return max(1, self.reaction_set.filter(status='4').count() / self.reaction_set.all().count() * 100)
 
 
 class Comment(models.Model):
@@ -76,4 +52,4 @@ class Reaction(models.Model):
     status = models.CharField(max_length=1,choices= REACTIONS,blank=True,default= '0')
 
     def __str__(self):
-        return f"{self.user}, {self.time_stamp}"
+        return f"{self.user}, {self.time_stamp}, {self.status}"

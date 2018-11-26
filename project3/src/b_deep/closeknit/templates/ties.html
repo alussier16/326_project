@@ -38,7 +38,7 @@
     {% cycle '<tr>' '' '' '' '' %}
       <td>
         <img class="tie-profile" style="-webkit-filter:hue-rotate({% cycle '20deg' '180deg' '340deg' '40deg' '160deg' '300deg' '60deg' '140deg' '260deg' '80deg' '120deg' '220deg' '100deg'%})" src="{% static 'img/profile.png' %}"></img>
-        <a class="tie-profile" href="/closeknit/{{friend.username}}/account">@{{friend.username}}</a>
+        <a class="tie-profile" href="/closeknit/{{friend.user.username}}/account">@{{friend.user.username}}</a>
       </td>
     {% cycle '' '' '' '' '</tr>' %}
   {% endfor %}

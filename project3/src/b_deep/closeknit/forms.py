@@ -2,6 +2,7 @@ from django import forms
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _ 
+from django.contrib.auth.models import User
 from closeknit.models import UserAccount
 
 class AddFriendForm(forms.Form):
@@ -13,8 +14,8 @@ class AddFriendForm(forms.Form):
         friend_code = self.cleaned_data.get('friend_code')
 
         #check if the username exists and friend code is correct
-        if username and friend_code:
-            self.user_cache = authenticate(username=username, friend_code=friend_code)
+        if user.username and friend_code:
+            self.user_cache = authenticate(username=user.username, friend_code=friend_code)
             if self.user_cache is None:
                 raise forms.ValidationError(_("That User does not exist"))
                 return username and friend_code
@@ -38,7 +39,7 @@ class SettingsEmailForm(forms.Form):
 
             print("xd data dogru")
 
-            if UserAccount.objects.filter(email = data):
+            if User.objects.filter(email = data):
                 raise ValidationError(_("This email is already in use. Please enter a different email."))
 
         """
@@ -60,7 +61,7 @@ class SettingsUsernameForm(forms.Form):
         print(data)
 
         if data:
-            if UserAccount.objects.filter(username = data):
+            if User.objects.filter(username = data):
                 raise ValidationError(_("This username is already in use. Please enter a different username."))
 
         #returns the cleaned data
@@ -95,9 +96,9 @@ class SettingsPasswordForm(forms.Form):
         print("old_data: " + old_data)
         print("new_data: " + new_data)
         print("confirm_data: " + confirm_data)
-        print("user password: " + UserAccount.objects.get(pk=1).password)
+        print("user password: " + User.objects.get(pk=user_id).password)
 
-        if old_data != UserAccount.objects.get(pk=1).password:
+        if old_data != User.objects.get(pk=user_id).password:
            raise ValidationError(_("Invalid current password.")) 
         else:
             if new_data != confirm_data:
