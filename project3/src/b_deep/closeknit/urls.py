@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from django.views.generic import RedirectView
 
 urlpatterns = [
     path('', views.post, name='main'),
@@ -27,4 +28,16 @@ urlpatterns += [
 
 urlpatterns += [
     path('addfriend', views.addfriend, name='addfriend'),
+]
+
+urlpatterns += [
+    path('login', views.log_in, name='login'),
+]
+
+urlpatterns += [
+    path('logout', views.log_out, name='log_out'),
+]
+
+urlpatterns += [
+    path('', RedirectView.as_view(url='registration/login')),
 ]

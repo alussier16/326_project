@@ -49,7 +49,8 @@ def ties(request):
     )
 
 def log_in(request):
-    logout(request)
+    if request.user.is_authenticated:
+        return redirect('main')
     if ('username' in request.POST):
         username=request.POST['username']
         password=request.POST['password']
@@ -57,11 +58,20 @@ def log_in(request):
         if user is not None:
             login(request, user)
             return redirect('main')
+
     return render(
-        request, 'login.html', {'page': 'login'}
+        request, 'registration/login.html', {'page': 'login'}
+    )
+
+def log_out(request):
+    logout(request)
+    return render(
+        request, 'registration/logout.html', {'page': 'logout'}
     )
 
 def signup(request):
+    if request.user.is_authenticated:
+        return redirect('main')
     if request.method == 'POST':
         form = SignUpForm(request.POST)
 
