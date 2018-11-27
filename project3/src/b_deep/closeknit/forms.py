@@ -23,19 +23,20 @@ class SignUpForm(forms.Form):
         return data
 
 class AddFriendForm(forms.Form):
-    username = forms.CharField(help_text ="Enter a Username to Add")
-    friend_code = forms.CharField(help_text="Enter a Friend Code to Add")
+    username = forms.CharField(label='UserName' , help_text ="Enter a Username to Add")
+    friend_code = forms.CharField(label = 'Friend Code', help_text="Enter a Friend Code to Add")
     
     def clean(self):
-        username = self.cleaned_data.get('username')
-        friend_code = self.cleaned_data.get('friend_code')
-
+        username_data = self.cleaned_data.get('username')
+        friend_code_data = self.cleaned_data.get('friend_code')
+        user = User.objects.filter(username = username_data)
         #check if the username exists and friend code is correct
-        if user.username and friend_code:
-            self.user_cache = authenticate(username=user.username, friend_code=friend_code)
-            if self.user_cache is None:
-                raise forms.ValidationError(_("That User does not exist"))
-                return username and friend_code
+        if user != None:
+            if user.friend_code != friend_code_data:
+                raise ValidatonError(_("This User is unavailable"))
+        
+
+            
 
 
 

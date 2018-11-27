@@ -14,9 +14,12 @@
           <h4 class="ck-font"> Your Friend Code: {{ user.friend_code }}</h4>
         </div>
         <hr />
-<form action="">
+<form action="" >
+  
   <table>
-    {{ form }} 
+ 
+  {{ form.as_table }} 
+    
   </table>
   <input class="btn btn-primary mb-2" style="float:right" type="submit" value ="Add Friend">
 </form>
@@ -37,6 +40,7 @@
 
 
 
+<!-- <label class="ck-font" style="margin-right:2%;">{{ form.friend_code.label }}</label>{{ CharField }} -->
 
 
 
