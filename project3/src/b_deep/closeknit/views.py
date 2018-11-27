@@ -198,6 +198,7 @@ def add_comment(request, pk):
             comment.content = form.cleaned_data['content']
             comment.post = post
             comment.save()
+            return redirect('main')
     else:
         form = CommentForm()
     return render(request, 'add-comment.html', {'form': form})
@@ -211,6 +212,7 @@ def add_post(request):
             post.time_stamp = datetime.datetime.now()
             post.text_content = form.cleaned_data['text_content']
             post.save()
+            return redirect('main')
     else:
         form = PostForm()
     return render(request, 'add-post.html', {'form': form})

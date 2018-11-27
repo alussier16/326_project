@@ -32,22 +32,22 @@
             <div class="react-col">
               {% with post.reaction_set.all|percentage as reactions %}
               <div id="reaction" class="reaction-bar" style="background-color: #15ABAF;" reactVal="{{ reactions.0 }}">
-                <form action="/b_deep/" method="post">
+                <form action="/closeknit/" method="post">{% csrf_token %}
                   <button class="react-btn" type="submit">👽</button>
                 </form>
               </div>
               <div id="reaction" class="reaction-bar" style="background-color: #509799;" reactVal="{{ reactions.1 }}">
-                <form action="/b_deep/" method="post">
+                <form action="/closeknit/" method="post">{% csrf_token %}
                   <button class="react-btn" type="submit">🥜</button>
                 </form>
               </div>
               <div id="reaction" class="reaction-bar" style="background-color: #1FFF86;" reactVal="{{ reactions.2 }}">
-                <form action="/b_deep/" method="post">
+                <form action="/closeknit/" method="post">{% csrf_token %}
                   <button class="react-btn" type="submit">🍔</button>
                 </form>
               </div>
               <div id="reaction" class="reaction-bar" style="background-color: #FF5E7C;" reactVal="{{ reactions.3 }}">
-                <form action="/b_deep/" method="post">
+                <form action="/closeknit/" method="post">{% csrf_token %}
                   <button class="react-btn" type="submit">😨</button>
                 </form>
               </div>
