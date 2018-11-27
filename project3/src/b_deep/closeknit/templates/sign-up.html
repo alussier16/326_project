@@ -35,40 +35,58 @@
       <div class="col-xs-auto col-sm-8 col-md-6" id="signup-form">
         <img src="{% static 'img/yarn-ball.png' %}" width="100" height="100" style="display:block; margin-left:auto; margin-right:auto">
         <h2 style="text-align:center" class="ck-font">Sign up!</h2>
+      <form method="post"> {% csrf_token%}
+        <div class="form-group">
+          <label for="fname">
+            <h5 class="ck-font">First Name:</h5>
+          </label>
+          <input type="text" class="form-control" id="fname" name="fname">
+        </div>
+        <div class="form-group">
+          <label for="lname">
+            <h5 class="ck-font">Last Name:</h5>
+          </label>
+          <input type="text" class="form-control" id="lname" name="lname">
+        </div>
         <div class="form-group">
           <label for="email">
             <h5 class="ck-font">Email:</h5>
           </label>
-          <input type="email" class="form-control" id="email">
+          <input type="email" class="form-control" id="email" name="email">
         </div>
         <div class="form-group">
           <label for="username">
             <h5 class="ck-font">Username:</h5>
           </label>
-          <input type="text" class="form-control" id="username">
+          <input type="text" class="form-control" id="username" name="username">
         </div>
         <div class="form-group">
           <label for="friend-code">
             <h5 class="ck-font">Friend Code:</h5>
           </label>
-          <input type="text" class="form-control" id="friend-code">
+          <input type="text" class="form-control" id="friend-code" name="friend_code">
         </div>
         <div class="form-group">
           <label for="password">
             <h5 class="ck-font">Password:</h5>
           </label>
-          <input type="password" class="form-control" id="password">
+          <input type="password" class="form-control" id="password" name="password">
         </div>
         <div class="form-group">
           <label for="re-password">
             <h5 class="ck-font">Re-Enter Password:</h5>
           </label>
-          <input type="password" class="form-control" id="re-password">
+          <input type="password" class="form-control" id="re-password" name="re_password">
         </div>
+        {% if form.errors %}
+        <div class="alert alert-warning">
+            <p>Passwords do not match.</p>
+        </div>
+        {% endif %}
         <div class="from-group">
-          <!-- <input type="button" class="btn btn-link" onclick="location.href = '#'">Back</input> -->
-          <input type="submit" class="btn btn-default ck-button" onclick='location.href = "{% url 'accountcreated' %}"'></input>
+          <input type="submit" class="btn btn-primary mb-2" style="background-color: #15abaf; border-color: #15abaf; float:right;" onclick='location.href = "{% url 'accountcreated' %}"'></input>
         </div>
+      </form>
       </div>
     </div>
   </div>

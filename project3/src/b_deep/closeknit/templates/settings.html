@@ -17,55 +17,81 @@
         <label class="form-check-label" for="inlineRadio2">Notifications Off</label>
       </div> -->
       <hr />
-      <div class="form-group">
-        <label for="email">
-          <h5 class="ck-font">Current Email: {{ user.email }}</h5>
-          <h5 class="ck-font">New Email:</h5>
-        </label>
-        <input type="email" class="form-control" id="email">
-      </div>
-      <button type="submit" class="btn btn-primary mb-2"style="background-color: #15abaf; border-color: #15abaf; float:right;">Update Email</button>
-      <hr / style="margin-top: 15%;">
-      <div class="form-group" style="margin-top: 8%;">
-        <label for="username">
-          <h5 class="ck-font">Current Username: @{{ user.username }}</h5>
-          <h5 class="ck-font">New Username:</h5>
-        </label>
-        <input type="text" class="form-control" id="username">
-      </div>
-      <button type="submit" class="btn btn-primary mb-2"style="background-color: #15abaf; border-color: #15abaf; float:right;">Update Username</button>
+
+      <form action="" method="POST">
+        <div class="form-group">
+          {% csrf_token %}
+          {% if fno == 1 %}
+          {{form.non_field_errors}}
+          {% endif %}
+          <label for="email">
+            <h5 class="ck-font">Current Email: {{ user.email }}</h5>
+            <h5 class="ck-font">New Email:</h5>
+          </label>
+          <input type="email" class="form-control" id="email" name="email">
+        </div>
+        <button name="btnEmail" type="submit" class="btn btn-primary mb-2" style="background-color: #15abaf; border-color: #15abaf; float:right;">Update Email</button>
+      </form>
+
       <hr / style="margin-top: 15%;">
 
-      <div class="form-group"style="margin-top: 8%;">
-        <label for="friendCode">
-          <h5 class="ck-font">Current Friend Code: {{ user.friend_code }}</h5>
-          <h5 class="ck-font">New Friend Code:</h5>
-        </label>
-        <input type="text" class="form-control" id="friendCode">
-      </div>
-      <button type="submit" class="btn btn-primary mb-2"style="background-color: #15abaf; border-color: #15abaf; float:right;">Update Friend Code</button>
+      <form action="" method="POST">
+        <div class="form-group" style="margin-top: 8%;">
+          {% csrf_token %}
+          {% if fno == 2 %}
+          {{form.non_field_errors}}
+          {% endif %}
+          <label for="username">
+            <h5 class="ck-font">Current Username: @{{ user.username }}</h5>
+            <h5 class="ck-font">New Username:</h5>
+          </label>
+          <input type="text" class="form-control" id="username" name="username">
+        </div>
+        <button name="btnUsername" type="submit" class="btn btn-primary mb-2"style="background-color: #15abaf; border-color: #15abaf; float:right;">Update Username</button>
+      </form>
+
       <hr / style="margin-top: 15%;">
 
-      <div class="form-group"style="margin-top: 8%;">
-        <label for="currentPassword">
-          <h5 class="ck-font">Enter Current Password: </h5>
-        </label>
-        <input type="text" class="form-control" id="currentPassword">
-        <label for="newPassword">
-          <h5 class="ck-font">Enter New Password: </h5>
-        </label>
-        <input type="text" class="form-control" id="newPassword">
-        <label for="renewPassword">
-          <h5 class="ck-font">Re-Enter New Password: </h5>
-        </label>
-        <input type="text" class="form-control" id="renewPassword">
-      </div>
-      <button type="submit" class="btn btn-primary mb-2"style="background-color: #15abaf; border-color: #15abaf; float:right;">Update Password</button>
+      <form action="" method="POST">
+        <div class="form-group"style="margin-top: 8%;">
+          {% csrf_token %}
+          {% if fno == 3 %}
+          {{form.non_field_errors}}
+          {% endif %}
+          <label for="friendCode">
+            <h5 class="ck-font">Current Friend Code: {{ user.useraccount.friend_code }}</h5>
+            <h5 class="ck-font">New Friend Code:</h5>
+          </label>
+          <input type="text" class="form-control" id="friendCode" name="friend_code">
+        </div>
+        <button name="btnFriendCode" type="submit" class="btn btn-primary mb-2"style="background-color: #15abaf; border-color: #15abaf; float:right;">Update Friend Code</button>
+      </form>
+
+      <hr / style="margin-top: 15%;">
+
+      <form action="" method="POST">
+        <div class="form-group"style="margin-top: 8%;">
+          {% csrf_token %}
+          {% if fno == 4 %}
+          {{form.non_field_errors}}
+          {% endif %}
+          <label for="newPassword">
+            <h5 class="ck-font">Enter New Password: </h5>
+          </label>
+          <input type="text" class="form-control" id="newPassword" name="new_password">
+          <label for="renewPassword">
+            <h5 class="ck-font">Re-Enter New Password: </h5>
+          </label>
+          <input type="text" class="form-control" id="renewPassword" name="confirm_password">
+        </div>
+        <button name="btnPassword" type="submit" class="btn btn-primary mb-2"style="background-color: #15abaf; border-color: #15abaf; float:right;">Update Password</button>
+      </form>
+
       <hr / style="margin-top: 15%;">
 
       <div class="from-group"style="margin-top: 8%;">
       </div>
-      <button type="submit" onclick="location.href='/closeknit/login'" class="btn btn-primary mb-2"style="background-color: #15abaf; border-color: #15abaf; float:right;">Log Out</button>
+      <a href="{% url 'logout' %}?next={{request.path}}" class="btn btn-primary mb-2"style="background-color: #15abaf; border-color: #15abaf; float:right;">Logout</a>
     </div>
   </div>
   {% endblock %}

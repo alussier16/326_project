@@ -10,15 +10,11 @@ urlpatterns += [
 ]
 
 urlpatterns += [
-    path('<slug:user_account>/account', views.account, name='account'),
+    path('<slug:viewed_account>/account', views.account, name='account'),
 ]
 
 urlpatterns += [
     path('sign-up', views.signup, name='signup'),
-]
-
-urlpatterns += [
-    path('login', views.login, name='login'),
 ]
 
 urlpatterns += [
@@ -32,4 +28,3 @@ urlpatterns += [
 urlpatterns += [
     path('addfriend', views.addfriend, name='addfriend'),
 ]
-
