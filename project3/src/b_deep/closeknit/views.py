@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from django.views import generic
 from django.contrib import auth
 from closeknit.models import UserAccount, Post, Comment, Reaction
-from closeknit.forms import AddFriendForm, SettingsEmailForm, SettingsUsernameForm, SettingsFriendCodeForm, SettingsPasswordForm, SignUpForm, CommentForm
+from closeknit.forms import AddFriendForm, SettingsEmailForm, SettingsUsernameForm, SettingsFriendCodeForm, SettingsPasswordForm, SignUpForm, CommentForm, PostForm
 
 
 from django.shortcuts import get_object_or_404
@@ -191,3 +191,16 @@ def add_comment(request, pk):
     else:
         form = CommentForm()
     return render(request, 'add-comment.html', {'form': form})
+
+def add_post(request):
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = Post()
+            post.author = auth.get_user(request).useraccount
+            post.time_stamp = datetime.datetime.now()
+            post.text_content = form.cleaned_data['text_content']
+            post.save()
+    else:
+        form = PostForm()
+    return render(request, 'add-post.html', {'form': form})

@@ -3,7 +3,7 @@ from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
-from closeknit.models import UserAccount, Comment
+from closeknit.models import UserAccount, Comment, Post
 
 class SignUpForm(forms.Form):
     fname = forms.CharField()
@@ -117,3 +117,9 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ('content',)
+
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ('text_content',)
