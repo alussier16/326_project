@@ -75,6 +75,8 @@ def signup(request):
 
             profile = UserAccount(user=newUser,friend_code=form.cleaned_data['friend_code'])
             profile.save()
+            login(request, newUser)
+            return redirect('accountcreated')
             
     return render(
         request, 'sign-up.html', {'page': 'sign-up'}
