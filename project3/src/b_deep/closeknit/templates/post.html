@@ -25,21 +25,34 @@
               <p class="comment-text text-left"><a class="user-link" href="/closeknit/{{comment.author.user.username}}/account">@{{comment.author.user.username}}</a> {{ comment.content|urlizetrunc:15 }}</p>
               {% endfor %}
             </div>
-            <div class="user-comment">
-              <textarea rows="1" type="text" class="form-control comment-input" id="postInput"></textarea>
-              <button class="btn ck-button">Send</button>
+            <a class="btn ck-button" href="{% url 'add-comment' pk=post.pk %}">Comment</a>
+          </div>
+
+
+            <div class="react-col">
+              {% with post.reaction_set.all|percentage as reactions %}
+              <div id="reaction" class="reaction-bar" style="background-color: #15ABAF;" reactVal="{{ reactions.0 }}">
+                <form action="/b_deep/" method="post">
+                  <button class="react-btn" type="submit">👽</button>
+                </form>
+              </div>
+              <div id="reaction" class="reaction-bar" style="background-color: #509799;" reactVal="{{ reactions.1 }}">
+                <form action="/b_deep/" method="post">
+                  <button class="react-btn" type="submit">🥜</button>
+                </form>
+              </div>
+              <div id="reaction" class="reaction-bar" style="background-color: #1FFF86;" reactVal="{{ reactions.2 }}">
+                <form action="/b_deep/" method="post">
+                  <button class="react-btn" type="submit">🍔</button>
+                </form>
+              </div>
+              <div id="reaction" class="reaction-bar" style="background-color: #FF5E7C;" reactVal="{{ reactions.3 }}">
+                <form action="/b_deep/" method="post">
+                  <button class="react-btn" type="submit">😨</button>
+                </form>
+              </div>
+              {% endwith %}
             </div>
-          </div>
-
-
-          <div class="react-col">
-            {% with post.reaction_set.all|percentage as reactions %}
-            <div id="reaction" class="reaction-bar" style="background-color: #15ABAF;" reactVal="{{ reactions.0 }}">👽</div>
-            <div id="reaction" class="reaction-bar" style="background-color: #509799;" reactVal="{{ reactions.1 }}">🥜</div>
-            <div id="reaction" class="reaction-bar" style="background-color: #1FFF86;" reactVal="{{ reactions.2 }}">🍔</div>
-            <div id="reaction" class="reaction-bar" style="background-color: #FF5E7C;" reactVal="{{ reactions.3 }}">😨</div>
-            {% endwith %}
-          </div>
 
         </div>
       </div>
