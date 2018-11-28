@@ -14,21 +14,20 @@
           <h4 class="ck-font"> Your Friend Code: {{ user.friend_code }}</h4>
         </div>
         <hr />
-<form action="" >
+<form action="" method ="POST">
   
   <table>
- 
-  {{ form.as_table }} 
+  {% csrf_token %}
+  {{ form.as_table }}
+  {{form.non_field_errors}} 
     
   </table>
-  <input class="btn btn-primary mb-2" style="float:right" type="submit" value ="Add Friend">
+
+  <button class="btn btn-primary mb-2" style="float:right" type="submit" value ="Add Friend">Add Friend</button>
 </form>
 </div>
 </div> 
 </div> 
-
-
-
 {% endblock %}
 
 
