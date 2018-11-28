@@ -1,15 +1,43 @@
 import random, pytz
 from django.contrib.auth.models import User
 from faker import Faker
+from django.contrib.auth.models import Group
 from closeknit.models import UserAccount, Post, Comment, Reaction
 
 fake = Faker()
 
 users = []
-user1 = User(first_name="John",last_name="Doe",email="jdoe@gmail.com",username="jdoe",is_superuser=False)
-user1.set_password("umass326")
-user1.save()
-users.append(user1)
+test_users, created = Group.objects.get_or_create(name='test_users')
+
+test_user = User(first_name="Vincent",last_name="Pietropaolo",email="vpietropaolo@umass.edu",username="vpietropaolo",is_superuser=False)
+test_user.set_password("umass326")
+test_user.save()
+test_users.user_set.add(test_user)
+users.append(test_user)
+test_user = User(first_name="Andy",last_name="Lussier",email="alussier@umass.edu",username="alussier",is_superuser=False)
+test_user.set_password("umass326")
+test_user.save()
+test_users.user_set.add(test_user)
+users.append(test_user)
+test_user = User(first_name="Julian",last_name="Killingback",email="jkillingback@umass.edu",username="jkillingback",is_superuser=False)
+test_user.set_password("umass326")
+test_user.save()
+users.append(test_user)
+test_user = User(first_name="Sivan",last_name="Myers",email="smyers@umass.edu",username="smyers",is_superuser=False)
+test_user.set_password("umass326")
+test_user.save()
+test_users.user_set.add(test_user)
+users.append(test_user)
+test_user = User(first_name="Gizem",last_name="Cizeckli",email="gcizeckli@umass.edu",username="gcizeckli",is_superuser=False)
+test_user.set_password("umass326")
+test_user.save()
+test_users.user_set.add(test_user)
+users.append(test_user)
+test_user = User(first_name="Jordan",last_name="Sheffield",email="jsheffield@umass.edu",username="jsheffield",is_superuser=False)
+test_user.set_password("umass326")
+test_user.save()
+test_users.user_set.add(test_user)
+users.append(test_user)
 for i in range(1,25):
     u_fname = fake.first_name()
     u_lname = fake.last_name()
