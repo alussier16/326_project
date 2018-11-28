@@ -23,18 +23,19 @@ class SignUpForm(forms.Form):
         return data
 
 class AddFriendForm(forms.Form):
-    username = forms.CharField(label='UserName' , help_text ="Enter a Username to Add")
-    friend_code = forms.CharField(label = 'Friend Code', help_text="Enter a Friend Code to Add")
+    username = forms.CharField(label='username' , help_text ="Enter a Username to Add")
+    friend_code = forms.CharField(label = 'friend_code', help_text="Enter a Friend Code to Add")
     
     def clean(self):
-        username_data = self.cleaned_data.get('username')
+        username_data = self.cleaned_data.get('username') 
         friend_code_data = self.cleaned_data.get('friend_code')
-        user = User.objects.filter(username = username_data)
-        #check if the username exists and friend code is correct
-        if user != None:
-            if user.friend_code != friend_code_data:
-                raise ValidatonError(_("This User is unavailable"))
+        user = User.objects.get(username = username_data)
         
+        #check if the username exists and friend code is correct
+        if user is not None:
+            if user.friend_code != friend_code_data:
+                raise ValidationError(_("This User is unavailable"))
+        return username_data
 
             
 

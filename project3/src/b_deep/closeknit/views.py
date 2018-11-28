@@ -165,9 +165,25 @@ def settings(request):
 @login_required(login_url='login')
 def addfriend(request):
     user=User.objects.get(pk=request.user.id)
-    form = AddFriendForm
-    return render(
-        request, 'add-friend.html', {'page': 'settings', 'user': user, 'form': form} 
-    )
+    
+    
+    if request.method == 'POST':
+
+        form = AddFriendForm(request.POST)
+
+        if form.is_valid():
+            friend = User.objects.get(username = form.cleaned_data.get('username')).useraccount
+            user.useraccount.friends.append(friend)
+            user.useraccount.save()
+        
+            
+        return render(
+            request, 'add-friend.html', {'page': 'settings', 'user': user, 'form': form} 
+        )
+    else:
+        form = AddFriendForm()
+        return render(
+            request, 'add-friend.html', {'page': 'settings', 'user': user, 'form': form} 
+        )
 
 
