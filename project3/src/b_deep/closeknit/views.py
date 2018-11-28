@@ -235,11 +235,12 @@ def addfriend(request):
         form = AddFriendForm(request.POST)
 
         if form.is_valid():
-            friend = User.objects.get(username = form.cleaned_data.get('username')).useraccount
-            user.useraccount.friends.append(friend)
+    
+            friend = User.objects.get(username = form.cleaned_data).useraccount
+            print(friend)
+            user.useraccount.friends.add(friend)
             user.useraccount.save()
         
-            
         return render(
             request, 'add-friend.html', {'page': 'settings', 'user': user, 'form': form} 
         )
