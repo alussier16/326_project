@@ -16,7 +16,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 
-
 # Create your views here.
 def test(request):
     return HttpResponse('Welcome to Closeknit')
@@ -29,7 +28,35 @@ def post(request):
     posts=[]
     for friend in friends:
         posts += friend.post_set.all()
+    if useraccount not in friends:
+        posts += useraccount.post_set.all()
     posts = sorted(posts, key=lambda x: x.time_stamp, reverse=True)[:30]
+
+    if request.method == "POST":
+        if 'react1' in request.POST:
+            post = get_object_or_404(Post, pk=request.POST['react1'])
+            Reaction.objects.get(post=post.id, user=auth.get_user(request).useraccount).delete()
+            reaction = Reaction(user=auth.get_user(request).useraccount, status=1, post=post, time_stamp = datetime.datetime.now())
+            reaction.save()
+            return redirect('main')
+        elif 'react2' in request.POST:
+            post = get_object_or_404(Post, pk=request.POST['react2'])
+            Reaction.objects.get(post=post.id, user=auth.get_user(request).useraccount).delete()
+            reaction = Reaction(user=auth.get_user(request).useraccount, status=2, post=post, time_stamp = datetime.datetime.now())
+            reaction.save()
+            return redirect('main')
+        elif 'react3' in request.POST:
+            post = get_object_or_404(Post, pk=request.POST['react3'])
+            Reaction.objects.get(post=post.id, user=auth.get_user(request).useraccount).delete()
+            reaction = Reaction(user=auth.get_user(request).useraccount, status=3, post=post, time_stamp = datetime.datetime.now())
+            reaction.save()
+            return redirect('main')
+        elif 'react4' in request.POST:
+            post = get_object_or_404(Post, pk=request.POST['react4'])
+            Reaction.objects.get(post=post.id, user=auth.get_user(request).useraccount).delete()
+            reaction = Reaction(user=auth.get_user(request).useraccount, status=4, post=post, time_stamp = datetime.datetime.now())
+            reaction.save()
+            return redirect('main')
 
     return render(
         request, 'post.html', {'posts': posts, 'page': 'main', 'user': user}
