@@ -2,6 +2,7 @@
 {% include "nav-bar.html" %}
 
 {% block content %}
+<div id="posts">
 {% for post in posts %}
 <div class="card">
   <div class="card-body">
@@ -25,7 +26,10 @@
               <p class="comment-text text-left"><a class="user-link" href="/closeknit/{{comment.author.user.username}}/account">@{{comment.author.user.username}}</a> {{ comment.content|urlizetrunc:15 }}</p>
               {% endfor %}
             </div>
-            <a class="btn ck-button" href="{% url 'add-comment' pk=post.pk %}">Comment</a>
+            <form method="post">{% csrf_token %}
+              <input type="text" class="form-control" name="new_comment">
+              <button type="submit" class="btn ck-button" name="new_comment_post" value={{post.id}} id='refresh_div'>Comment</button>
+            </form>
           </div>
 
 
@@ -33,22 +37,22 @@
               {% with post.reaction_set.all|percentage as reactions %}
               <div id="reaction" class="reaction-bar" style="background-color: #15ABAF;" reactVal="{{ reactions.0 }}">
                 <form method="post">{% csrf_token %}
-                  <button class="react-btn" type="submit" name='react1' value={{post.id}}>👽</button>
+                  <button class="react-btn" type="submit" name='react1' value={{post.id}} id='refresh_div'>👽</button>
                 </form>
               </div>
               <div id="reaction" class="reaction-bar" style="background-color: #509799;" reactVal="{{ reactions.1 }}">
                 <form method="post">{% csrf_token %}
-                  <button class="react-btn" type="submit" name='react2' value={{post.id}}>🥜</button>
+                  <button class="react-btn" type="submit" name='react2' value={{post.id}} id='refresh_div'>🥜</button>
                 </form>
               </div>
               <div id="reaction" class="reaction-bar" style="background-color: #1FFF86;" reactVal="{{ reactions.2 }}">
                 <form method="post">{% csrf_token %}
-                  <button class="react-btn" type="submit" name='react3' value={{post.id}}>🍔</button>
+                  <button class="react-btn" type="submit" name='react3' value={{post.id}} id='refresh_div'>🍔</button>
                 </form>
               </div>
               <div id="reaction" class="reaction-bar" style="background-color: #FF5E7C;" reactVal="{{ reactions.3 }}">
                 <form method="post">{% csrf_token %}
-                  <button class="react-btn" type="submit" name='react4' value={{post.id}}>😨</button>
+                  <button class="react-btn" type="submit" name='react4' value={{post.id}} id='refresh_div'>😨</button>
                 </form>
               </div>
               {% endwith %}
@@ -59,5 +63,14 @@
     </div>
   </div>
 </div>
+<script>
+   $(function() {
+     $("#refresh_div").on("click", function() {
+        $("#p"+String(forloop.counter)).load("post.html" + ' #p'+String(forloop.counter));
+        return false;
+    })
+  })
+</script>
 {% endfor %}
+</div>
 {% endblock %}

@@ -41,10 +41,6 @@ urlpatterns += [
 ]
 
 urlpatterns += [
-    url(r'^post/(?P<pk>\d+)/comment/$', views.add_comment, name='add-comment'),
-]
-
-urlpatterns += [
     path('add-post', views.add_post, name='add-post'),
 ]
 
