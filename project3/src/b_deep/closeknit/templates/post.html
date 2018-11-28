@@ -32,23 +32,23 @@
             <div class="react-col">
               {% with post.reaction_set.all|percentage as reactions %}
               <div id="reaction" class="reaction-bar" style="background-color: #15ABAF;" reactVal="{{ reactions.0 }}">
-                <form action="/closeknit/" method="post">{% csrf_token %}
-                  <button class="react-btn" type="submit">👽</button>
+                <form method="post">{% csrf_token %}
+                  <button class="react-btn" type="submit" name='react1' value={{post.id}}>👽</button>
                 </form>
               </div>
               <div id="reaction" class="reaction-bar" style="background-color: #509799;" reactVal="{{ reactions.1 }}">
-                <form action="/closeknit/" method="post">{% csrf_token %}
-                  <button class="react-btn" type="submit">🥜</button>
+                <form method="post">{% csrf_token %}
+                  <button class="react-btn" type="submit" name='react2' value={{post.id}}>🥜</button>
                 </form>
               </div>
               <div id="reaction" class="reaction-bar" style="background-color: #1FFF86;" reactVal="{{ reactions.2 }}">
-                <form action="/closeknit/" method="post">{% csrf_token %}
-                  <button class="react-btn" type="submit">🍔</button>
+                <form method="post">{% csrf_token %}
+                  <button class="react-btn" type="submit" name='react3' value={{post.id}}>🍔</button>
                 </form>
               </div>
               <div id="reaction" class="reaction-bar" style="background-color: #FF5E7C;" reactVal="{{ reactions.3 }}">
-                <form action="/closeknit/" method="post">{% csrf_token %}
-                  <button class="react-btn" type="submit">😨</button>
+                <form method="post">{% csrf_token %}
+                  <button class="react-btn" type="submit" name='react4' value={{post.id}}>😨</button>
                 </form>
               </div>
               {% endwith %}
