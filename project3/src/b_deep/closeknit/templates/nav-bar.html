@@ -22,7 +22,7 @@
 <nav class="navbar navbar-expand-sm navbar-light nav-style">
   <span class="navbar-brand mb-0 h1 ck-font">
     Closeknit
-    <img src="{% static 'img/yarn-ball.png' %}" width="30" height="30" style="margin-left:0.3em; margin-bottom: 0.15em">
+    <a href="/closeknit"><img src="{% static 'img/yarn-ball.png' %}" width="30" height="30" style="margin-left:0.3em; margin-bottom: 0.15em"></a>
   </span>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
@@ -40,18 +40,11 @@
       <li class="nav-item {% if page == 'account' %} active {% endif %}">
         <a class="nav-link ck-font" href="/closeknit/{{user.username}}/account">Account</a>
       </li>
-      {% if page == 'settings' %}
       <li class="nav-item {% if page == 'settings' %} active {% endif %}">
         <a class="nav-link" href="{% url 'settings' %}"> <img class="navbar-icon" src="{% static 'img/open-iconic/svg/cog.svg' %}" width="20rem" height="auto"> </a>
       </li>
-      {% endif %}
-      {% if page == 'account' %}
-      <li class="nav-item {% if page == 'settings' %} active {% endif %}">
-        <a class="nav-link" href="{% url 'settings' %}"> <img class="navbar-icon" src="{% static 'img/open-iconic/svg/cog.svg' %}" width="20rem" height="auto"> </a>
-      </li>
-      {% endif %}
-      <li class="nav-item" id="navPostItem">
-        <a class="btn primary-btn ck-button ck-font" href="{% url 'add-post' %}">Post</a>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'add-post' %}">Post</a>
       </li>
     </ul>
   </div>
