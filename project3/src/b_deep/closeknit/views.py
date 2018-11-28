@@ -1,8 +1,11 @@
-from django.shortcuts import render
+import datetime
+
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.views import generic
+from django.contrib import auth
 from closeknit.models import UserAccount, Post, Comment, Reaction
-from closeknit.forms import AddFriendForm, SettingsEmailForm, SettingsUsernameForm, SettingsFriendCodeForm, SettingsPasswordForm, SignUpForm 
+from closeknit.forms import AddFriendForm, SettingsEmailForm, SettingsUsernameForm, SettingsFriendCodeForm, SettingsPasswordForm, SignUpForm, CommentForm, PostForm
 
 
 from django.shortcuts import get_object_or_404
@@ -12,6 +15,7 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 def test(request):
@@ -49,7 +53,8 @@ def ties(request):
     )
 
 def log_in(request):
-    logout(request)
+    if request.user.is_authenticated:
+        return redirect('main')
     if ('username' in request.POST):
         username=request.POST['username']
         password=request.POST['password']
@@ -57,11 +62,20 @@ def log_in(request):
         if user is not None:
             login(request, user)
             return redirect('main')
+
     return render(
-        request, 'login.html', {'page': 'login'}
+        request, 'registration/login.html', {'page': 'login'}
+    )
+
+def log_out(request):
+    logout(request)
+    return render(
+        request, 'registration/logout.html', {'page': 'logout'}
     )
 
 def signup(request):
+    if request.user.is_authenticated:
+        return redirect('main')
     if request.method == 'POST':
         form = SignUpForm(request.POST)
 
@@ -75,7 +89,9 @@ def signup(request):
 
             profile = UserAccount(user=newUser,friend_code=form.cleaned_data['friend_code'])
             profile.save()
-            
+            login(request, newUser)
+            return redirect('accountcreated')
+
     return render(
         request, 'sign-up.html', {'page': 'sign-up'}
     )
@@ -92,7 +108,7 @@ def settings(request):
 
     #if email is being updated
     if request.method == 'POST' and 'btnEmail' in request.POST:
-        
+
         form = SettingsEmailForm(request.POST)
         fno = 1
         if form.is_valid():
@@ -125,15 +141,15 @@ def settings(request):
             print("password form valid")
             user.set_password(form.cleaned_data)
             user.save()
-   
-    else: 
+
+    else:
         fno = 0
         form = SettingsEmailForm()
         form = SettingsUsernameForm()
         form = SettingsFriendCodeForm()
         form = SettingsPasswordForm()
-  
-    
+
+
     context = {'page': 'settings', 'user': user, 'form': form, 'fno': fno}
 
     return render(request, 'settings.html', context)
@@ -152,9 +168,9 @@ def settings(request):
             user.save()
             return HttpResponse("amk email saved")
 
-    else: 
+    else:
         form = SettingsEmailForm()
-    
+
     context = {'page': 'settings', 'user': user, 'form': form}
 
     return render(request, 'settings.html', context)
@@ -165,6 +181,7 @@ def settings(request):
 @login_required(login_url='login')
 def addfriend(request):
     user=User.objects.get(pk=request.user.id)
+<<<<<<< HEAD
     
     
     if request.method == 'POST':
@@ -185,5 +202,40 @@ def addfriend(request):
         return render(
             request, 'add-friend.html', {'page': 'settings', 'user': user, 'form': form} 
         )
+=======
+    form = AddFriendForm
+    return render(
+        request, 'add-friend.html', {'page': 'settings', 'user': user, 'form': form}
+    )
+>>>>>>> 99d76eedc399faf034d88ad8c32b29ca839d66c4
 
+def add_comment(request, pk):
+    print(request)
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = Comment()
+            comment.author = auth.get_user(request).useraccount
+            comment.time_stamp = datetime.datetime.now()
+            comment.content = form.cleaned_data['content']
+            comment.post = post
+            comment.save()
+            return redirect('main')
+    else:
+        form = CommentForm()
+    return render(request, 'add-comment.html', {'form': form})
 
+def add_post(request):
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = Post()
+            post.author = auth.get_user(request).useraccount
+            post.time_stamp = datetime.datetime.now()
+            post.text_content = form.cleaned_data['text_content']
+            post.save()
+            return redirect('main')
+    else:
+        form = PostForm()
+    return render(request, 'add-post.html', {'form': form})

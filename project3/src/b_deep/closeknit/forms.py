@@ -1,9 +1,9 @@
 from django import forms
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
-from django.utils.translation import ugettext_lazy as _ 
+from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
-from closeknit.models import UserAccount
+from closeknit.models import UserAccount, Comment, Post
 
 class SignUpForm(forms.Form):
     fname = forms.CharField()
@@ -16,16 +16,22 @@ class SignUpForm(forms.Form):
 
     def clean_user(self):
         data = self.cleaned_data['fname','lname','email','username','friend_code','password','re_password']
-        
+
         if password != re_password:
             raise ValidationError(_('Passwords do not match.'))
-            
+
         return data
 
 class AddFriendForm(forms.Form):
+<<<<<<< HEAD
     username = forms.CharField(label='username' , help_text ="Enter a Username to Add")
     friend_code = forms.CharField(label = 'friend_code', help_text="Enter a Friend Code to Add")
     
+=======
+    username = forms.CharField(label='UserName' , help_text ="Enter a Username to Add")
+    friend_code = forms.CharField(label = 'Friend Code', help_text="Enter a Friend Code to Add")
+
+>>>>>>> 99d76eedc399faf034d88ad8c32b29ca839d66c4
     def clean(self):
         username_data = self.cleaned_data.get('username') 
         friend_code_data = self.cleaned_data.get('friend_code')
@@ -34,10 +40,15 @@ class AddFriendForm(forms.Form):
         #check if the username exists and friend code is correct
         if user is not None:
             if user.friend_code != friend_code_data:
+<<<<<<< HEAD
                 raise ValidationError(_("This User is unavailable"))
         return username_data
+=======
+                raise ValidatonError(_("This User is unavailable"))
+>>>>>>> 99d76eedc399faf034d88ad8c32b29ca839d66c4
 
-            
+
+
 
 
 
@@ -107,9 +118,20 @@ class SettingsPasswordForm(forms.Form):
         old_data = self.cleaned_data.get('old_password')
         new_data = self.cleaned_data.get('new_password')
         confirm_data = self.cleaned_data.get('confirm_password')
-        
+
         if new_data != confirm_data:
             raise ValidationError(_("New passwords do not match."))
-        
+
         #returns the cleaned data
         return new_data
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('content',)
+
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ('text_content',)

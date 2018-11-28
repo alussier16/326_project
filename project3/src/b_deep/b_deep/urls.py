@@ -14,7 +14,7 @@ urlpatterns += [
 ]
 
 urlpatterns += [
-    path('', RedirectView.as_view(url='/closeknit/')),
+    path('', RedirectView.as_view(url='/closeknit/login')),
 ]
 
 urlpatterns += [path("accounts/", include("django.contrib.auth.urls"))]

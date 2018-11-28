@@ -1,0 +1,13 @@
+{% extends 'post.html' %}
+
+{% block content %}
+  <div class="card" style="padding-top: 3rem;">
+    <form method='POST'> {% csrf_token %}
+      <p>
+        <label for="id_content">Comment:</label>
+        <textarea name="content" id="id_content" required></textarea>
+      </p>
+      <input class="btn ck-button" type="submit" value="Send"></input>
+    </form>
+  </div>
+{% endblock %}
