@@ -181,7 +181,6 @@ def settings(request):
 @login_required(login_url='login')
 def addfriend(request):
     user=User.objects.get(pk=request.user.id)
-<<<<<<< HEAD
     
     
     if request.method == 'POST':
@@ -202,12 +201,6 @@ def addfriend(request):
         return render(
             request, 'add-friend.html', {'page': 'settings', 'user': user, 'form': form} 
         )
-=======
-    form = AddFriendForm
-    return render(
-        request, 'add-friend.html', {'page': 'settings', 'user': user, 'form': form}
-    )
->>>>>>> 99d76eedc399faf034d88ad8c32b29ca839d66c4
 
 def add_comment(request, pk):
     print(request)
