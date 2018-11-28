@@ -29,13 +29,19 @@ class AddFriendForm(forms.Form):
     def clean(self):
         username_data = self.cleaned_data.get('username') 
         friend_code_data = self.cleaned_data.get('friend_code')
-        user = User.objects.get(username = username_data)
+        try:
+            user = User.objects.get(username = username_data)
+        except User.DoesNotExist:
+            user = None
         
         #check if the username exists and friend code is correct
-        if user is not None:
-            if user.friend_code != friend_code_data:
-                raise ValidationError(_("This User is unavailable"))
+        if user != None:
+            if user.useraccount.friend_code != friend_code_data:
+                raise ValidationError(_("This User does not want to be friends with you :("))
+        elif user == None:
+            raise ValidationError(_("This User does not exist :("))
         return username_data
+
 
 
 

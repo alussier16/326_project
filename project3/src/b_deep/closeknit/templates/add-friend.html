@@ -15,15 +15,19 @@
         </div>
         <hr />
 <form action="" method ="POST">
-  
-  <table>
+  <div class="form-group">
+      <label for="username">
+          <h5 class="ck-font">UserName:</h5>
+        </label>
+        <input type="username" class="form-control" id="username" name="username">
+        <label for="friend_code">
+        <h5 class="ck-font">Friend Code:</h5>
+        </label>
+        <input type="friend_code" class="form-control" id="friend_code" name="friend_code">
+      </div>
+  <button class="btn btn-primary mb-2" style="background-color: #15abaf; border-color: #15abaf; float:right;" type="submit" value ="Add Friend">Add Friend</button>
   {% csrf_token %}
-  {{ form.as_table }}
   {{form.non_field_errors}} 
-    
-  </table>
-
-  <button class="btn btn-primary mb-2" style="float:right" type="submit" value ="Add Friend">Add Friend</button>
 </form>
 </div>
 </div> 
