@@ -40,6 +40,7 @@ body {
 
 .ck-react-button {
   border: none;
+  background: none;
   cursor:pointer;
   outline: none;
   padding: 0;
