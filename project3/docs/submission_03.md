@@ -19,6 +19,7 @@ Other significant feature include the settings page. From the settings page, peo
 For this submission we have not made any substanative changes to our proposed idea. Instead, we worked on implementing login and logout, and the forms, all of which are central to the functionality of our application.
 
 # Video Link
+https://youtu.be/yUwE9MQh968
 
 # Design Overview
 To use our application, you must have an account. Thus if try to access any page of our application without being signed in you will be redirected to login. Once logged in, our application is tailored to your account and displays information relevant to you on each page. Thus on the main page you will see the posts of all of your ties, the Ties page will show all of your current ties and provides a link to add more, and the account page shows your post history. If you are intereseted in editing any of your account settings you can head to the settings page where you able to edit your user account fields. When you're ready to logout, you also do this from the Settings page at the bottom where there is a clearly labeled Logout button.
