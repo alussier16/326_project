@@ -33,7 +33,6 @@ class AddFriendForm(forms.Form):
             user = User.objects.get(username = username_data)
         except User.DoesNotExist:
             user = None
-
         #check if the username exists and friend code is correct
         if user != None:
             if user.useraccount.friend_code != friend_code_data:
