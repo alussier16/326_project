@@ -1,0 +1,35 @@
+{% load filters %}
+{% include "nav-bar.html" %}
+
+{% block content %}
+{% load static %}
+
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xs-auto col-sm-8 col-md-6" id="settings-form">
+        <h2 style="text-align:center; margin-top: 5%;" class="ck-font">Add Friend</h2>
+        <hr />
+        <div class="form-group">
+          <h4 class="ck-font"> Your Username: {{ user.username }}</h4>
+          <h4 class="ck-font"> Your Friend Code: {{ user.useraccount.friend_code }}</h4>
+        </div>
+        <hr />
+<form action="" method ="POST">
+  <div class="form-group">
+      <label for="username">
+          <h5 class="ck-font">UserName:</h5>
+        </label>
+        <input type="username" class="form-control" id="username" name="username">
+        <label for="friend_code" style="margin-top: 5%;">
+        <h5 class="ck-font">Friend Code:</h5>
+        </label>
+        <input type="friend_code" class="form-control" id="friend_code" name="friend_code">
+      </div>
+  <button class="btn btn-primary mb-2" style="background-color: #15abaf; border-color: #15abaf; float:right;" type="submit" value ="Add Friend">Add Friend</button>
+  {% csrf_token %}
+  {{form.non_field_errors}} 
+</form>
+</div>
+</div> 
+</div> 
+{% endblock %}

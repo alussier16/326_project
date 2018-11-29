@@ -32,3 +32,7 @@ urlpatterns += [
 urlpatterns += [
     path('addfriend', views.addfriend, name='addfriend'),
 ]
+
+urlpatterns += [
+    path('get-posts/<int:post_number>', views.getpost, name='getpost'),
+]

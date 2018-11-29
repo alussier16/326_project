@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.http import JsonResponse
+from django.core import serializers
 from django.views import generic
 from closeknit.models import UserAccount, Post, Comment, Reaction
+
 
 # Create your views here.
 def test(request):
@@ -16,7 +19,7 @@ def post(request):
     posts = sorted(posts, key=lambda x: x.time_stamp, reverse=True)[:30]
 
     return render(
-        request, 'post.html', {'posts': posts, 'page': 'main', 'user': user}
+        request, 'post2.html', {'posts': posts, 'page': 'main', 'user': user}
     )
 
 def account(request, user_account):
@@ -58,5 +61,18 @@ def settings(request):
 def addfriend(request):
     user=UserAccount.objects.get(pk=1)
     return render(
-        request, 'add-friend.html', {'page': 'settings', 'user': user} 
+        request, 'add-friend.html', {'page': 'settings', 'user': user}
     )
+
+def getpost(request, post_number):
+    user=UserAccount.objects.get(pk=1)
+    friends = user.friends.all()
+    posts=[]
+    print("Post number is ", post_number)
+    for friend in friends:
+        posts += friend.post_set.all()
+    posts = sorted(posts, key=lambda x: x.time_stamp, reverse=True)[post_number: 10 + post_number]
+
+    data = {}
+    data["posts"] = serializers.serialize('json', posts)
+    return JsonResponse(data)

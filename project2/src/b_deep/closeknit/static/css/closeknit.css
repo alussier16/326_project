@@ -3,6 +3,16 @@ body {
   font-weight: 400;
 }
 
+#sentinel {
+  width: 1px;
+  height: 1px;
+}
+
+#scroller {
+  height: auto;
+  overflow-y: scroll;
+}
+
 .navbar-nav {
   margin-left: auto;
 }
