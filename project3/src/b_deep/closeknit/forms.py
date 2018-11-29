@@ -83,6 +83,10 @@ class SettingsFriendCodeForm(forms.Form):
 
     def clean(self):
         data = self.cleaned_data.get('friend_code')
+        
+        if data:
+            if UserAccount.objects.filter(friend_code = data):
+                raise ValidationError(_("This friend code is used by another user. Please enter a different friend code."))
 
         #returns the cleaned data
         return data
