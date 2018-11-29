@@ -3,11 +3,11 @@
 {% block content %}
   <div class="card" style="padding-top: 3rem;">
     <form method='POST'> {% csrf_token %}
-      <p>
-        <label for="id_text_content">Post:</label>
-        <textarea name="text_content" id="id_text_content" required></textarea>
-      </p>
-      <input class="btn ck-button" type="submit" value="Send"></input>
+      <h1 class="title">Create a Post:</h1>
+      <div style="margin: 0 auto; width:100%">
+        <textarea name="text_content" rows=8 style="width:80%" id="id_text_content" required></textarea><br/>
+        <input class="btn ck-button" type="submit" value="Send"></input>
+      </div>
     </form>
   </div>
 {% endblock %}
