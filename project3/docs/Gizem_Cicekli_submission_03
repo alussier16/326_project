@@ -1,0 +1,9 @@
+I contributed to several aspects of this project. Specifically, I made the settings form. This indicated that I had to modify the forms.py,
+views.py and the setting template. I struggled with figuring out how to account for multiple forms on one page and I figured out by looking 
+at different documentations about implementing forms. Even though there was little documentation describing how to do this and I made it work
+by defining each updating field as a different form and displaying the appropriate view by checking where the POST request was incoming from.
+I was able to complete my portion way ahead of time, which was very helpful later when my teammates needed help working through their parts.
+
+In addition, I did some testing for the sign up page in order to make sure it was working properly. I really feel like the break was very helpful
+as I worked to improve my performance.
+

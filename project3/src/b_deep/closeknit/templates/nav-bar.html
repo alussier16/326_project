@@ -37,12 +37,15 @@
       <li class="nav-item {% if page == 'ties' %} active {% endif %}">
         <a class="nav-link ck-font" href="{% url 'ties' %}">Ties</a>
       </li>
-      <li class="nav-item {% if page == 'account' %} active {% endif %}">
-        <a class="nav-link ck-font" href="/closeknit/{{user.username}}/account">Account</a>
+      <li class="nav-item dropdown {% if page == 'account' %} active {% endif %}">
+        <a class="nav-link" href=# id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+       <a class="dropdown-item" href=" /closeknit/{{user.username}}/account">Profile</a>
+       <a class="dropdown-item" href="{% url 'settings' %}">Settings</a>
+       <a href="{% url 'log_out' %}" class="dropdown-item">Logout</a>
+      </div>
       </li>
-      <li class="nav-item {% if page == 'settings' %} active {% endif %}">
-        <a class="nav-link" href="{% url 'settings' %}"> <img class="navbar-icon" src="{% static 'img/open-iconic/svg/cog.svg' %}" width="20rem" height="auto"> </a>
-      </li>
+
       <li class="nav-item">
         <a class="nav-link" href="{% url 'add-post' %}">Post</a>
       </li>

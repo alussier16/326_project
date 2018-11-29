@@ -1,5 +1,0 @@
-I personally contributed to a few aspects of this project. Although I had some difficulty completing one assigned task, I was able to complete the majority of my work required for this section. I was in charge of designing some of the models for the first half of this project. I created the Post, Comment, and Reaction models for our project.
-
-Additionally I was in charge of working on a settings page for our UI, but unfortunately I was unable to figure out a sufficent design for the page, and one of my group members stepped up and created it for me. I hope to avoid this in the future and work harder to contribute more to the team.
-
-Finally I looked at the settings page and updated a few basic design aspects (button color/moving one button from the top to the bottom of the page) of it for my group members to try to make up a bit for me dropping the ball on the page. 
