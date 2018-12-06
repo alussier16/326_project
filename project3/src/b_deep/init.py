@@ -57,6 +57,7 @@ for u in users:
     user_account.save()
     user_accounts.append(user_account)
 
+user_accounts[1].friend_code="zoomass"
 for u in user_accounts:
     new_friends = random.sample(user_accounts, 3)
     u.friends.set(new_friends)
