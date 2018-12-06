@@ -62,6 +62,7 @@ for u in user_accounts:
     new_friends = random.sample(user_accounts, 3)
     u.friends.set(new_friends)
     u.save()
+    
 
 posts = []
 p_author = user_accounts[0]
