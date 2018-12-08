@@ -28,7 +28,7 @@
               <div class="card-body">
                 <div class="side-col">
                   <p class="card-text ck-card-name">
-                    <a class="user-link" href="/closeknit/${post.fields.author}/account">@${post.fields.author}</a> says:
+                    <a class="user-link" href="/closeknit/${post.author}/account">@${post.author}</a> says:
                   </p>
                   <button type="button" class="ck-react-button ck-font" data-toggle="collapse" data-target="#p${counter}" aria-expanded="false" aria-controls="footerOne" onclick="move()">
                     <span class="hl-blue">Comments</span>
@@ -36,7 +36,7 @@
                 </div>
                 <div class="text-col">
                   <h1 class="ck-card-title">
-                    "${post.fields.text_content}"
+                    "${post.text_content}"
                   </h1>
                   <div class="ck-card-footer card-footer collapse" id="p${counter}">
                     <div class="user-input-box">
@@ -52,22 +52,22 @@
 
 
                       <div class="react-col">
-                        <div id="reaction" class="reaction-bar" style="background-color: #15ABAF;" reactVal="100">
+                        <div id="reaction" class="reaction-bar" style="background-color: #15ABAF;" reactVal="${post.reactions[0]}">
                           <form method="post">{% csrf_token %}
                             <button class="ck-react-button" type="submit" name='react1' value="77" id='refresh_div'>👽</button>
                           </form>
                         </div>
-                        <div id="reaction" class="reaction-bar" style="background-color: #509799;" reactVal="10">
+                        <div id="reaction" class="reaction-bar" style="background-color: #509799;" reactVal="${post.reactions[1]}">
                           <form method="post">{% csrf_token %}
                             <button class="ck-react-button" type="submit" name='react2' value="77" id='refresh_div'>🥜</button>
                           </form>
                         </div>
-                        <div id="reaction" class="reaction-bar" style="background-color: #1FFF86;" reactVal="40">
+                        <div id="reaction" class="reaction-bar" style="background-color: #1FFF86;" reactVal="${post.reactions[2]}">
                           <form method="post">{% csrf_token %}
                             <button class="ck-react-button" type="submit" name='react3' value="77" id='refresh_div'>🍔</button>
                           </form>
                         </div>
-                        <div id="reaction" class="reaction-bar" style="background-color: #FF5E7C;" reactVal="70">
+                        <div id="reaction" class="reaction-bar" style="background-color: #FF5E7C;" reactVal="${post.reactions[3]}">
                           <form method="post">{% csrf_token %}
                             <button class="ck-react-button" type="submit" name='react4' value="77" id='refresh_div'>😨</button>
                           </form>
@@ -79,6 +79,10 @@
               </div>
             </div>
           `
+          // post.comments.forEach(function(comment) {
+          //   newItem.getElementById('comment-box').innerHTML += `<p class="comment-text text-left"><a class="user-link" href="/closeknit/hello/account">@${comment.author}</a> ${comment.content}</p>`
+          // });
+
           counter++;
           scroller.append(newItem);
 

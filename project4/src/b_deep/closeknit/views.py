@@ -1,4 +1,5 @@
 import datetime
+import json
 
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
@@ -273,12 +274,35 @@ def add_post(request):
 def getpost(request, post_number):
     user=UserAccount.objects.get(pk=1)
     friends = user.friends.all()
-    posts=[]
+    posts = []
     print("Post number is ", post_number)
     for friend in friends:
         posts += friend.post_set.all()
-    posts = sorted(posts, key=lambda x: x.time_stamp, reverse=True)[post_number: 10 + post_number]
 
+    posts = sorted(posts, key=lambda x: x.time_stamp, reverse=True)[post_number: 10 + post_number]
+    print("posts", posts)
+    updated_posts = []
+    for post in posts:
+        comments = []
+        reactions = [0, 0, 0, 0]
+        for reaction in post.reaction_set.all():
+            for i in range(1, 5):
+                if(int(reaction.status) == i):
+                    reactions[i - 1] = (reactions[i - 1] + 1)
+        maxVal = max(max(reactions), 1)
+        reactions = list(map(lambda x: max(1, int(((x/maxVal) * 100))), reactions))
+        print(reactions)
+        # print(reactions)
+        for comment in post.comment_set.all():
+            comments.append({"author": str(comment.author), "content": comment.content})
+        updated_posts.append({
+            "author": post.author.user.username,
+            "text_content": post.text_content,
+            "comments": comments,
+            "reactions": reactions})
+
+    print(updated_posts[0])
     data = {}
-    data["posts"] = serializers.serialize('json', posts)
+    # data["posts"] = serializers.serialize('json', updated_posts)
+    data["posts"] = json.dumps(updated_posts)
     return JsonResponse(data)

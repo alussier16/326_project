@@ -52,4 +52,4 @@ class Reaction(models.Model):
     status = models.CharField(max_length=1,choices= REACTIONS,blank=True,default= '0')
 
     def __str__(self):
-        return f"{self.user}, {self.time_stamp}, {self.status}"
+        return f"{self.user}, {self.time_stamp}, {self.status}"        
