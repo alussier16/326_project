@@ -25,16 +25,6 @@ def test(request):
 
 @login_required(login_url='login')
 def post(request):
-    user=User.objects.get(pk=request.user.id)
-    useraccount = user.useraccount
-    friends = useraccount.friends.all()
-    posts=[]
-    for friend in friends:
-        posts += friend.post_set.all()
-    if useraccount not in friends:
-        posts += useraccount.post_set.all()
-    posts = sorted(posts, key=lambda x: x.time_stamp, reverse=True)[:30]
-
     if request.method == "POST":
         if 'new_comment_post' in request.POST and 'new_comment' in request.POST and request.POST['new_comment']!=None:
             post = get_object_or_404(Post, pk=request.POST['new_comment_post'])
@@ -86,16 +76,62 @@ def post(request):
             reaction.save()
 
     return render(
-        request, 'post.html', {'posts': posts, 'page': 'main', 'user': user}
+        request, 'post.html', {'page': 'main'}
     )
 
 @login_required(login_url='login')
 def account(request, viewed_account):
-    user=User.objects.get(pk=request.user.id)
-    viewed_user = User.objects.get(username=viewed_account)
-    posts = sorted(viewed_user.useraccount.post_set.all(), key=lambda x: x.time_stamp, reverse=True)[:30]
+    if request.method == "POST":
+        if 'new_comment_post' in request.POST and 'new_comment' in request.POST and request.POST['new_comment']!=None:
+            post = get_object_or_404(Post, pk=request.POST['new_comment_post'])
+            comment = Comment()
+            comment.author = auth.get_user(request).useraccount
+            comment.time_stamp = datetime.datetime.now()
+            comment.content = request.POST['new_comment']
+            comment.post = post
+            comment.save()
+        if 'react1' in request.POST:
+            post = get_object_or_404(Post, pk=request.POST['react1'])
+            try:
+                old_react = Reaction.objects.get(post=post.id, user=auth.get_user(request).useraccount)
+            except:
+                old_react = None
+            if not old_react == None:
+                old_react.delete()
+            reaction = Reaction(user=auth.get_user(request).useraccount, status=1, post=post, time_stamp = datetime.datetime.now())
+            reaction.save()
+        elif 'react2' in request.POST:
+            post = get_object_or_404(Post, pk=request.POST['react2'])
+            try:
+                old_react = Reaction.objects.get(post=post.id, user=auth.get_user(request).useraccount)
+            except:
+                old_react = None
+            if not old_react == None:
+                old_react.delete()
+            reaction = Reaction(user=auth.get_user(request).useraccount, status=2, post=post, time_stamp = datetime.datetime.now())
+            reaction.save()
+        elif 'react3' in request.POST:
+            post = get_object_or_404(Post, pk=request.POST['react3'])
+            try:
+                old_react = Reaction.objects.get(post=post.id, user=auth.get_user(request).useraccount)
+            except:
+                old_react = None
+            if not old_react == None:
+                old_react.delete()
+            reaction = Reaction(user=auth.get_user(request).useraccount, status=3, post=post, time_stamp = datetime.datetime.now())
+            reaction.save()
+        elif 'react4' in request.POST:
+            post = get_object_or_404(Post, pk=request.POST['react4'])
+            try:
+                old_react = Reaction.objects.get(post=post.id, user=auth.get_user(request).useraccount)
+            except:
+                old_react = None
+            if not old_react == None:
+                old_react.delete()
+            reaction = Reaction(user=auth.get_user(request).useraccount, status=4, post=post, time_stamp = datetime.datetime.now())
+            reaction.save()
     return render(
-        request, 'post.html', {'posts': posts, 'page': 'account', 'user': user}
+        request, 'post-account.html', {'page': 'account', 'viewed_account': viewed_account}
     )
 
 @login_required(login_url='login')
@@ -272,12 +308,15 @@ def add_post(request):
 
 
 def getpost(request, post_number):
-    user=UserAccount.objects.get(pk=1)
-    friends = user.friends.all()
+    user=User.objects.get(pk=request.user.id)
+    friends = user.useraccount.friends.all()
+    print(friends)
     posts = []
     print("Post number is ", post_number)
     for friend in friends:
         posts += friend.post_set.all()
+    if user.useraccount not in friends:
+        posts += user.useraccount.post_set.all()
 
     posts = sorted(posts, key=lambda x: x.time_stamp, reverse=True)[post_number: 10 + post_number]
     print("posts", posts)
@@ -299,7 +338,42 @@ def getpost(request, post_number):
             "author": post.author.user.username,
             "text_content": post.text_content,
             "comments": comments,
-            "reactions": reactions})
+            "reactions": reactions,
+            "post_id": post.id})
+
+    print(updated_posts[0])
+    data = {}
+    # data["posts"] = serializers.serialize('json', updated_posts)
+    data["posts"] = json.dumps(updated_posts)
+    return JsonResponse(data)
+
+def getpostaccount(request, viewed_account, post_number):
+    viewed_user = User.objects.get(username=viewed_account)
+    posts = viewed_user.useraccount.post_set.all()
+    print("Post number is ", post_number)
+
+    posts = sorted(posts, key=lambda x: x.time_stamp, reverse=True)[post_number: 10 + post_number]
+    print("posts", posts)
+    updated_posts = []
+    for post in posts:
+        comments = []
+        reactions = [0, 0, 0, 0]
+        for reaction in post.reaction_set.all():
+            for i in range(1, 5):
+                if(int(reaction.status) == i):
+                    reactions[i - 1] = (reactions[i - 1] + 1)
+        maxVal = max(max(reactions), 1)
+        reactions = list(map(lambda x: max(1, int(((x/maxVal) * 100))), reactions))
+        print(reactions)
+        # print(reactions)
+        for comment in post.comment_set.all():
+            comments.append({"author": str(comment.author), "content": comment.content})
+        updated_posts.append({
+            "author": post.author.user.username,
+            "text_content": post.text_content,
+            "comments": comments,
+            "reactions": reactions,
+            "post_id": post.id})
 
     print(updated_posts[0])
     data = {}

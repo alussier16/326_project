@@ -9,9 +9,9 @@
   var sentinel = document.querySelector('#sentinel');
   var counter = 0;
 
-  function loadItems(n) {
+  function loadItems(n, m) {
     var posts;
-    var url = `/closeknit/get-posts/${n}`;
+    var url = `/closeknit/get-posts/${m}/${n}`;
     console.log("#########");
     console.log(counter);
     store += 10;
@@ -100,6 +100,7 @@
     });
   }
   var store = 0;
+  var v_a = "{{viewed_account}}"
   var intersectionObserver = new IntersectionObserver(async (entries) => {
     // If intersectionRatio is 0, the sentinel is out of view
     // and we do not need to do anything.
@@ -107,7 +108,7 @@
       return;
     }
     console.log("IntersectionObserver");
-    await loadItems(store)
+    await loadItems(store, v_a)
     scroller.append(sentinel);
   });
   intersectionObserver.observe(sentinel);

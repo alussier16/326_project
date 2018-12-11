@@ -51,3 +51,7 @@ urlpatterns += [
 urlpatterns += [
     path('get-posts/<int:post_number>', views.getpost, name='getpost'),
 ]
+
+urlpatterns += [
+    path('get-posts/<slug:viewed_account>/<int:post_number>', views.getpostaccount, name='getpostaccount'),
+]
