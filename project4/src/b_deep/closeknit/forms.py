@@ -40,6 +40,8 @@ class AddFriendForm(forms.Form):
                 raise ValidationError(_("This User does not want to be friends with you :("))
         elif user == None:
             raise ValidationError(_("This User does not exist :("))
+        elif user.useraccount.friends.all().count() > 99:
+            raise ValidationError(_("You are at the max amount of friends (99)"))
         return username_data
 
 

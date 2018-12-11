@@ -28,6 +28,10 @@ def post(request):
     if request.method == "POST":
         if 'new_comment_post' in request.POST and 'new_comment' in request.POST and request.POST['new_comment']!=None:
             post = get_object_or_404(Post, pk=request.POST['new_comment_post'])
+            for comment in post.comment_set.all():
+                if comment.author == auth.get_user(request).useraccount:
+                    return render(request, 'post.html', {'page': 'main'})
+
             comment = Comment()
             comment.author = auth.get_user(request).useraccount
             comment.time_stamp = datetime.datetime.now()
