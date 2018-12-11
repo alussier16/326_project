@@ -43,6 +43,34 @@ class AddFriendForm(forms.Form):
         return username_data
 
 
+class RemoveFriendForm(forms.Form):
+    friend = forms.CharField(label='friend' , help_text ="Enter a Friend to Remove")
+
+    def __init__(self, *args, **kwargs):
+        self.user = kwargs.pop('user')
+        super(RemoveFriendForm, self).__init__(*args, **kwargs)
+
+    def clean(self):
+        username_data = self.cleaned_data.get('friend')
+        me = self.user
+        try:
+            user = User.objects.get(username = username_data)
+        except User.DoesNotExist:
+            user = None
+        
+        friends = user.useraccount.friends.all()
+        try:
+            friend = friends.get(user = self.user)
+        except UserAccount.DoesNotExist:
+                friend = None
+        #check if the username exists and they are your friend
+        if user != None:
+            if friend == None:
+                raise ValidationError(_("This User is not one of your Friends"))
+        elif user == None:
+            raise ValidationError(_("This User does not exist :("))
+        return username_data
+
 
 
 

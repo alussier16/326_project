@@ -8,7 +8,7 @@ from django.core import serializers
 from django.views import generic
 from django.contrib import auth
 from closeknit.models import UserAccount, Post, Comment, Reaction
-from closeknit.forms import AddFriendForm, SettingsEmailForm, SettingsUsernameForm, SettingsFriendCodeForm, SettingsPasswordForm, SignUpForm, CommentForm, PostForm
+from closeknit.forms import AddFriendForm, RemoveFriendForm, SettingsEmailForm, SettingsUsernameForm, SettingsFriendCodeForm, SettingsPasswordForm, SignUpForm, CommentForm, PostForm
 
 
 from django.shortcuts import get_object_or_404
@@ -18,6 +18,7 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 # Create your views here.
 def test(request):
@@ -271,26 +272,36 @@ def settings(request):
 @login_required(login_url='login')
 def addfriend(request):
     user=User.objects.get(pk=request.user.id)
-
-    if request.method == 'POST':
+    fno = 0
+    if request.method == 'POST' and 'addFriend' in request.POST:
 
         form = AddFriendForm(request.POST)
-
+        fno = 1
         if form.is_valid():
 
             friend = User.objects.get(username = form.cleaned_data).useraccount
             print(friend)
             user.useraccount.friends.add(friend)
             user.useraccount.save()
+            messages.success(request, "Friend Successfully Added")
+    elif request.method == 'POST' and 'removeFriend' in request.POST:
+        form = RemoveFriendForm(request.POST,user = request.user)
+        fno = 2
+        if form.is_valid():
 
-        return render(
-            request, 'add-friend.html', {'page': 'settings', 'user': user, 'form': form}
-        )
+            friend = User.objects.get(username = form.cleaned_data).useraccount
+            print(friend)
+            user.useraccount.friends.remove(friend)
+            user.useraccount.save()
+            messages.success(request, "Friend Successfully Removed")
+
     else:
+        fno = 0
         form = AddFriendForm()
-        return render(
-            request, 'add-friend.html', {'page': 'settings', 'user': user, 'form': form}
-        )
+        form = RemoveFriendForm(user = request.user)
+        
+    
+    return render(request, 'add-friend.html', {'page': 'settings', 'user': user, 'form': form, 'fno': fno})
 
 def add_post(request):
     if request.method == "POST":

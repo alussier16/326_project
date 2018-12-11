@@ -25,11 +25,40 @@
         </label>
         <input type="friend_code" class="form-control" id="friend_code" name="friend_code">
       </div>
-  <button class="btn btn-primary mb-2" style="background-color: #15abaf; border-color: #15abaf; float:right;" type="submit" value ="Add Friend">Add Friend</button>
+  <button name ="addFriend"class="btn btn-primary mb-2" style="background-color: #15abaf; border-color: #15abaf; float:right;" type="submit" value ="Add Friend">Add Friend</button>
   {% csrf_token %}
+  {% if fno == 1 %}
+  {% if messages %}
+  <ul class="messages">
+      {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+  </ul>
+  {% endif %}
   {{form.non_field_errors}} 
+  {% endif %}
+</form>
+
+<form action="" method ="POST">
+  <div class="form-group">
+      <label for="username" style="margin-top:10%;">
+          <h5 class="ck-font">UserName:</h5>
+        </label>
+        <input type="friend" class="form-control" id="friend" name="friend">
+  <button name ="removeFriend" class="btn btn-primary mb-2" style="background-color: #15abaf; border-color: #15abaf; float:right;margin-top:3%;" type="submit" value ="Remove Friend">Remove Friend</button>
+  {% csrf_token %}
+  {% if fno == 2 %}
+  {% if messages %}
+  <ul class="messages">
+      {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+  </ul>
+  {% endif %}
+  {{form.non_field_errors}}
+  {% endif %}
 </form>
 </div>
-</div> 
+</div>
 </div> 
 {% endblock %}
