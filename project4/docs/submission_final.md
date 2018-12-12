@@ -24,7 +24,7 @@ Through these core ideas driving our application we hope to innovate on the curr
 * Andy Lussier, alussier16
 
 # User Interface
-Please refer to the user_interface_screenshots.pdf (https://github.com/sivanmyers/326_project/blob/master/project4/docs/user_interface_screenshots.pdf) under our docs file to view the UI views shown with screenshots.
+Please refer to the user_interface_screenshots.pdf (https://github.com/sivanmyers/326_project/blob/master/project4/docs/user_interface_screenshots.pdf) under our docs file to view the UI views shown with screenshots and included descriptions.
 
 # Data Model
 Please refer to the data_model_diagram.png (https://github.com/sivanmyers/326_project/blob/master/project4/docs/data_model_diagram.png) under our docs file to view the final up-to-date diagram of our data model.
@@ -69,6 +69,3 @@ For out team choice we implemented a lazy load functionality that continually lo
 
 # Conclusion
 Our team learned a lot through the design and implementation process. Coming into the class many of us had very little background knowledge on the subject matter and all of us were completely unfamiliar with server side programming and django. Through the design process we learned a lot about collaborating and also communicating specific design ideas and how to create a standardized cohesive design for the platform. Through the implementation of our project we learned all of the subject matters in the class since we had no prior background, and also learned a lot about troubleshooting and working with git for version control. We ran into some bumps along the way with communication and debating the idea and design of our project. Specifically, sometimes decisions early on were made by parts of the group when some people were unable to be present and thus unable to provide their input. We worked to reconcile these differences and try to build a project with added input from everyone. We ran into many implementation challenges along the way, specifically in fixing bugs on our main page and how it displays data, and also in using forms and incorporating them into existing templates. Similarly, we had issues incorporating our team choice aspect into the template we built earlier. Ultimately we were able to overcome those challenges. Before starting the project and each submission, we would have liked to known more how each submission was going to be built on by future submissions because many of the hurdles we ran into came from trying to alter our existing work at the start of each new submission to accomodate the requirements of the problem. We would have liked to try and account for future submissions by incorporating into our design earlier things that would eventually be implemented later.
-
-[Gizem]
-and any other technical hurdles that your team encountered.
