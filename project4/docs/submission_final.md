@@ -35,7 +35,28 @@ A final up-to-date diagram of your data model
 including a brief description of each of the entities in your model and their relationships.
 
 # URL Routes/Mappings
-A final up-to-date table of all the URL routes that your application supports and a short description of what those routes are used for. You should also indicate any authentication and permissions on those routes.
+*closeknit/login
+This route displays our login view from which users are able to sign in to our platform. If a user tries to access most pages of our application without being logged in, they get redirected here to login.
+*closeknit/sign-up
+This route displays our sign-up views from where users can create a new account with our platform. It is one of few pages which does not require you to be logged in, since you are creating a new account. When you've entered all the relevant information you can go on to the next page which notifies you your account has been created.
+*closeknit/account-created
+After a user signs up with our platform by submitting the relevant form they get sent to this url which notifies them their account has been created and prompts them to login.
+*closeknit/
+This url is used for our default main page which displays new posts from your friends. It requires you be logged in to an account to access since we are unable to display any relevant data without you having an account and being logged in.
+*closeknit/ties
+This url is used to display our ties view which shows a user all of their friends on our platform.  It requires you be logged in to an account to access since we are unable to display any friend data without you having an account and being logged in.
+*closeknit/addfriend
+This url is used to display our addfriend and removefriend form which allows you to add a new tie or remove an existing tie on our platform. It requires you be logged in to access as you would need to have an account whose data you are editing to add or remove friends to.
+*closeknit/<viewed_account>/account
+This url is used to display the specific user account which you are viewing. The url is dependent on the username of the user you are trying to look at which may include your own account, or a friends account. This url requires you be logged in to access to know who is viewing what account, and compile the relevant information.
+*closeknit/settings
+This url is used to display our settings form which allows a user to edit their account information. It requires you be logged in to access as it edits the account information of the user who is logged in.
+*closeknit/add-post
+This url displays the view for our form to create a new post on your account. It requires you be logged in to access, as the logged in user is recorded as the author of the post.
+*closeknit/logout
+When a user logs out of our application from the top navbar or from the settings page they get sent this page, with a link to log back in.
+
+Additionally we have a get-post url which numbers posts and is used within our main page url and account pages to display posts with their associated comment and reaction data.
 
 # Authentication/Authorization
 To use our application, you must have an account. Thus if try to access any page of our application without being signed in you will be redirected to login. Once logged in, our application is tailored to your account and displays information relevant to you on each page. Thus on the main page you will see the posts of all of your ties, the Ties page will show all of your current ties and provides a link to add more, and the account page shows your post history. If you are intereseted in editing any of your account settings you can head to the settings page where you able to edit your user account fields. When you're ready to logout, you do this from the navbar under Account.
