@@ -27,11 +27,13 @@ Through these core ideas driving our application we hope to innovate on the curr
 Please refer to the user_interface_screenshots.pdf (https://github.com/sivanmyers/326_project/blob/master/project4/docs/user_interface_screenshots.pdf) under our docs file to view the UI views shown with screenshots and included descriptions.
 
 # Data Model
-Please refer to the data_model_diagram.png (https://github.com/sivanmyers/326_project/blob/master/project4/docs/data_model_diagram.png) under our docs file to view the final up-to-date diagram of our data model.
-* UserAccount is the account model that maps to the User entity which is an imported model provided by Django. 
-* Friends is a many to many fields that maps UserAccount.
-* Post is the models a post and it has an author that is an UserAccount. 
-* Comment and Reaction are both mapped to Post but are also associated to a UserAccount.
+Our data model consists of four models, a UserAccount, Post, Comment, and Reaction model which we use to great effect to store a variety of different fields. Our UserAccount model has 3 fields, the first is a OneToOne field which is associated with a provided django user model used for authentication. Then the UserAccount model also has a char field for  Friend Code. Lastly the UserAccount has a ManyToMany symmetrical relationship with other UserAccounts because a friend connection is mutual between the two users.
+
+The Post model has 3 fields. The first field is a ForeignKey field to a UserAccount so a UserAccount can have all of their posts related to to their account. The Posts model also has a text field for the text content of a post.  Lastly there is a DateAndTime field to record when the post was created. Currently, the date and time of creation requirement has been removed for our submission in order to create mock data with different dates and times.
+
+The Comment model also has 4 fields associated with it. A ForeignKey field for the post with which the comments is related. A ForeignKey field for the author of the comment. A text field for the text content of the comment, and a DateAndTime field to record a timestamp of when the comment was written, similarly we don't require the actual date and time of creation to allow for the creation of mock data.
+
+Lastly, our reaction model has 4 fields associated with it. A ForeignKey to the post the reaction is associated with. A ForeignKey to the UserAccount which is creating the reaction to a post. A chair field which we use to set the status from an enumeration of 5 different options from no reaction to 4 other possible reactions, and lastly another DateAndTime field for the time the reaction was made, similarly altered for more varied mock data in this submission.
 
 # URL Routes/Mappings
 * closeknit/login
