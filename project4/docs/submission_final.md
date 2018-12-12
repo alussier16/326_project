@@ -24,15 +24,14 @@ Through these core ideas driving our application we hope to innovate on the curr
 * Andy Lussier, alussier16
 
 # User Interface
-[Gizem]
-A final up-to-date list/table describing your application’s user interface. This should include the name of the UI view and its purpose. 
-
-You should include a screenshot of each of your UI views.
+Please refer to the user_interface_screenshots.pdf under our docs file to view the UI views shown with screenshots.
 
 # Data Model
-[Gizem]
-A final up-to-date diagram of your data model 
-including a brief description of each of the entities in your model and their relationships.
+Please refer to the data_model_diagram.png under our docs file to view the final up-to-date diagram of our data model.
+* UserAccount is the account model that maps to the User entity which is an imported model provided by Django. 
+* Friends is a many to many fields that maps UserAccount.
+* Post is the models a post and it has an author that is an UserAccount. 
+* Comment and Reaction are both mapped to Post but are also associated to a UserAccount.
 
 # URL Routes/Mappings
 * closeknit/login
