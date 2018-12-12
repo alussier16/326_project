@@ -24,7 +24,7 @@ Through these core ideas driving our application we hope to innovate on the curr
 * Andy Lussier, alussier16
 
 # User Interface
-Please refer to the user_interface_screenshots.pdf under our docs file to view the UI views shown with screenshots.
+Please refer to the user_interface_screenshots.pdf (https://github.com/sivanmyers/326_project/blob/master/project4/docs/user_interface_screenshots.pdf) under our docs file to view the UI views shown with screenshots.
 
 # Data Model
 Please refer to the data_model_diagram.png (https://github.com/sivanmyers/326_project/blob/master/project4/docs/data_model_diagram.png) under our docs file to view the final up-to-date diagram of our data model.
