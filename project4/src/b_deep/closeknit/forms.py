@@ -59,14 +59,18 @@ class RemoveFriendForm(forms.Form):
             user = User.objects.get(username = username_data)
         except User.DoesNotExist:
             user = None
-        
-        friends = user.useraccount.friends.all()
-        try:
-            friend = friends.get(user = self.user)
-        except UserAccount.DoesNotExist:
-                friend = None
+            
+       
+       
         #check if the username exists and they are your friend
         if user != None:
+            friends = user.useraccount.friends.all()
+
+            try:
+                friend = friends.get(user = self.user)
+            except UserAccount.DoesNotExist:
+                friend = None
+                
             if friend == None:
                 raise ValidationError(_("This User is not one of your Friends"))
         elif user == None:
